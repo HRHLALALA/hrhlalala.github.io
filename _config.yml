@@ -1,13 +1,13 @@
-title: Stackbit Fresh Theme
+title: Renhao Huang's Blog
 baseurl: /
 permalink: '/:title/'
 layout_style: overflow
 palette: blue
 header:
-  title: Stackbit Fresh
-  tagline: Header Tagline
+  title: Renhao Huang
+  tagline: Explore the new world
   profile_img: images/avatar.png
-  bg: dark
+  bg: green
   has_nav: true
   has_social: true
 footer:
