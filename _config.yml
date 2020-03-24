@@ -2,12 +2,12 @@ title: Renhao Huang's Blog
 baseurl: /
 permalink: '/:title/'
 layout_style: overflow
-palette: blue
+palette: green
 header:
   title: Renhao Huang
   tagline: Explore the new world
   profile_img: images/avatar.png
-  bg: black
+  bg: dark
   has_nav: true
   has_social: true
 footer:
