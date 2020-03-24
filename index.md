@@ -19,14 +19,14 @@ sections:
       yourself that people can read on the homepage to get a sense of who you
       are. There also exists a dedicated about page where you can write more
       about yourself for those who are interested.
-  - type: postsblock
-    title: Recent Posts
-    section_id: recent-posts
-    actions:
-      - label: View Blog
-        url: blog/index.html
-    component: posts_block.html
-    num_posts_displayed: 4
+  # - type: postsblock
+  #   title: Recent Posts
+  #   section_id: recent-posts
+  #   actions:
+  #     - label: View Blog
+  #       url: blog/index.html
+  #   component: posts_block.html
+  #   num_posts_displayed: 4
 menus:
   main:
     title: Home

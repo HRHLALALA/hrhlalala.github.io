@@ -57,12 +57,13 @@
   .block-title,
   .block-content,
   .post-feed + .block-cta,
+  .post-full .post-thumbnail,
   .post-full .post-header,
   .post-full .post-subtitle,
   .post-full .post-content,
   .post-full .post-meta {
-    margin-left: 0;
+    margin-left: auto;
     margin-right: auto;
-    // max-width: 760px;
+    max-width: 760px;
   }
 }
