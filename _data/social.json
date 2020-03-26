@@ -18,6 +18,12 @@
             "title": "LinkedIn",
             "icon": "fa-linkedin",
             "url": "https://www.linkedin.com/"
+        },
+        {
+            "type": "email",
+            "title":"Email",
+            "icon": "fa-envelope",
+            "url": "https://www.linkedin.com/"
         }
     ]
 }

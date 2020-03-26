@@ -3,16 +3,16 @@ ssgName: jekyll
 ssgVersion: 0.1.12
 buildCommand: ./ssg-build.sh
 publishDir: _site
-staticDir: ''
+staticDir: ""
 uploadDir: images
 dataDir: _data
-pagesDir: ''
+pagesDir: ""
 pageLayoutKey: layout
 metadata:
   title: Fresh
   description: A personal theme with a blog
   author: Stackbit
-  authorURL: 'https://www.stackbit.com'
+  authorURL: "https://www.stackbit.com"
   images:
     small: images/demo-256x192.png
     large: images/demo-1024x768.png
@@ -36,7 +36,7 @@ sourceMapping:
       fieldPath: author.email
     target:
       file: data/author.json
-      fieldPath: email
+      fieldPath: e
   - source:
       fieldPath: author.avatar
     target:
@@ -48,81 +48,83 @@ sourceMapping:
       file: config.yml
       fieldPath: params.header.profile_img
   - source:
-      fieldPath: 'social.links[0].url'
+      fieldPath: "social.links[0].url"
     target:
       file: data/social.json
-      fieldPath: 'links[0].url'
+      fieldPath: "links[0].url"
   - source:
       fieldPath: social.twitter.url
     target:
       file: data/social.json
-      fieldPath: 'links[0].url'
+      fieldPath: "links[0].url"
   - source:
       fieldPath: social.instagram.url
     target:
       file: data/social.json
-      fieldPath: 'links[1].url'
+      fieldPath: "links[1].url"
   - source:
       fieldPath: social.github.url
     target:
       file: data/social.json
-      fieldPath: 'links[2].url'
+      fieldPath: "links[2].url"
   - source:
       fieldPath: social.linkedin.url
     target:
       file: data/social.json
-      fieldPath: 'links[3].url'
+      fieldPath: "links[3].url"
   - source:
       fieldPath: social.devto.url
     target:
       file: data/social.json
-      fieldPath: 'links[4].url'
+      fieldPath: "links[4].url"
+
   - action: delete
     condition: context.social && !context.social.devto
     target:
       file: data/social.json
-      fieldPath: 'links[4]'
+      fieldPath: "links[4]"
+
   - action: delete
     condition: context.social && !context.social.linkedin
     target:
       file: data/social.json
-      fieldPath: 'links[3]'
+      fieldPath: "links[3]"
   - action: delete
     condition: context.social && !context.social.github
     target:
       file: data/social.json
-      fieldPath: 'links[2]'
+      fieldPath: "links[2]"
   - action: delete
     condition: context.social && !context.social.instagram
     target:
       file: data/social.json
-      fieldPath: 'links[1]'
+      fieldPath: "links[1]"
   - action: delete
     condition: context.social && !context.social.twitter
     target:
       file: data/social.json
-      fieldPath: 'links[0]'
+      fieldPath: "links[0]"
   - source:
       fieldPath: source.title
     target:
       file: config.yml
-      fieldPath: 'params.footer.links[1].text'
+      fieldPath: "params.footer.links[1].text"
   - source:
       fieldPath: source.url
     target:
       file: config.yml
-      fieldPath: 'params.footer.links[1].url'
+      fieldPath: "params.footer.links[1].url"
   - source:
       value: true
     condition: context.source.url
     target:
       file: config.yml
-      fieldPath: 'params.footer.links[1].new_window'
+      fieldPath: "params.footer.links[1].new_window"
 stackbit_banner:
   show_banner: true
   name: Fresh
-  create_url: 'https://app.stackbit.com/create?theme=fresh'
-  github_url: 'https://github.com/stackbithq/stackbit-theme-fresh'
+  create_url: "https://app.stackbit.com/create?theme=fresh"
+  github_url: "https://github.com/stackbithq/stackbit-theme-fresh"
 models:
   config:
     type: config
@@ -141,8 +143,8 @@ models:
       - type: string
         name: permalink
         label: Permalink
-        description: 'The output path for your pages, posts, or collections.'
-        default: '/posts/:slug:output_ext'
+        description: "The output path for your pages, posts, or collections."
+        default: "/posts/:slug:output_ext"
         hidden: true
       - type: enum
         name: layout_style
@@ -436,7 +438,7 @@ models:
       - type: image
         name: canonical_url
         label: Canonical URL
-        description: 'The canonical url of the post, if post originates elsewhere.'
+        description: "The canonical url of the post, if post originates elsewhere."
       - type: page_menus
         name: menus
         label: Post Menus
@@ -536,7 +538,7 @@ models:
     type: object
     label: Site Menu Item
     labelField: title
-    description: 'Site menu item model, defines fields for a single site menu item'
+    description: "Site menu item model, defines fields for a single site menu item"
     fields:
       - type: string
         name: identifier
@@ -563,7 +565,7 @@ models:
     type: object
     label: Page Menus
     labelField: null
-    description: 'Page menus model, defines menus that can be specified from within pages'
+    description: "Page menus model, defines menus that can be specified from within pages"
     fields:
       - type: page_menu_item
         name: main
@@ -573,7 +575,7 @@ models:
     type: object
     label: Page Menu Item
     labelField: title
-    description: 'Page menu item model, defines fields for a single page menu item'
+    description: "Page menu item model, defines fields for a single page menu item"
     fields:
       - type: string
         name: title
