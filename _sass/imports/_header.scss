@@ -11,6 +11,7 @@
 .site-header-inside {
   padding-bottom: 1.11111em;
   padding-top: 1.11111em;
+  
 }
 
 .site-branding {
@@ -84,7 +85,7 @@
 }
 
 .site-navigation {
-  background: #fff;
+  // background: #fff;
   bottom: 0;
   box-sizing: border-box;
   -webkit-overflow-scrolling: touch;
@@ -181,9 +182,12 @@
   background: _palette(secondary);
   border: 0;
   color: _palette(meta);
-
+  background-image: url(../../images/header_bg.png);
+  background-size: auto 100%;
+  background-repeat:none;
+  background-position: bottom;
   .site-navigation {
-    background: _palette(secondary);
+    // background: _palette(secondary);
   }
 
   .site-title {
@@ -315,6 +319,7 @@
       z-index: 9997;
     }
     .site-navigation {
+      background: _palette(secondary);
       right: 0;
       -webkit-transition: right .3s ease-in-out;
       transition: right .3s ease-in-out;
