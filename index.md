@@ -27,9 +27,9 @@ sections:
   #       url: blog/index.html
   #   component: posts_block.html
   #   num_posts_displayed: 4
-menus:
-  main:
-    title: Home
-    weight: 1
+# menus:
+#   main:
+#     title: Home
+#     weight: 1
 layout: home
 ---
