@@ -303,9 +303,15 @@
     padding-left: 30px;
     padding-right: 30px;
   }
+  
 }
 
 @media only screen and (max-width: 800px) {
+  .site-header.dark{
+    background-image: none;
+    background-size: 100% auto;
+    background-color: black;
+  }
   .menu--opened {
     .site {
       height: 100%;
