@@ -1,11 +1,11 @@
 ---
 title: Python Style
 date: '2020-09-12'
-This is the python style
+excerpt: >-
+ This is the python style
 layout: post
 --- 
 
-# Python Style
 ## 代码样式
 ### 变量命名规则
 #### 1. 每一个变量命名时使用一种规则：
