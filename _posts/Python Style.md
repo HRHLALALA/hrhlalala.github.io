@@ -1,5 +1,5 @@
 ---
-title: Fragments of Iceland
+title: Python Style
 date: '2020-09-12'
 This is the python style
 layout: post
