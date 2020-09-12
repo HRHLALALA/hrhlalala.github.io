@@ -5,13 +5,13 @@
             "type": "instagram",
             "title": "Instagram",
             "icon": "fa-instagram",
-            "url": "https://www.instagram.com/hrh_lalala"
+            "url": "https://www.instagram.com/hrh_lalala "
         },
         {
             "type": "github",
             "title": "GitHub",
             "icon": "fa-github",
-            "url": "https://github.com/hrhlalal"
+            "url": "https://github.com/hrhlalala"
         },
         {
             "type": "linkedin",
@@ -23,7 +23,7 @@
             "type": "email",
             "title":"Email",
             "icon": "fa-envelope",
-            "url": "https://www.linkedin.com/"
+            "url": "renhao043@gmail.com"
         }
     ]
 }
