@@ -1,6 +1,8 @@
 ---
 title: Python Style
 date: '2020-09-12'
+thumb_img_path: images/python.png
+content_img_path: images/python.png
 excerpt: >-
  This is the python style
 layout: post
