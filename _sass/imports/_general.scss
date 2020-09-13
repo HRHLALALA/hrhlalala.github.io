@@ -464,9 +464,12 @@ img {
 /* Heading decoration */
 .line-top {
   position: relative;
+  
 
   &:before {
-    border-left: 45px solid _palette(accent);
+    // border-left: 45px solid _palette(accent);
+    // border-right: 45px solid _palette(accent);
+    //  border-bottom: 4px solid _palette(accent);
     content: "";
     display: block;
     height: 3px;

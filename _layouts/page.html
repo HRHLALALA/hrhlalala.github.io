@@ -5,7 +5,7 @@ layout: body
 <div class="inner outer">
 
   <article class="post post-full">
-    <header class="post-header inner-sm">
+    <header class="post-header inner-sm width-limited">
       <h1 class="post-title line-top">{{ page.title }}</h1>
       {% assign subtitle_is_not_empty = page.subtitle | is_not_empty %}
       {% if subtitle_is_not_empty %}
@@ -20,7 +20,7 @@ layout: body
       <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" />
     </div>
     {% endif %}
-    <div class="post-content inner-sm">
+    <div class="post-content inner-sm width-limited">
       {{ content }}
     </div>
   </article><!-- .post -->

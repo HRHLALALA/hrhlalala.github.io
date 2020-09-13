@@ -1,6 +1,7 @@
 /**
  * Site Header
  */
+ @import url('https://fonts.googleapis.com/css?family=Sacramento');
 .site-header {
   border-bottom: 1px solid _palette(charcoal-light-75);
   padding-bottom: 1em;
@@ -36,18 +37,25 @@
 }
 
 .site-title {
-  color: #fff;
-  font-size: 1.22222em;
+  color:black;
+  font-family: 'Sacramento';
+  font-size: 1.32222em;
   font-weight: bold;
   line-height: 1.1;
   margin: 0;
-  text-transform: uppercase;
+  // text-transform: uppercase;
 
   a {
-    background: _palette(accent);
+    
     display: inline-block;
     padding: 0.2em 0.45em;
   }
+
+ 
+}
+
+.site-title:hover{
+  color:red;
 }
 
 .menu {

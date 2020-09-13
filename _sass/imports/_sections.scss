@@ -18,9 +18,11 @@
   margin-bottom: 2.5em;
 }
 
+
 .block-title {
   font-size: 1.66667em;
   margin: 0;
+  text-align:center;
 }
 
 .block-subtitle {
@@ -41,6 +43,8 @@
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   margin-bottom: 0.83333em;
+  // margin-left:45%;
+  width:100%;
 
   a {
     font-size: 16px;

@@ -8,11 +8,12 @@
 .page-header,
 .post-header {
   margin-bottom: 2.5em;
+  text-align: center;
 }
 
 .page-title,
 .post-title {
-  margin-bottom: 0;
+  margin-bottom: 1em;
 }
 
 .page-subtitle,
@@ -37,6 +38,7 @@
   .post-meta {
     padding-bottom: 1.875em;
     padding-top: 0.9375em;
+    
   }
 }
 
@@ -44,6 +46,9 @@
   border: 0;
   display: block;
   margin-bottom: 1.66667em;
+  max-width: 750px;
+    margin-left:auto;
+    margin-right:auto;
 
   img {
     width: 100%;

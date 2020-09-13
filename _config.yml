@@ -8,7 +8,7 @@ description: A portfolio theme with a blog
 color_scheme: light
 accent_color: pink
 header:
-  title: Exto
+  title: Renhao Huang
   has_nav: true
   nav_links:
     - label: Home
@@ -38,10 +38,10 @@ footer:
       new_window: true
   has_social: true
   social_links:
-    - label: Twitter
-      url: 'https://twitter.com/'
+    - label: GitHub
+      url: 'https://github.com/HRHLALALA'
       style: icon
-      icon_class: fa-twitter
+      icon_class: fa-github
       new_window: true
     - label: Instagram
       url: 'https://www.instagram.com/'
@@ -51,7 +51,7 @@ footer:
     - label: Dribbble
       url: 'https://dribbble.com/'
       style: icon
-      icon_class: fa-dribbble
+      icon_class: fa-envelope
       new_window: true
     - label: LinkedIn
       url: 'https://www.linkedin.com/'
