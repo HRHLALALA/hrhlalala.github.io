@@ -1,10 +1,10 @@
-title: Stackbit Exto Theme
+title: Renhao Huang's Personal Blog
 baseurl: /
-permalink: '/:title/'
+permalink: "/:title/"
 collections:
   posts:
-    permalink: '/posts/:title/'
-description: A portfolio theme with a blog
+    permalink: "/posts/:title/"
+description: Explore the new world
 color_scheme: light
 accent_color: pink
 header:
@@ -30,31 +30,31 @@ header:
       url: /contact/
       style: link
 footer:
-  content: '&copy; Stackbit-Exto. All rights reserved.'
-  links:
-    - label: Made with Stackbit.
-      url: 'https://www.stackbit.com'
-      style: link
-      new_window: true
+  content: "&copy; Renhao Huang. All rights reserved."
+  # links:
+  #   - label: Made with Stackbit.
+  #     url: "https://www.stackbit.com"
+  #     style: link
+  #     new_window: true
   has_social: true
   social_links:
     - label: GitHub
-      url: 'https://github.com/HRHLALALA'
+      url: "https://github.com/HRHLALALA"
       style: icon
       icon_class: fa-github
       new_window: true
     - label: Instagram
-      url: 'https://www.instagram.com/'
+      url: "https://www.instagram.com/"
       style: icon
       icon_class: fa-instagram
       new_window: true
     - label: Dribbble
-      url: 'https://dribbble.com/'
+      url: "https://dribbble.com/"
       style: icon
       icon_class: fa-envelope
       new_window: true
     - label: LinkedIn
-      url: 'https://www.linkedin.com/'
+      url: "https://www.linkedin.com/"
       style: icon
       icon_class: fa-linkedin
       new_window: true

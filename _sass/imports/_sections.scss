@@ -96,6 +96,15 @@
 .grid-item-title {
   font-size: 1.33333em;
   margin: 0 0 0.75em;
+  
+  
+}
+
+.grid-item-title:hover{
+  background: -webkit-linear-gradient(0deg, #8490ff 0%, #62bdfc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+ 
 }
 
 .grid-item-image {
