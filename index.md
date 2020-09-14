@@ -28,21 +28,25 @@ sections:
     is_numbered: true
     grid_items:
       - title: Computer Vision
+        icon_class: fab fa-eye
         content: >-
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl
           ligula, cursus id molestie vel, maximus aliquet risus. Vivamus in nibh
           fringilla, fringilla.
       - title: Deep Learning
+        icon_class: fab fa-brain
         content: >-
           Donec lobortis velit sed suscipit lobortis. Ut non quam metus. Nullam
           a maximus mi. Quisque justo nunc, sollicitudin euismod euismod at,
           tincidunt ut tellus.
       - title: NLP
+        icon_class: fab fa-comments
         content: >-
           Sed laoreet magna commodo libero euismod sodales. Nunc ac libero
           convallis, interdum ligula vel, pretium diam. Integer commodo sem at
           dui sollicitudin.
       - title: Software Development
+        icon_class: fab fa-laptop-code
         content: >-
           Vestibulum a nunc ut eros condimentum posuere. Nullam dapibus quis
           nunc non interdum. Pellentesque tortor ligula, gravida ac commodo eu.
@@ -68,9 +72,8 @@ sections:
         content: >-
           Sed laoreet magna commodo libero euismod sodales. Nunc ac libero
           convallis, interdum ligula vel, pretium diam.
-  - section_id: latest-posts
-    type: section_posts
-    title: Latest from the Blog
+ 
+
     subtitle: An optional subtitle of the section
     posts_number: 3
     col_number: three

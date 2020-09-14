@@ -21,6 +21,7 @@
   -webkit-box-flex: 0;
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
+  
 
   a {
     border: 0;
@@ -37,7 +38,7 @@
 }
 
 .site-title {
-  color:black;
+  color: inherit;
   font-family: 'Sacramento';
   font-size: 1.32222em;
   font-weight: bold;
@@ -56,7 +57,10 @@
 
 .site-title:hover{
   color:red;
+  transform: rotateY(180deg);
+  transition: transform 2s;
 }
+
 
 .menu {
   list-style: none;

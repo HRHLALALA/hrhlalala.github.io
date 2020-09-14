@@ -121,6 +121,7 @@ blockquote {
     line-height: 1;
     position: absolute;
     top: 0;
+    font-family:'Times New Roman', Times, serif
   }
 
   p {
@@ -360,7 +361,7 @@ input[type="reset"],
   text-decoration: none;
   -webkit-transition: .3s ease;
   transition: .3s ease;
-
+  
   &:hover,
   &:focus,
   &:active {
