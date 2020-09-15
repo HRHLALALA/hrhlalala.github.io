@@ -293,6 +293,9 @@ models:
         name: image
         label: Image
         description: The image shown below the page title and subtitle.
+      - type: string
+        name: video_url
+        description: The vide shown in the project page. Video Priority one
   post:
     type: page
     label: Post
@@ -351,10 +354,14 @@ models:
         name: thumb_image
         label: Featured Image
         description: The image shown in the project page.
+
       - type: image
         name: image
         label: Alternative Featured Image
         description: The image shown in the single project.
+      - type: string
+        name: video_url
+        description: The vide shown in the project page. Video Priority one
   section:
     type: object
     label: Section

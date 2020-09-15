@@ -4,6 +4,7 @@ subtitle: Optional Project Subtitle
 date: '2019-05-10'
 thumb_image: images/1_thumb.jpg
 image: images/1.jpg
+video_url: https://youtu.be/f0u11IM4GR8
 layout: project
 ---
 
