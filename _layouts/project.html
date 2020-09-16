@@ -5,15 +5,23 @@ layout: body
 <div class="inner outer">
 
   <article class="post post-full">
-    <header class="post-header inner-sm width-limited">
+    <header class="post-header line-up inner-sm width-limited">
       <h1 class="post-title line-top">{{ page.title }}</h1>
       {% assign subtitle_is_not_empty = page.subtitle | is_not_empty %}
       {% if subtitle_is_not_empty %}
       <div class="post-subtitle">
         {{ page.subtitle }}
       </div>
+      <div class="post-proj-info inner-sm width-limited">
+        <i class="fab fa-user"></i> {{page.collaborators}}
+        <br>
+        <i class="fab fa-calendar-alt"></i> <time class="published"
+          datetime="{{ page.date | date: '%Y-%m-%d %H:%M' }}">{{ page.date | date: '%B %d, %Y' }}</time>
+      </div>
       {% endif %}
     </header>
+
+
     {% assign video_is_not_empty = page.video_url | is_not_empty %}
     {% if video_is_not_empty %}
     <div class="post-video-container">
@@ -36,5 +44,6 @@ layout: body
       {{ content }}
     </div>
   </article><!-- .post -->
+
 
 </div><!-- .inner -->

@@ -346,6 +346,13 @@ models:
         name: excerpt
         label: Excerpt
         description: The excerpt of the page displayed in meta data.
+
+      - type: string
+        name: collaborators
+        label: Collaborators
+        description: The collaborators of the project
+        required: true
+
       - type: date
         name: date
         label: Date

@@ -10,16 +10,31 @@
   margin-bottom: 2.5em;
   text-align: center;
 }
-
+.post-header{
+  text-align: left;
+}
 .page-title,
 .post-title {
-  margin-bottom: 1em;
+  margin-bottom: 0;
+  
 }
 
 .page-subtitle,
 .post-subtitle {
   color: _palette(charcoal-light-40);
   margin-top: 0.5em;
+}
+.post-proj-info{
+  
+  margin-top:2em;
+  // border-top: solid;
+  // border-bottom: solid;
+  border-color:black;
+  // color: _palette(charcoal-light-40);
+  i{
+    color:black;
+    margin-right:1em;
+  }
 }
 
 .post-subtitle {
@@ -45,10 +60,10 @@
 .post-image {
   border: 0;
   display: block;
-  margin-bottom: 40%;
   max-width: 750px;
     margin-left:auto;
     margin-right:auto;
+    padding-bottom: 2em;
 
   img {
     width: 100%;
