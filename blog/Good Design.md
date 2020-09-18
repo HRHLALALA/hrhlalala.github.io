@@ -5,7 +5,7 @@ date: '2020-09-19'
 thumb_image: images/code-smell.png
 image: images/code-smell.png
 excerpt: >-
- This blog concludes how to distinguish bad designs and how to reconstruct them. It is for those people who haven't learn OOP yet. It was used to be instructed to my Python students because they were designing software application by themselves. 
+ This blog concludes how to distinguish bad designs and how to reconstruct them. It is suitable for beginners who haven't learn OOP yet. It was used to be instructed to my Python students because they were designing software application by themselves. 
 layout: post
 --- 
 
@@ -232,7 +232,7 @@ def draw_petal(color,petal_num):
 def draw_flower():
     
     #1绿色枝干
-    draw_branch(“green", 50)
+    draw_branch("green", 50)
     
     #2蓝色叶子
     draw_leaf("blue")
@@ -297,11 +297,7 @@ fruit_name = "apple"
 #### 解决方案
 避免使用这类一连串 if 语句
 ```python
-fruit = {
-    "name": "apple",
-    "taste":  taste1,
-    "smell": smell1,
-}
+
 
 def taste1():
     something()
@@ -313,8 +309,15 @@ def taste(fruit):
     
 
         
-def smell():
+def smell(fruit):
     fruit['smell']()
+
+fruit = {
+    "name": "apple",
+    "taste":  taste1,
+    "smell": smell1,
+}
+
 
 ```
 

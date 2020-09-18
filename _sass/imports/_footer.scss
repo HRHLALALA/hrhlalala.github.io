@@ -1,13 +1,22 @@
 /**
  * Site Footer
  */
+
+
 .site-footer {
   border-top: 1px solid _palette(charcoal-light-75);
   padding-bottom: 1.33333em;
   padding-top: 2.5em;
+  margin-top:2.5em;
+  width:100%;
+  bottom: 0;
+  position: absolute;
 }
 
 #colophon {
+  position: absolute;
+  width:100%;
+  bottom: 0;
   a:not(.button) {
     color: inherit;
 
