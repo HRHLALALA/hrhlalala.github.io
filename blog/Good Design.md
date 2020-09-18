@@ -2,18 +2,20 @@
 title: Good Design - Python (Chinese)
 
 date: '2020-09-19'
-thumb_image: images/code-smile.png
-image: images/code-smile.png
+thumb_image: images/code-smell.png
+image: images/code-smell.png
 excerpt: >-
- This is a blog that concludes how to distinguish bad designs and how to reconstruct them. It is for those people who haven't learn OOP yet. It was used to be instructed to my Python students because they were designing software application by themselves. 
+ This blog concludes how to distinguish bad designs and how to reconstruct them. It is for those people who haven't learn OOP yet. It was used to be instructed to my Python students because they were designing software application by themselves. 
 layout: post
 --- 
 
 ## Code Smells 代码异味
 ### 1. Duplicated Code 代码重复
 
-#### 例： 已经写过类似的Python代码，但是没有放在函数里，所以能难使用
-```
+#### 例子
+
+已经写过类似的Python代码，但是没有放在函数里，所以能难使用
+```python
 import turtle
 
 t = turtle.Pen()
@@ -47,7 +49,7 @@ for i in range(6):
 ```
 
 解决方案： 把重复的部分放入函数调用
-```
+```python
 import turtle
 
 #绘制叶子的函数
@@ -75,10 +77,10 @@ t.color("red")
 for i in range(6):
     draw_leaf()
 ```
-#### 例：已经写过类似功能的函数，但是需要修改后才能使用，但是函数没有办法修改
 
-例子：
-```
+已经写过类似功能的函数，但是需要修改后才能使用，但是函数没有办法修改
+
+```python
 def init_board():
     # initialize 3x3 board
     
@@ -101,7 +103,7 @@ for i in range(5):
 ```
 
 解决方案：
-```
+```python
 def init_board(length):
     # initialize 3x3 board
     
@@ -117,8 +119,9 @@ init_board(5)
 
 ```
 
-#### 例：已经写过类似功能的函数，但是只需要其中一部分
-```
+#### 例子
+已经写过类似功能的函数，但是只需要其中一部分
+```python
 # 2048.py
 
 import random
@@ -170,7 +173,7 @@ for i in range(4):
 
 #### 例子
 
-```
+```python
 t = turtle.Pen()
 t.pensize(5)
 t.left(90)
@@ -197,11 +200,12 @@ def draw_flower():
     for i in range(6):
         draw_leaf()
 ```
+
 #### 解决方案
 * 拆分函数
 * 尝试给代码加上注释 
 
-```
+```python
 t = turtle.Pen()
 t.pensize(5)
 t.left(90)
@@ -247,7 +251,7 @@ def draw_flower():
 * 通常发生在添加新功能的时候
 
 #### 例子
-```
+```python
 def taste1():
     something()
 ...
@@ -287,11 +291,12 @@ def smell(fruit_name):
 fruit_name = "apple"
 
 ```
+
 如果`fruit_name` 换成其他水果，就需要对这些函数都添加一遍
 
 #### 解决方案
 避免使用这类一连串 if 语句
-```
+```python
 fruit = {
     "name": "apple",
     "taste":  taste1,
@@ -322,7 +327,7 @@ def smell():
     * 代码的潜在疏忽
 
 #### 例子
-```
+```python
 # 原要求：每个函数你都需要检测 money 不能小于0且不能超过1000
 
 def save_money(money):
@@ -343,11 +348,11 @@ def transfer_money(money,target):
 # 新要求：money 不能小于0且不能超过500 而且money不等于100
 # 这样就需要重新修改这些函数
       
-```
+```python
 #### 解决方案
 拆分函数，把公共部分拿出来
 
-```
+```python
 # 要求：money 不能小于0且不能超过500 而且money不等于100，
 rule = {
     "lower_bound":0,
@@ -387,7 +392,7 @@ def transfer_money(money,target):
 * 
 
 #### 例子：
-```
+```python
 
 def draw_flower(    
                     upper_left_point,
@@ -458,7 +463,7 @@ def draw_flowers(
 
 ### 解决方案
 在python 中可以使用 *args或**kwarg的方法，或者设定默认值
-```
+```python
 flower_config = {
     "num_flowers": 6,
     "upper_left_point": (0,0),
@@ -510,7 +515,7 @@ draw_flowers(6, flower_configs)
 
 
 #### 例子
-```
+```python
 def cal_common_factors(a,b):
     #------------
     # Some code to calculate common factors
@@ -533,7 +538,7 @@ def cal_common_factors_4(a,b,c,d):
 ```
 
 #### 解决方案
-```
+```python
 def cal_common_factors_2(a,b):
     #------------
     # Some code to calculate common factors
