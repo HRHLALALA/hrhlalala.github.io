@@ -29,9 +29,7 @@ sections:
       - title: Computer Vision
         icon_class: fab fa-eye
         content: >-
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisl
-          ligula, cursus id molestie vel, maximus aliquet risus. Vivamus in nibh
-          fringilla, fringilla.
+          Deep theoretical understanding of Computer Vision,
       - title: Deep Learning
         icon_class: fab fa-brain
         content: >-

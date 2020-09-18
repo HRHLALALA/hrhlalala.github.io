@@ -1,87 +1,175 @@
 ---
-title: Style Guide
+title: Renhao Huang
 subtitle: >-
-  The style guide provides you with a blueprint of default post and page styles.
-  The style guide is also a great reference for suggested typographic treatment
-  and styles for your content.
+  Final Year Computer Engineering student at UNSW
 layout: page
 ---
 
-**This is a paragraph**. Pellentesque habitant morbi *tristique senectus et netus et malesuada* fames ac turpis egestas. Vestibulum [tortor quam](https://www.google.com), feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit <mark>amet est et sapien ullamcorper</mark> pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi.
+<table cellspacing="0" cellpadding="0">
+  
+  <tr>
+    <td style="text-align:center">
+      <i class="fab fa-phone"></i><br> 
+      <i class="fab fa-envelope"></i><br> 
+      </td>
+    <td>
+      0402450646<br> 
+      <a href="renhao043@gmail.com" >renhao043@gmail.com</a><br>
+    </td>
+    <td style="text-align:center">
+      <i class="fab fa-github"></i><br>
+      <i class="fab fa-map-marker-alt"></i><br>
+    </td>
+    <td> 
+      <a href="www.github.com/hrhlalala">www.github.com/hrhlalala</a><br>
+      Sydney, Australia<br>
+    </td>
+  </tr>
+</table>
 
-# This is an H1
 
-Quisque facilisis erat a dui. Nam malesuada ornare dolor. Cras gravida, this is marked text ornare, erat elit consectetuer erat, id egestas pede nibh eget odio. Proin tincidunt, velit vel porta elementum, magna diam molestie sapien, non aliquet massa pede eu diam. Aliquam iaculis. Fusce et ipsum et nulla tristique facilisis.
+<!-- 
+<p style="text-align:left;">
+    <i class="fab fa-phone"></i>  
+    <span style="float:right;"> renhao043@gmail.com</span>
+</p> -->
 
-## This is an H2
+#### CAREER PROFILE
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio lorem non turpis. Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat condimentum. Aliquam erat volutpat. Sed quis velit. Nulla facilisi. Nulla libero.
+<ul>
+  <li>Bachelor of Engineering (Computer Engineering) – Final Year at UNSW with Distinction Average</li>
+  <li>Excellent programming skills applied through python teaching at Dream Codes True, Shenzhen.</li>
+  <li>Strong enthusiasm for artificial intelligence and software development and willingness on new challenges.</li>
+</ul> 
 
-### This is an H3
-
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio lorem non turpis. Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat condimentum. Aliquam erat volutpat. Sed quis velit. Nulla facilisi. Nulla libero.
-
-#### This is an H4
-
-Quisque facilisis erat a dui. Nam malesuada ornare dolor. Cras gravida, diam sit amet rhoncus ornare, erat elit consectetuer erat, id egestas pede nibh eget odio. Proin tincidunt, velit vel porta elementum, magna diam molestie sapien, non aliquet massa pede eu diam. Aliquam iaculis.
-
-## Quoting
-
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-
->Creativity is allowing yourself to make mistakes. Design is knowing which ones to keep. <cite>Scott Adams</cite>
-
-Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio lorem non turpis. Nullam sit amet enim. Suspendisse id velit vitae ligula volutpat condimentum. Aliquam erat volutpat. Sed quis velit. Nulla facilisi. Nulla libero.
-
-<hr />
-
-## Unordered Lists
-
-+ Donec non tortor in arcu mollis feugiat
-+ Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-+ Donec id eros eget quam aliquam gravida
-+ Vivamus convallis urna id felis
-+ Nulla porta tempus sapien
-
-## Ordered Lists
-
-1. Donec non tortor in arcu mollis feugiat
-2. Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-3. Donec id eros eget quam aliquam gravida
-4. Vivamus convallis urna id felis
-5. Nulla porta tempus sapien
-
-## Code Blocks
-
-Blocks of code are either fenced by lines with three back-ticks, or are indented with four spaces.
-
-```
-<!-- Some example CSS code -->
-body {
-  color:red;
-}
-```
-
-## Tables
+#### TECHNICAL SKILLS
 
 <table>
-    <caption>Table with thead, tfoot, and tbody</caption>
-  <thead>
-    <tr>
-      <th>Header content 1</th>
-      <th>Header content 2</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Body content 1</td>
-      <td>Body content 2</td>
-    </tr>
-  </tbody>
-  <tfoot>
-    <tr>
-      <td>Footer content 1</td>
-      <td>Footer content 2</td>
-    </tr>
-  </tfoot>
+<tr>
+  <th>
+    Languages
+  </th>
+  <th>
+    Machine Learning*
+  </th>
+  <th>
+    Model Building
+  </th>
+</tr>
+
+<tr style="font-size:0.9em;">
+  <td style="width:35%;padding-right:3em;">
+  Python, C++, Java, Kotlin, JavaScript, HTML, CSS, C, MIPS, AVR, VHDL
+  </td>
+  <td style="width:35%;padding-right:3em;">
+  Pattern Recogization, Trajectory Prediction, Human Pose Estimation, NLP
+  </td>
+
+  <td style="width:35%;padding-right:3em;">
+  PyTorch, Tensorflow, NumPy, Pandas,OpenCV
+  </td>
+</tr>
+
+<tr>
+  <th>
+    Software Developmeent
+  </th>
+  <th>
+    Hardware Development
+  </th>
+  <th>
+    Others
+  </th>
+</tr>
+
+<tr style="font-size:0.9em;">
+  <td style="width:35%;padding-right:3em;">
+  Android Kotlin, React Js, Flask, OOP, Agile, SQL
+  </td>
+  <td style="width:35%;padding-right:3em;">
+  Digital Circut Analysis, Computer Architecture, Reconfigurable Computing
+  </td>
+
+  <td style="width:35%;padding-right:3em;">
+    Git, Matlab, Excel
+  </td>
+</tr>
+
 </table>
+
+
+#### EDUCATION
+
+<div style="text-align:left;">
+    <b>
+    Bachelor of Engineering (Hons. Computer Engineering)
+    <span style="float:right;">Feb 2017 – Nov 2020</span>
+    <br>UNSW, Sydney</b>
+    <ul>
+    <li>Achieved High Distinction Average for Mathematics courses and Electrical Engineering Courses.</li>
+    <li>Achieved Distinction Average for Computer courses.</li>
+    <li>Thesis Topic: GAN-Based Trajectory Prediction.</li>
+    <li>Dean’s Honors List for 2019.</li>
+    <li>WAM: 80</li>
+    </ul> 
+</div>
+
+#### RELEVANT EXPERIENCE
+<div style="text-align:left;">
+    <b>Network Analyst 
+    <span style="float:right;"><time>Dec 2018</time> – <time>Dec 2019</time></span>
+    <br>DSIEMS, Sydney, Australia</b>
+    <ul>
+    <li>Utilized CAD tools to perform analysis of the telecommunications network copper path</li>
+    <li>Effectively collaborated and maintained good relationships with 3 team members.</li>
+    <li>TIdentified errors and provided constructive suggestions of improvements using Excel.</li>
+    <li>Sorted and filtered high volume data files using Python Pandas.</li>
+    </ul> 
+</div>
+
+<div style="text-align:left;">
+    <b>Part-time Python Teacher 
+    <span style="float:right;"><time>Jun 2018</time> – <time>Current</time></span>
+    <br>Dream Codes True, Shenzhen, China (dreamcodestrue.com)</b>
+    <ul>
+    <li>Introduced basic data structures, functions and modules in Python to beginners.</li>
+    <li>Guided students with projects and provided support and suggestions for improvement.</li>
+    <li>Encouraged students to solve problems with creativity and critical thinking.</li>
+    <li>Awarded the Monthly Best Video Prize for July, 2018.</li>
+    </ul> 
+</div>
+
+#### RELEVANT PROJECTS
+<div style="text-align:left;">
+    <b>Event Management System Website Development (Python)
+    <span style="float:right;">Mar 2018 – Jun 2018</span>
+    <br>UNSW, Sydney</b>
+    <ul>
+    <li>Analysed requirements and generated user stories, UML and ER diagrams.</li>
+    <li>Implemented backend with python Flask framework and SQL database.</li>
+    <li>Built user interface with HTML, CSS and JavaScript</li>
+    <li>Tested program with White Box and Black Box Methodology.</li>
+    <li>Achieved 95 of 100 marks for the entire project.</li>
+    </ul> 
+</div>
+<div style="text-align:left;">
+    <b>Event Management System Website Development (Python)
+    <span style="float:right;">Sept 2019– Sept 2019</span>
+    <br>Jiangsu Softland Science & Technology Co.Ltd, Nanjing</b>
+    <ul>
+    <li>Developed user interface of the website for Nanjing University using React Js.</li>
+    <li>Communicated and analysed client requirements from Nanjing University.</li>
+    <li>Designed interface for data interaction between frontend and backend.</li>
+    </ul> 
+</div>
+<div style="text-align:left;">
+    <b>Vertically Integrate Project – Yoga Training Assistant
+    <span style="float:right;">Feb 2020 – Nov 2020</span>
+    <br>UNSW, Sydney</b>
+    <ul>
+    <li>Conducted yoga training assistant Android application development with 4 team members.</li>
+    <li>Researched on state-of-art human keypoints estimation and bounding box detection approaches.</li>
+    <li>Implemented algorithms to assess the poses from joint angles computed using keypoints.</li>
+    <li>Embedded tflite models onto the Android platform.</li>
+    </ul> 
+</div>
