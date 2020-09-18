@@ -21,7 +21,7 @@ header:
       url: /blog/
       style: link
     - label: CV
-      url: /style-guide/
+      url: /cv/
       style: link
     - label: About
       url: /about/

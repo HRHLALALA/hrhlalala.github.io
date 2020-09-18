@@ -1,5 +1,6 @@
 ---
 title: Renhao Huang
+label: cv
 subtitle: >-
   Final Year Computer Engineering student at UNSW
 layout: page
