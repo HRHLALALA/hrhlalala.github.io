@@ -6,22 +6,22 @@ subtitle: >-
 layout: page
 ---
 
-<table cellspacing="0" cellpadding="0">
+<table class="cv-info-table">
   
   <tr>
-    <td style="text-align:center">
+    <td class = "cv-icon" style="text-align:center;">
       <i class="fab fa-phone"></i><br> 
       <i class="fab fa-envelope"></i><br> 
       </td>
-    <td>
+    <td class = "cv-info" >
       0402450646<br> 
       <a href="renhao043@gmail.com" >renhao043@gmail.com</a><br>
     </td>
-    <td style="text-align:center">
+    <td class="cv-icon" style="text-align:center">
       <i class="fab fa-github"></i><br>
       <i class="fab fa-map-marker-alt"></i><br>
     </td>
-    <td> 
+    <td class="cv-info"> 
       <a href="www.github.com/hrhlalala">www.github.com/hrhlalala</a><br>
       Sydney, Australia<br>
     </td>
@@ -44,60 +44,34 @@ layout: page
 </ul> 
 
 #### TECHNICAL SKILLS
-
-<table>
-<tr>
-  <th>
-    Languages
-  </th>
-  <th>
-    Machine Learning*
-  </th>
-  <th>
-    Model Building
-  </th>
-</tr>
-
-<tr style="font-size:0.9em;">
-  <td style="width:35%;padding-right:3em;">
-  Python, C++, Java, Kotlin, JavaScript, HTML, CSS, C, MIPS, AVR, VHDL
-  </td>
-  <td style="width:35%;padding-right:3em;">
-  Pattern Recogization, Trajectory Prediction, Human Pose Estimation, NLP
-  </td>
-
-  <td style="width:35%;padding-right:3em;">
-  PyTorch, Tensorflow, NumPy, Pandas,OpenCV
-  </td>
-</tr>
-
-<tr>
-  <th>
-    Software Developmeent
-  </th>
-  <th>
-    Hardware Development
-  </th>
-  <th>
-    Others
-  </th>
-</tr>
-
-<tr style="font-size:0.9em;">
-  <td style="width:35%;padding-right:3em;">
-  Android Kotlin, React Js, Flask, OOP, Agile, SQL
-  </td>
-  <td style="width:35%;padding-right:3em;">
-  Digital Circut Analysis, Computer Architecture, Reconfigurable Computing
-  </td>
-
-  <td style="width:35%;padding-right:3em;">
+<div class="cv-skills-row">
+  <div class="cv-skills-column">
+    <p><b>Languages</b><br></p>
+    Python, C++, Java, Kotlin, JavaScript, HTML, CSS, C, MIPS, AVR, VHDL
+  </div>
+  <div class="cv-skills-column">
+    <p><b>Machine Learning*</b><br></p>
+    Pattern Recogization, Trajectory Prediction, Human Pose Estimation, NLP
+  </div>
+  <div class="cv-skills-column">
+    <p><b>Model Building</b><br></p>
+    PyTorch, Tensorflow, NumPy, Pandas, OpenCV
+  </div>
+</div>
+<div class="cv-skills-row">
+  <div class="cv-skills-column">
+    <p><b>Software Development</b><br></p>
+    Android Kotlin, React Js, Flask, OOP, Agile, SQL
+  </div>
+  <div class="cv-skills-column">
+    <p><b>Hardware Development</b><br></p>
+    Pattern Recogization, Trajectory Prediction, Human Pose Estimation, NLP
+  </div>
+  <div class="cv-skills-column">
+    <p><b>Tools</b><br></p>
     Git, Matlab, Excel
-  </td>
-</tr>
-
-</table>
-
+  </div>
+</div>
 
 #### EDUCATION
 
