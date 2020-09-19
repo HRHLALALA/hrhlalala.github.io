@@ -46,6 +46,7 @@ for i in range(6):
             t.forward(5)
             t.right(6)
         t.right(90)
+    t.left(60)
 ```
 
 解决方案： 把重复的部分放入函数调用
@@ -76,6 +77,7 @@ t.forward(150)
 t.color("red")
 for i in range(6):
     draw_leaf()
+    t.left(60)
 ```
 
 已经写过类似功能的函数，但是需要修改后才能使用，但是函数没有办法修改
@@ -85,9 +87,9 @@ def init_board():
     # initialize 3x3 board
     
     board = []
-    for i in range(5):
+    for i in range(3):
         row = []
-        for j in range(5):
+        for j in range(3):
             row.append(0)
         board.append(row)
     
@@ -104,14 +106,15 @@ for i in range(5):
 
 解决方案：
 ```python
-def init_board(length):
+def init_board(board_size):
     # initialize 3x3 board
     
-    for i in range(length):
-        for j in range(length):
-            board[i][j] = 0
-    return board
-    
+    board = []
+    for i in range(board_size):
+        row = []
+        for j in range(board_size):
+            row.append(0)
+        board.append(row)    
 init_board(3)
 ...
 init_board(5)
@@ -127,6 +130,7 @@ init_board(5)
 import random
 
 def init_board():
+    # 新建空白棋盘，随机两个位置放入2或4
     board = []
     for i in range(4):
         row = []
@@ -155,8 +159,44 @@ board = []
 for i in range(4):
     row = []
     for j in range(4):
-        row.append(0)
+        row.append(2)
     board.append(row)
+...
+
+```
+重构后：
+```python
+# 2048.py
+
+import random
+
+def init_board(size,init_num = 0):
+    # 新建空白棋盘，随机两个位置放入2或4
+    board = []
+    for i in range(size):
+        row = []
+        for j in range(size):
+            row.append(init_num)
+        board.append(row)
+
+def init_random_positions(board):   
+    for y in range(2):
+        while True:
+            choice=[2,4]
+            i=random.randint(0,len(board)-1)
+            j=random.randint(0,len(board)-1)
+        
+            if board[i][j]!=0:
+                pass
+            else:
+                board[i][j]=random.choice(choice)
+                    break
+    return board
+    
+...
+
+# 现在更改了游戏规则，需要增加全部都是2的棋盘
+board = init_board(4,init_num = 2):
 ...
 
 ```
@@ -225,7 +265,7 @@ def draw_branch(color,length):
  
 def draw_petal(color,petal_num):
     # 花瓣
-    for i in range(6):
+    for i in range(petal_num):
         draw_leaf()
         t.left(360/petal_num)
    
@@ -351,7 +391,7 @@ def transfer_money(money,target):
 # 新要求：money 不能小于0且不能超过500 而且money不等于100
 # 这样就需要重新修改这些函数
       
-```python
+```
 #### 解决方案
 拆分函数，把公共部分拿出来
 
@@ -385,7 +425,57 @@ def transfer_money(money,target):
         _transfer_money()
       
 ```
+如果可能需要应对不同的情况 仿Strategy Pattern
+```python
+def check_upper_lower_bound(moneey,lower,upper):
+    if money< lower or money > upper:
+        return False
+    else:
+        return True
+def check_sensitive_amounts(moneey,amounts):
+    if money in amounts:
+        return False
+    else:
+        return True   
+             
+def print_rule_invalid_msg(rule):
+    """
+    Some code here
+    """
+    print(...)
+   
+"""
+例：假如Money 不能在区间100-150，300-350之内，且不能等于120 和170
+"""    
+rules = [
+    lambda money: check_upper_lower_bound(money,100,150),
+    lambda money: check_upper_lower_bound(money,300,350),
+    lambda money: check_sensitive_amounts(money,[120,170]),   
+]
+  
+def check_money_validation(money,rules):
+    for rule in rules:
+        if not rule():
+            return False
+    return True
+            
+        
 
+def save_money(money):
+    """
+    init rules here
+    """
+    if check_money_validation(money,rules):
+        _here_save_money()
+        
+def transfer_money(money,target):
+    """
+    init rules here
+    """
+    if check_money_validation(money,rules)
+        _transfer_money()
+      
+```
 
 ### 5. Long Parameter List 长参数群
 * 函数的参数过多

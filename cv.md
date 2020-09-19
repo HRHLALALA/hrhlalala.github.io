@@ -14,7 +14,7 @@ layout: page
       <i class="fab fa-envelope"></i><br> 
       </td>
     <td class = "cv-info" >
-      0402450646<br> 
+      +61 402 450 646<br> 
       <a href="renhao043@gmail.com" >renhao043@gmail.com</a><br>
     </td>
     <td class="cv-icon" style="text-align:center">
