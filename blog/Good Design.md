@@ -5,7 +5,7 @@ date: '2020-09-19'
 thumb_image: images/code-smell.png
 image: images/code-smell.png
 excerpt: >-
- This blog concludes how to distinguish bad designs and how to reconstruct them. It is suitable for beginners who haven't learn OOP yet. It was used to be instructed to my Python students because they were designing software application by themselves. 
+ This blog concludes how to distinguish bad designs and how to reconstruct them. It is suitable for beginners who haven't learnt OOP yet. It was used to be instructed to my Python students because they were designing software application by themselves. 
 layout: post
 --- 
 

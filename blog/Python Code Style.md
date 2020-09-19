@@ -1,10 +1,10 @@
 ---
-title: Python Style
+title: Python Coding Style (Chinese)
 date: '2020-09-12'
 thumb_image: images/python.png
 image: images/python.png
 excerpt: >-
- This is the python style
+ Coding style is essential for teamworks. Good coding styles not only indicates a sense of community that programmers have, but also increase the continuity of the project. This blog concludes the python coding style from python documents.
 layout: post
 --- 
 
