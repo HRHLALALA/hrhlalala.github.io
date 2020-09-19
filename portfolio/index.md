@@ -1,6 +1,6 @@
 ---
 title: Projects
-subtitle: This is an optional subtitle for the portfolio page.
+subtitle: See what I have done and am doing.
 layout_style: mosaic
 layout: portfolio
 ---

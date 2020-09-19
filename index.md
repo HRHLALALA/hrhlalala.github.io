@@ -6,7 +6,7 @@ sections:
     type: section_hero
     title: 'Hi, This is Renhao Huang'
     content: >-
-      Explore the new world
+      I am Renhao Huang, an final year computer engineering student in Univeristy of New South Wales. My research interests are in Computer Vison and deep learning, especifically focusing on the Trajectory Prediction and Human Pose Estimation. 
     actions:
       - label: Let's talk
         url: /contact
