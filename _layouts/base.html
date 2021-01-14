@@ -21,13 +21,23 @@
     <!-- Scripts -->
     <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
-          tex2jax: {
-            inlineMath: [['$','$'], ['\\(','\\)']],
-            processEscapes: true
-          }
+            showProcessingMessages: false, //关闭js加载过程信息
+            messageStyle: "none", //不显示信息
+            extensions: ["tex2jax.js"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+            tex2jax: {
+                inlineMath:  [ ["$", "$"] ], //行内公式选择$
+                displayMath: [ ["$$","$$"] ], //段内公式选择$$
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'], //避开某些标签
+                ignoreClass:"comment-content" //避开含该Class的标签
+            },
+            "HTML-CSS": {
+                availableFonts: ["STIX","TeX"], //可选字体
+                showMathMenu: false //关闭右击菜单显示
+            }
         });
         </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
         type="text/javascript"></script>
     <script src="{{ 'assets/js/plugins.js' | relative_url }}"></script>
     <script src="{{ 'assets/js/main.js' | relative_url }}"></script>

@@ -6,16 +6,17 @@ layout: body
 
   <article class="post post-full">
     <header class="post-header inner-sm width-limited">
-      
+
       <h1 class="post-title line-top">{{ page.title }}</h1>
       {% assign subtitle_is_not_empty = page.subtitle | is_not_empty %}
       {% if subtitle_is_not_empty %}
       <div class="post-subtitle">
         {{ page.subtitle }}
       </div>
-      
+
       {% endif %}
-      <time class="published" datetime="{{ page.date | date: '%Y-%m-%d %H:%M' }}">{{ page.date | date: '%B %d, %Y' }}</time>
+      <time class="published" datetime="{{ page.date | date: '%Y-%m-%d %H:%M' }}">{{ page.date | date: '%B %d, %Y'
+        }}</time>
     </header>
     {% assign image_is_not_empty = page.image | is_not_empty %}
     {% if image_is_not_empty %}
@@ -23,8 +24,9 @@ layout: body
       <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" />
     </div>
     {% endif %}
+
     <div class="post-content inner-sm width-limited">
-      {{ content }}
+      {{ content | toc}}
     </div>
     <!-- <footer class="post-meta inner-sm width-limited">
       <time class="published" datetime="{{ page.date | date: '%Y-%m-%d %H:%M' }}">{{ page.date | date: '%B %d, %Y' }}</time>
@@ -61,5 +63,5 @@ layout: body
     </div>
   </nav>
   -->
-
+  
 </div><!-- .inner -->
