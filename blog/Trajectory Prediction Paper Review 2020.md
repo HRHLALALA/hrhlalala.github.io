@@ -1,6 +1,6 @@
 ---
 title: Trajectory Prediction Paper Literature Review
-date: '2020-01-14'
+date: '2021-01-14'
 layout: post
 thumb_image: images/SE-GAN.png
 toc: true

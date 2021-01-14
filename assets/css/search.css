@@ -31,4 +31,10 @@
 #results-container a:hover{
     background-color: #f1f1f1
 }
+
+@media only screen and (max-height: 601px) {
+    #results-container{
+        position: relative!important;
+    }
+}
   
