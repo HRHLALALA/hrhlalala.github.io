@@ -139,16 +139,17 @@
   }
 
   .site-navigation {
+    flex: auto;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     background-color: #fff;
     box-sizing: border-box;
     bottom: 0;
     margin: 0;
-    max-width: 360px;
+    // max-width: 360px;
     -webkit-overflow-scrolling: touch;
     position: fixed;
-    right: -100%;
+ 
     top: 0;
     -webkit-transition: right .3s cubic-bezier(.65,.05,.36,1), visibility 0s .3s;
     transition: right .3s cubic-bezier(.65,.05,.36,1), visibility 0s .3s;
@@ -161,8 +162,10 @@
     height: 100%;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
-    position: relative;
+
   }
+
+
 
   #menu-close {
     display: block;
@@ -226,3 +229,4 @@
     }
   }
 }
+
