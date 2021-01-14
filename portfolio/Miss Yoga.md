@@ -5,7 +5,7 @@ collaborators: Renhao Huang, Jiqing Wang, Haowei Lou, Haodong Lu, Bofei Wang
 date: '2020-09-17'
 thumb_image: images/miss-yoga.png
 
-video_url: https://youtu.be/f0u11IM4GR8
+video_url: https://youtube.com/embed/JNcpdylywhM
 layout: project
 ---
 
