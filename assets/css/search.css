@@ -34,7 +34,9 @@
 
 @media only screen and (max-height: 601px) {
     #results-container{
-        position: relative!important;
+        position: relative !important;
+        max-height: 200px;
+        overflow-y: scroll;
     }
 }
   
