@@ -64,6 +64,7 @@
 
 /* Grid section */
 .grid-item-counter {
+  
   box-sizing: border-box;
   display: inline-block;
   font-size: 1.33333em;
@@ -74,7 +75,6 @@
   position: relative;
   text-align: center;
   width: 2.66667em;
-
   &:before,
   &:after {
     border: 2px solid _palette(charcoal-light-75);

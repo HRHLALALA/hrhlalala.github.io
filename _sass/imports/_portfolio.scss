@@ -20,6 +20,7 @@
   overflow: hidden;
   position: relative;
   width: 100%;
+  
 
   &:before {
     content: "";
@@ -62,7 +63,7 @@
   color: _palette(charcoal);
   display: block;
   position: relative;
-
+  box-shadow: 0 8px 5px #777;
   &:hover,
   &:focus {
     img {
