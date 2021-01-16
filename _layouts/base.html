@@ -33,7 +33,15 @@
             },
             "HTML-CSS": {
                 availableFonts: ["STIX","TeX"], //可选字体
-                showMathMenu: false //关闭右击菜单显示
+                showMathMenu: false, //关闭右击菜单显示
+                linebreaks: {automatic:true, width:"container"},
+                style:{
+                    ".MathJax_Display": {
+                        overflow: "scroll",
+                        width: "100%"
+                    }
+                }
+
             }
         });
         </script>
@@ -44,4 +52,5 @@
 
 </body>
 {% include footer.html %}
+
 </html>
