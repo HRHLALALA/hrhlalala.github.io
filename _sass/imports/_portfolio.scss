@@ -12,8 +12,6 @@
 .project-title {
   font-size: 1.33333em;
   margin: 0;
-  text-align: center;
-  padding:1.3333em;
 }
 
 .project-thumbnail {
@@ -65,7 +63,7 @@
   color: _palette(charcoal);
   display: block;
   position: relative;
-  box-shadow: 0 5px 5px rgb(172, 170, 170);
+  box-shadow: 0 8px 5px #777;
   &:hover,
   &:focus {
     img {
