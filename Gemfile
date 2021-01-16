@@ -9,6 +9,6 @@ group :jekyll_plugins do
     gem "jekyll-paginate-v2"
     gem "jekyll-paginate"
     gem 'jekyll-toc'
-    gem 'jekyll-spaceship'
+    gem "jekyll-spaceship", git: "https://github.com/jeffreytse/jekyll-spaceship.git"
     gem 'jekyll-algolia'
 end

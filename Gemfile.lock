@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/jeffreytse/jekyll-spaceship.git
+  revision: 1f8c3293d300ac9680fe4142e300c06d0cd2f057
+  specs:
+    jekyll-spaceship (0.9.8)
+      gemoji (~> 3.0)
+      jekyll (>= 3.6, < 5.0)
+      nokogiri (~> 1.6)
+      rainbow (~> 3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -52,11 +62,6 @@ GEM
       jekyll (~> 3.0)
     jekyll-sass-converter (1.5.2)
       sass (~> 3.4)
-    jekyll-spaceship (0.9.8)
-      gemoji (~> 3.0)
-      jekyll (>= 3.6, < 5.0)
-      nokogiri (~> 1.6)
-      rainbow (~> 3.0)
     jekyll-toc (0.16.1)
       jekyll (>= 3.8)
       nokogiri (~> 1.10)
@@ -100,7 +105,7 @@ DEPENDENCIES
   jekyll-menus
   jekyll-paginate
   jekyll-paginate-v2
-  jekyll-spaceship
+  jekyll-spaceship!
   jekyll-toc
 
 BUNDLED WITH
