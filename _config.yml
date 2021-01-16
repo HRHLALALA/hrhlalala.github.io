@@ -68,32 +68,13 @@ jekyll-spaceship:
   # default enabled processors
   processors:
     - table-processor
-    - mathjax-processor
     - plantuml-processor
     - mermaid-processor
     - polyfill-processor
     - media-processor
     - emoji-processor
     - element-processor
-  mathjax-processor:
-    src:
-      - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_SVG-full
 
-    config:
-      tex:
-        inlineMath:
-          - ["$", "$"]
-          - ['\(', '\)']
-        displayMath:
-          - ["$$", "$$"]
-          - ['\[', '\]']
-        equationNumbers: { autoNumber: "AMS" }
-      svg:
-        fontCache: "global"
-    optimize: # optimization on building stage to check and add mathjax scripts
-      enabled: true # value `false` for adding to all pages
-      include: [] # include patterns for math expressions checking (regexp)
-      exclude: [] # exclude patterns for math expressions checking (regexp)
   plantuml-processor:
     mode: default # mode value 'pre-fetch' for fetching image at building stage
     css:

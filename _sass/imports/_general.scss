@@ -177,10 +177,19 @@ hr {
 }
 
 table {
+  position: relative;
   line-height: 1.5;
-  margin: 0 0 1.66667em;
   text-align: left;
-  width: 100%;
+  width:100%;
+  display:block;
+  overflow: scroll;
+  scrollbar-width: none;
+  
+}
+
+table::-webkit-scrollbar{
+  width: 0;
+  display: none;
 }
 
 caption {
@@ -191,23 +200,49 @@ caption {
   text-align: left;
 }
 
-th,
-td {
-  border-bottom: 1px solid _palette(charcoal-light-75);
-  padding: 0.5em 5px;
+
+table {
+  padding: 0;
+  word-break: initial;
 }
 
-th {
-  font-weight: bold;
+table tr {
+  border-top: 1px solid #dfe2e5;
+  margin: 0;
+  padding: 0;
 }
 
-/* Form fields */
-label {
-  display: inline-block;
-  font-weight: bold;
-  line-height: 1.5;
-  margin-bottom: 0.25em;
+table tr:nth-child(2n),
+thead {
+  background-color: #fafafa;
 }
+
+table tr th {
+  font-weight: bold;
+  border: 1px solid #dfe2e5;
+  border-bottom: 0;
+  text-align: left;
+  margin: 0;
+  padding: 6px 13px;
+}
+
+table tr td {
+  border: 1px solid #dfe2e5;
+  text-align: left;
+  margin: 0;
+  padding: 6px 13px;
+}
+
+table tr th:first-child,
+table tr td:first-child {
+  margin-top: 0;
+}
+
+table tr th:last-child,
+table tr td:last-child {
+  margin-bottom: 0;
+}
+
 
 input[type="text"],
 input[type="password"],
