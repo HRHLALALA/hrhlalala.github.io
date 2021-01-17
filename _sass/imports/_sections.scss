@@ -264,16 +264,18 @@
     position: absolute;
     display: block;
     width: calc(50% - 31rem);
-    left:5em;
+    right:0;
     z-index: 10;
-    // border:1px solid lightgrey;
+    border-left:1px solid lightgrey;
     padding:2.5rem;
     // border-radius: 2em;
     transition: none !important;
     top:0;
-    overflow-y: scroll;
+    overflow-y: auto;
     bottom: -7.5em;
+    box-shadow: 0 5px 5px rgb(172, 170, 170);
   }
+
 
   .section-nav{
     width:100%;
