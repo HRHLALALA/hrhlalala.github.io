@@ -33,9 +33,15 @@
             },
             "HTML-CSS": {
                 availableFonts: ["STIX","TeX"], //可选字体
-                showMathMenu: false, //关闭右击菜单显示
+               
                
 
+            }
+        });
+        MathJax.Hub.Queue(function(){
+            var all = MathJax.Hub.getAllJax(),i;
+            for(i=0;i<all.length;i++){
+                document.getElementById(all[i].inputID + '-Frame').parentNode.classList.add('has-jax');
             }
         });
         </script>
