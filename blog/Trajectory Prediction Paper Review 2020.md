@@ -102,6 +102,7 @@ $$
 ### 2. Spatial Transformer
 * **TGConv**
     * A transformer version of GAT 
+
 $$
 Attn(Q,K,V) = \frac{Softmax([m^{j\rightarrow i}]_{i,j = 1:n})}{\sqrt{dk}}[v_i]_{i=1}^{n}\\
 \textbf{where the message from node j to i in the fully connected graph}\\ \space m^{j\rightarrow i} = q_i^Tk_j
@@ -277,7 +278,9 @@ $$
 This paper proposes a social contrastive learning method to incorporate prior knowledge into motion representation learning. It adapts this learning approach in the multi-agent context and introduce Social-NCE as an auxiliary loss. Social-NCE encourages the extracted motion representation to preserve sufficient information for distinguishing a positive future event from a set of synthetic knowledge-driven negative events.
 
 ### 1. Contrastive Representation Learning
+
 **InfoNCE loss:** Maximise the lower bound on the mutual information between the raw input and the latent representation.
+
 $$L_{NCE} = -\log{\frac{\exp(sim(q,k^+)/\tau)}{\sum_{n=0}^n \exp(sim(q,k_n)/\tau)}} \space \textbf{where} \space sim(u,v) = \frac{u^Tv}{||u||\cdot ||v||}$$
 
 * $\tau$: temperature hyperparameter

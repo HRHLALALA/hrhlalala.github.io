@@ -43,10 +43,11 @@
             var all = MathJax.Hub.getAllJax(),i;
             for(i=0;i<all.length;i++){
                 var jax = document.getElementById(all[i].inputID + '-Frame');
-                if(jax.parentNode.tagName == "DIV"){
+                if(jax.parentNode.tagName == "DIV" ){
+                    jax.parentNode.classList.add('has-jax');
+                }else if(jax.parentNode.tagName == "P" && jax.parentNode.parentNode.tagName != "LI" ){
                     jax.parentNode.classList.add('has-jax');
                 }
-
             }
         });
         </script>
