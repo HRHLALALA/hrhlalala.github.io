@@ -42,7 +42,11 @@
         MathJax.Hub.Queue(function(){
             var all = MathJax.Hub.getAllJax(),i;
             for(i=0;i<all.length;i++){
-                document.getElementById(all[i].inputID + '-Frame').parentNode.classList.add('has-jax');
+                var jax = document.getElementById(all[i].inputID + '-Frame');
+                if(jax.parentNode.tagName != "LI"){
+                    jax.parentNode.classList.add('has-jax');
+                }
+
             }
         });
         </script>
