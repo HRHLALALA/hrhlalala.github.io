@@ -19,7 +19,7 @@ layout: body
       </div>
       {% endif %}
     </header>
-    
+
 
     {% assign video_is_not_empty = page.video_url | is_not_empty %}
     {% if video_is_not_empty %}
@@ -38,6 +38,14 @@ layout: body
     </div><!-- .post-image -->
     {% endif %}
 
+    {% endif %}
+
+    {% assign toc_is_not_empty = page.toc | is_not_empty %}
+    {% if toc_is_not_empty %}
+    <div class="post-toc width-limited">
+      <p style="color:gray">TABLE OF CONTENT</p>
+      {{ content | toc_only }}
+    </div>
     {% endif %}
     <div class="post-content inner-sm width-limited">
       {{ content }}

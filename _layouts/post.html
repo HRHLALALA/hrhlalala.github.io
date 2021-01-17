@@ -18,6 +18,15 @@ layout: body
       <time class="published" datetime="{{ page.date | date: '%Y-%m-%d %H:%M' }}">{{ page.date | date: '%B %d, %Y'
         }}</time>
     </header>
+
+    {% assign toc_is_not_empty = page.toc | is_not_empty %}
+    {% if toc_is_not_empty %}
+    <div id="toc-container" class="post-toc width-limited">
+      <p style="color:gray">TABLE OF CONTENT</p>
+      {{ content | toc_only }}
+    </div>
+    {% endif %}
+
     {% assign image_is_not_empty = page.image | is_not_empty %}
     {% if image_is_not_empty %}
     <div class="post-image">
@@ -26,7 +35,8 @@ layout: body
     {% endif %}
 
     <div class="post-content inner-sm width-limited">
-      {{ content | toc}}
+
+      {{content}}
     </div>
     <!-- <footer class="post-meta inner-sm width-limited">
       <time class="published" datetime="{{ page.date | date: '%Y-%m-%d %H:%M' }}">{{ page.date | date: '%B %d, %Y' }}</time>
@@ -63,5 +73,24 @@ layout: body
     </div>
   </nav>
   -->
-  
+  <script>
+    if (window.outerWidth >= 1664) {
+      window.onscroll = function () { stickToc() };
+      var position = $("#toc-container").position();
+      var toc = document.getElementById("toc-container");
+      var sticky_top = position.top;
+      var sticky_bottom = toc.clientHeight + sticky_top;
+      console.log(window.innerHeight);
+      toc.style.maxHeight = (window.innerHeight) + 'px';
+      function stickToc() {
+        if (window.pageYOffset >= sticky_top) {
+          toc.style.top = window.pageYOffset - 90 + 'px';
+        }
+        else {
+          toc.style.top = '0px';
+          
+        }
+      }
+    }
+  </script>
 </div><!-- .inner -->

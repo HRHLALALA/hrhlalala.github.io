@@ -6,6 +6,7 @@ date: '2020-09-17'
 thumb_image: images/SE-GAN.png
 image: images/SE_GAN_Model.png
 layout: project
+
 ---
 ## Overview
 Predicting pedestrians’ future trajectories is challenging especially when their destinations are unknown. Many factors may increase the complexity of trajectories such as human-human interactions, surrounding environment and individual decisions. Nevertheless, pedestrians tend to follow social rules to adjust their paths to avoid collisions with their surrounding pedestrians or obstacles. These rules form social forces [1] that navigate pedestrians and can give some clues to predict future movement. Earlier methods statistically handcraft social features or build Long-Short Term Memory (LSTM) models [2] to predict future paths.
