@@ -43,7 +43,7 @@
             var all = MathJax.Hub.getAllJax(),i;
             for(i=0;i<all.length;i++){
                 var jax = document.getElementById(all[i].inputID + '-Frame');
-                if(jax.parentNode.tagName != "LI"){
+                if(jax.parentNode.tagName == "DIV"){
                     jax.parentNode.classList.add('has-jax');
                 }
 

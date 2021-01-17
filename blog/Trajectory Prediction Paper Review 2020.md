@@ -79,7 +79,7 @@ This paper proposes Goal-GAN, a two-stage end-to-end trainable trajectory predic
 
 ## Spatio-Temporal Graph Transformer Networks for Pedestrian Trajectory Prediction
 ![-w758](media/16105146218643/16105207586767.jpg)
-This paper presents Predicted Endpoint Conditioned Network (PECNet) for ﬂexible human trajectory prediction. PECNet infers distant trajectory endpoints to assist in long-range multi-modal trajectory prediction. A novel nonlocal social pooling layer enables PECNet to infer diverse yet socially compliant trajectories. Additionally, we present a simple “truncation-trick” for improving diversity and multi-modal trajectory prediction performance.
+In this paper presents STAR, a Spatio-Temporal grAph tRans- former framework, which tackles trajectory prediction by only attention mechanisms. STAR models intra-graph crowd interaction by TGConv, a novel Transformer-based graph convolution mechanism. The inter-graph temporal dependencies are modeled by separate temporal Transformers. STAR captures complex spatio-temporal interactions by interleav- ing between spatial and temporal Transformers. To calibrate the temporal prediction for the long-lasting effect of disappeared pedestrians, we introduce a read-writable external memory module, consistently being updated by the temporal Transformer.
 
 ### 1. Temporal Transformer
 $$
@@ -98,6 +98,40 @@ Att(Q_i,K_i,V_i) = \frac{Softmax(Q_i K_{iT})}{\sqrt{d_k}} V_i\\
 &\Longrightarrow  MultiHead(Q_i,K_i,V_i) = f_O(Att(Q_i,K_i,V_i))
 \end{aligned}
 $$
+
+### 2. Spatial Transformer
+* **TGConv**
+    * A transformer version of GAT 
+$$
+Attn(Q,K,V) = \frac{Softmax([m^{j\rightarrow i}]_{i,j = 1:n})}{\sqrt{dk}}[v_i]_{i=1}^{n}\\
+\textbf{where the message from node j to i in the fully connected graph}\\ \space m^{j\rightarrow i} = q_i^Tk_j
+$$
+
+
+
+### 3. Spatio-Temporal Graph Transformer
+* Encoder 1:
+    * To extract independent spatial and temporal information from the pedestrian history.
+
+* Encoder 2:
+    * spatial Transformer models spatial interaction with temporal information; 
+    * the temporal Transformer enhances the output spatial embeddings with temporal attentions. 
+
+    
+### 4. External Graph Memory
+* In encoder 1, the temporal Transformer ﬁrst reads from memory $M$ the past graph embeddings $ \{\tilde{h} _1, \tilde{h} _2,\cdots, \tilde{h} _{t-1}\} $ and concatenate it with the current graph embedding $h_t$.
+
+  $$
+    \{\tilde{h}_1,\tilde{h}_2,\cdots,\tilde{h}_{t-1}\} = f_{read}(M) = \{M_1,M_2,M_3,\cdots,M_{t-1}\}
+  $$
+  
+* In encoder 2,  the output of Temporal Transformer is written to the graph memory which performs a smoothing over the time series data.   
+$$ 
+  M' = f_{write}(\{h'_1,h'_2,\cdots,h'_i\},M) =\{h'_1,h'_2,\cdots,h'_i\}
+$$
+
+## It is not the Journey but the Destination: Endpoint Conditioned Trajectory Prediction
+![-w1167](media/16105146218643/16107203965010.jpg)
 
 ### 1. Endpoint VAE
 
@@ -398,9 +432,11 @@ $$
 $$
 
 * **Pedestrian-wise attention** $ \alpha_{i,j}^{t,l} $ is attention weight vector
+    
     $$
         \alpha_{i,j}^{t,l} = \frac{\exp( u_{i,j}^{t,l})}{\sum_{k} \exp(u_{i,k}^{t,l})}\space\text{where}\space u_{i,j}^{t,l} = w^{aT} [r_{i,j}^{t,k},\hat{h}_{i}^{t,k},h_{j}^{t,k}]
     $$
+
     * The relative spatial location $r_{i,j}^{t,k} = \phi _r (x_i^t - x_j^t, y_i^t - y_j^t; W^T) $
 
 * **Motion gate**
