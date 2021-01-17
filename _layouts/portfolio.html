@@ -43,24 +43,5 @@ layout: body
     </div>
   </nav>
   -->
-    <script>
-      if (window.outerWidth >= 1664) {
-        window.onscroll = function () { stickToc() };
-        var position = $("#toc-container").position();
-        var toc = document.getElementById("toc-container");
-        var sticky_top = position.top;
-        var sticky_bottom = toc.clientHeight + sticky_top;
-        console.log(window.innerHeight);
-        toc.style.maxHeight = (window.innerHeight) + 'px';
-        function stickToc() {
-          if (window.pageYOffset >= sticky_top) {
-            toc.style.top = window.pageYOffset - 90 + 'px';
-          }
-          else {
-            toc.style.top = '0px';
 
-          }
-        }
-      }
-    </script>
   </div><!-- .inner -->
