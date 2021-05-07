@@ -40,22 +40,24 @@
     padding-top: 3.33333em;
   }
 }
-
-@media only screen and (min-width: 86em) {
-    .width-limited{
-      max-width: 54em;
-    }
-}
-
 @media only screen and (min-width: 54em) {
   .width-limited{
     max-width: 48em;
   }
 }
 
+
 @media only screen and (min-width: 42em) {
   .width-limited{
     max-width: 42em;
   }
 }
+@media only screen and (min-width: 86em) {
+    .width-limited{
+      max-width: 54em;
+    }
+}
+
+
+
 
