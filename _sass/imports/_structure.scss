@@ -18,7 +18,7 @@
   // max-width: 750px;
 }
 .width-limited{
-  max-width: 750px;
+  max-width: 54em;
 }
 .site {
   min-height: 100vh;
@@ -33,9 +33,29 @@
 .color_charcoal-light-40{
   color: _palette(charcoal-light-40);
 }
+
 @media only screen and (max-width: 600px) {
   .site-content {
     padding-bottom: 3.33333em;
     padding-top: 3.33333em;
   }
 }
+
+@media only screen and (min-width: 86em) {
+    .width-limited{
+      max-width: 54em;
+    }
+}
+
+@media only screen and (min-width: 54em) {
+  .width-limited{
+    max-width: 48em;
+  }
+}
+
+@media only screen and (min-width: 42em) {
+  .width-limited{
+    max-width: 42em;
+  }
+}
+
