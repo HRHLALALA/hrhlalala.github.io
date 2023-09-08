@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Trajectory Prediction Paper Literature Review -
+        Renhao Huang's Personal Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the new world">
+
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- <link rel="stylesheet" href="/assets/css/dark_theme.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <div id="page" class="site palette-light accent-pink">
+  <header id="masthead" class="site-header outer">
+  <!-- HTML elements for search -->
+
+  <div class="inner">
+
+    <div class="site-header-inside">
+      <div class="site-branding">
+        
+        
+        <p class="site-title"><a href="/%20/">Renhao Huang</a></p>
+        
+      </div>
+<!-- .site-branding -->
+      
+      
+      <button id="menu-open" class="menu-toggle"><span class="screen-reader-text">Close Menu</span><span class="icon-menu" aria-hidden="true"></span></button>
+
+
+
+
+      <nav id="main-navigation" class="site-navigation" aria-label="Main Navigation">
+
+        <div class="site-nav-inside">
+
+          <button id="menu-close" class="menu-toggle"><span class="screen-reader-text">Open Menu</span><span class="icon-close" aria-hidden="true"></span></button>
+          <ul class="menu">
+            <div class="menu-item">
+              <link rel="stylesheet" href="http://localhost:4000/assets/css/search.css">
+
+<div id="search-container">
+    <input type="text" id="search-input" placeholder="Search...">
+
+    <ul id="results-container"></ul>
+</div>
+<script src="http://localhost:4000/assets/js/simple-jekyll-search.min.js"></script>
+<script>
+    
+    window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: 'http://localhost:4000/search.json',
+        searchResultTemplate: '<li ><a class="dropdown-item" href="http://localhost:4000{url}">{title}<p>{url}</p></a></li>',
+        noResultsText: 'No results found',
+        limit: 8,
+        fuzzy: true,
+        exclude: ['Renhao Huang', 'Projects', 'About Me', 'Contact'],
+        success: function (data) {
+            console.log("search component success data： " + data);
+        }
+    })
+</script>
+            </div>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/">
+  
+  Home
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/portfolio/">
+  
+  Projects
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/blog/">
+  
+  Blog
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/cv/">
+  
+  CV
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/about/">
+  
+  About
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/contact/">
+  
+  Contact
+  
+</a>
+
+            </li>
+            
+
+          </ul>
+<!-- .menu -->
+
+        </div>
+<!-- .site-nav-inside -->
+      </nav><!-- .site-navigation -->
+      
+
+
+
+    </div>
+<!-- .site-header-inside -->
+  </div>
+<!-- .inner -->
+</header><!-- .site-header -->
+  <main id="content" class="site-content">
+    <div class="inner outer">
+
+  <article class="post post-full">
+    <header class="post-header inner-sm width-limited">
+
+      <h1 class="post-title line-top">Trajectory Prediction Paper Literature Review</h1>
+      
+      
+      <time class="published" datetime="2021-01-14 00:00">January 14, 2021</time>
+    </header>
+
+    <style>
+    .section-nav {
+        color: aquamarine;
+        background-color: transparent;
+
+        top: 0px;
+    }
+
+    .post-toc {
+        margin: 0 auto;
+    }
+
+    .section-nav a {
+        color: darkturquoise;
+    }
+
+    .section-nav a:hover {
+        color: red;
+    }
+
+    #toc-collapse-icon {
+        display: none;
+    }
+
+    @media only screen and (min-width: 1664px) {
+        .post-toc {
+            position: absolute;
+            display: block;
+            width: calc(50% - 27rem);
+            max-width:32em;
+            right: 0;
+            z-index: 10;
+            border-left: 1px solid lightgrey;
+            padding: 1.5rem;
+            transition: none !important;
+            top: 0;
+            overflow-y: auto;
+            bottom: -7.5em;
+
+        }
+
+
+        .section-nav {
+            width: 100%;
+            font-size: 0.901em !important;
+        }
+
+        #toc-collapse-icon {
+            display: block;
+            float: right;
+            color: black;
+        }
+
+        #toc-collapse-icon:hover {
+            color: skyblue;
+        }
+    }
+</style>
+
+
+
+
+<div id="toc-container" class="post-toc width-limited">
+    <i id="toc-collapse-icon" onclick="collapse_toc()" class="fab fa-bars" aria-hidden="true"></i>
+    <div id="toc-inner">
+        <p style="color:gray;width:auto;">TABLE OF CONTENT</p>
+        <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2">
+<a href="#goal-gan-multimodal-trajectory-prediction-based-on-goal-position-estimation">Goal-GAN: Multimodal Trajectory Prediction Based on Goal Position Estimation</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1-goal-module">1. Goal Module:</a></li>
+<li class="toc-entry toc-h3"><a href="#2-motion-encoder">2. Motion Encoder</a></li>
+<li class="toc-entry toc-h3"><a href="#3-routing-module">3. Routing Module</a></li>
+<li class="toc-entry toc-h3"><a href="#4-discriminator">4. Discriminator:</a></li>
+<li class="toc-entry toc-h3"><a href="#5-losses">5. Losses:</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2">
+<a href="#spatio-temporal-graph-transformer-networks-for-pedestrian-trajectory-prediction">Spatio-Temporal Graph Transformer Networks for Pedestrian Trajectory Prediction</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1-temporal-transformer">1. Temporal Transformer</a></li>
+<li class="toc-entry toc-h3"><a href="#2-spatial-transformer">2. Spatial Transformer</a></li>
+<li class="toc-entry toc-h3"><a href="#3-spatio-temporal-graph-transformer">3. Spatio-Temporal Graph Transformer</a></li>
+<li class="toc-entry toc-h3"><a href="#4-external-graph-memory">4. External Graph Memory</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2">
+<a href="#it-is-not-the-journey-but-the-destination-endpoint-conditioned-trajectory-prediction">It is not the Journey but the Destination: Endpoint Conditioned Trajectory Prediction</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1-endpoint-vae">1. Endpoint VAE</a></li>
+<li class="toc-entry toc-h3"><a href="#2-endpoint-conditioned-trajectory-prediction">2. Endpoint conditioned Trajectory Prediction</a></li>
+<li class="toc-entry toc-h3"><a href="#3-loss">3. Loss</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2">
+<a href="#evolvegraph-multi-agent-trajectory-prediction-with-dynamic-relational-reasoning">EvolveGraph: Multi-Agent Trajectory Prediction with Dynamic Relational Reasoning</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1-static-interact-on-graph-learning">1. Static interact on graph learning</a></li>
+<li class="toc-entry toc-h3"><a href="#2-dynamic-interaction-graph">2. Dynamic interaction graph</a></li>
+<li class="toc-entry toc-h3"><a href="#3-uncertainty-and-multi-modality">3. Uncertainty and Multi-modality</a></li>
+<li class="toc-entry toc-h3"><a href="#4-loss">4. Loss</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2">
+<a href="#social-wagdat-interaction-aware-trajectory-prediction-via-wasserstein-graph-double-attention-network">Social-WaGDAT: Interaction-aware Trajectory Prediction via Wasserstein Graph Double-Attention Network</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1-feature-extraction">1. Feature Extraction</a></li>
+<li class="toc-entry toc-h3"><a href="#2-encoder-with-graphic-double-attentiongdat">2. Encoder with Graphic Double Attention(GDAT)</a></li>
+<li class="toc-entry toc-h3"><a href="#2-decoder-with-kinematic-constraint">2. Decoder with Kinematic Constraint</a></li>
+<li class="toc-entry toc-h3"><a href="#3-loss-function">3. Loss Function</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2">
+<a href="#social-nce-contrastive-learning-of-socially-aware-motion-representations">Social NCE: Contrastive Learning of Socially-aware Motion Representations</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1-contrastive-representation-learning">1. Contrastive Representation Learning</a></li>
+<li class="toc-entry toc-h3"><a href="#2-social-nce">2. Social NCE</a></li>
+<li class="toc-entry toc-h3"><a href="#3-multi-agent-contrastive-sampling">3. Multi-agent Contrastive Sampling</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2">
+<a href="#human-trajectory-forecasting-in-crowds-a-deep-learning-perspective">Human Trajectory Forecasting in Crowds: A Deep Learning Perspective</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#grid-based-interaction-module">Grid Based Interaction Module</a></li>
+<li class="toc-entry toc-h3"><a href="#non-grid-based-interaction-module">Non-Grid Based Interaction Module</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2">
+<a href="#recursive-social-behavior-graph-for-trajectory-prediction">Recursive Social Behavior Graph for Trajectory Prediction</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1-individual-representation">1. Individual Representation</a></li>
+<li class="toc-entry toc-h3"><a href="#2-relational-social-representation">2. Relational Social Representation</a></li>
+<li class="toc-entry toc-h3"><a href="#3-recursive-social-behaviour-graph">3. Recursive Social Behaviour Graph</a></li>
+<li class="toc-entry toc-h3"><a href="#4-trajectory-generation">4. Trajectory Generation</a></li>
+<li class="toc-entry toc-h3"><a href="#5-loss">5. Loss</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2">
+<a href="#social-and-scene-aware-trajectory-prediction-in-crowded-spaces">Social and Scene-Aware Trajectory Prediction in Crowded Spaces</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#navigation-tensor">Navigation Tensor</a></li>
+<li class="toc-entry toc-h3"><a href="#semantic-tensor">Semantic Tensor</a></li>
+<li class="toc-entry toc-h3"><a href="#social-tensor">Social Tensor</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2">
+<a href="#sr-lstm-state-refinement-for-lstm-towards-pedestrian-trajectory-prediction">SR-LSTM: State Refinement for LSTM towards Pedestrian Trajectory Prediction</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1-sr-lstm-framework">1. SR-LSTM Framework</a></li>
+<li class="toc-entry toc-h3"><a href="#2-message-passing-function">2. Message Passing Function</a></li>
+<li class="toc-entry toc-h3"><a href="#3-social-aware-information-selection">3. Social-aware information selection</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2">
+<a href="#multi-agent-tensor-fusion-for-contextual-trajectory-prediction">Multi-Agent Tensor Fusion for Contextual Trajectory Prediction</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1scene-and-social-feature-generation">1.Scene and Social Feature generation</a></li>
+<li class="toc-entry toc-h3"><a href="#2-tensor-fusion">2. Tensor Fusion</a></li>
+<li class="toc-entry toc-h3"><a href="#3-interaction-learning">3. Interaction Learning</a></li>
+<li class="toc-entry toc-h3"><a href="#4-decoding">4. Decoding</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2">
+<a href="#looking-to-relations-for-future-trajectory-forecast">Looking to Relations for Future Trajectory Forecast</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1-spatio-temporal-interactions">1. Spatio-Temporal Interactions</a></li>
+<li class="toc-entry toc-h3"><a href="#2-relation-gate-module">2. Relation Gate Module:</a></li>
+<li class="toc-entry toc-h3"><a href="#3-trajectory-prediction-network">3. Trajectory Prediction Network</a></li>
+<li class="toc-entry toc-h3"><a href="#4-refinement-with-spatial-dependencies">4. Refinement with Spatial Dependencies</a></li>
+<li class="toc-entry toc-h3"><a href="#5uncertainty-of-future-prediction">5.Uncertainty of Future Prediction</a></li>
+</ul>
+</li>
+</ul>
+    </div>
+</div>
+
+
+
+<script>
+    if (window.outerWidth >= 1664) {
+        window.onscroll = function () { stickToc() };
+        var position = $("#toc-container").position();
+        var toc = document.getElementById("toc-container");
+        var sticky_top = position.top;
+        var sticky_bottom = toc.clientHeight + sticky_top;
+        console.log(window.innerHeight);
+        toc.style.maxHeight = (window.innerHeight) + 'px';
+        function stickToc() {
+            if (window.pageYOffset >= sticky_top) {
+                toc.style.top = window.pageYOffset - 90 + 'px';
+            }
+            else {
+                toc.style.top = '0px';
+
+            }
+        }
+    }
+
+    function collapse_toc() {
+        console.log("here");
+        var toc = document.getElementById("toc-inner");
+        var toc_container = document.getElementById("toc-container");
+        if (toc.style.display != "none") {
+            toc.style.display = "none";
+            toc_container.style["border-left"] = "0"
+        }
+        else {
+            toc.style.display = "block";
+            toc_container.style["border-left"] = "1px solid lightgrey"
+        }
+    }
+</script>
+
+    
+    
+
+    <div class="post-content inner-sm width-limited">
+
+      <table>
+  <thead>
+    <tr>
+      <th>Paper</th>
+      <th>Year</th>
+      <th>Conference</th>
+      <th>Keywords</th>
+      <th>Paper Link</th>
+      <th>Code</th>
+      <th>ETH</th>
+      <th>HOTEL</th>
+      <th>UNIV</th>
+      <th>Zara1</th>
+      <th>Zara2</th>
+      <th>SDD</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="col-gan-plausible-and-collision-less-trajectory-prediction-by-attention-based-gan">CoL-GAN: Plausible and Collision-Less Trajectory Prediction by Attention-Based GAN</a></td>
+      <td>2020</td>
+      <td>IEEE</td>
+      <td>CNN-Based Discriminator; Attention Module in Decoder; Relative position and speed as Attention Input</td>
+      <td><a href="https://ieeexplore.ieee.org/ielx7/6287639/8948470/09063432.pdf">link</a></td>
+      <td> </td>
+      <td>0.48/0.93</td>
+      <td>0.27/0.46</td>
+      <td>0.53/1.12</td>
+      <td>0.33/0.68</td>
+      <td>0.27/0.58</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="dag-net-double-attentive-graph-neural-network-for-trajectory-forecasting">DAG-Net: Double Attentive Graph Neural Network for Trajectory Forecasting</a></td>
+      <td>2020</td>
+      <td>ICPR</td>
+      <td>Recurrent VAE;</td>
+      <td><a href="https://arxiv.org/pdf/2005.12661.pdf">link</a></td>
+      <td><a href="https://github.com/alexmonti19/dagnet">link</a></td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="dynamic-and-static-context-aware-lstm-for-multi-agent-motion-prediction">Dynamic and Static Context-aware LSTM for Multi-agent Motion Prediction</a></td>
+      <td>2020</td>
+      <td>ECCV</td>
+      <td>Individual Context Module; Social Aware Context Module; Sematntic Guidence; Temporal Correlation Coefficient</td>
+      <td><a href="https://arxiv.org/pdf/2008.00777.pdf">link</a></td>
+      <td> </td>
+      <td>0.66/1.21</td>
+      <td>0.27/0.46</td>
+      <td>0.50/1.07</td>
+      <td>0.33/0.68</td>
+      <td>0.28/0.60</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="evolvegraph-multi-agent-trajectory-prediction-with-dynamic-relational-reasoning">EvolveGraph: Multi-Agent Trajectory Prediction with Dynamic Relational Reasoning</a></td>
+      <td>2020</td>
+      <td>NeurIPS</td>
+      <td>Graph Learning; Static and Dynamic Interaction;GAT-like method</td>
+      <td><a href="https://arxiv.org/pdf/2003.13924.pdf">link</a></td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>13.9/22.9</td>
+    </tr>
+    <tr>
+      <td><a href="goal-driven-long-term-trajectory-prediction">Goal-driven Long-Term Trajectory Prediction </a></td>
+      <td>2021</td>
+      <td>WACV</td>
+      <td>Goal Channel; Controller sub-network</td>
+      <td><a href="https://openaccess.thecvf.com/content/WACV2021/papers/Tran_Goal-Driven_Long-Term_Trajectory_Prediction_WACV_2021_paper.pdf">link</a></td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="goal-gan-multimodal-trajectory-prediction-based-on-goal-position-estimation">Goal-GAN:Multimodal Trajectory Prediction Based on Goal Position Estimation</a></td>
+      <td>2020</td>
+      <td>ACCV</td>
+      <td>Goal Estimation; Routing Module; Gumbel Sampling; Attn Decoder; GAN;</td>
+      <td><a href="https://arxiv.org/pdf/2010.01114.pdf">link</a></td>
+      <td><a href="https://github.com/dendorferpatrick/GoalGAN">link</a></td>
+      <td>0.59/1.18</td>
+      <td>0.19/0.35</td>
+      <td>0.60/1.19</td>
+      <td>0.43/0.87</td>
+      <td>0.32/0.65</td>
+      <td>12.2/22.1</td>
+    </tr>
+    <tr>
+      <td><a href="graphtcn-spatio-temporal-interaction-modeling-for-human-trajectory-prediction">GraphTCN: Spatio-Temporal Interaction Modeling for Human Trajectory Prediction</a></td>
+      <td>2021</td>
+      <td>WACV</td>
+      <td>Edge feature based graph attention network(EFGAT); Temporal convolutional network(TCN);</td>
+      <td><a href="https://openaccess.thecvf.com/content/WACV2021/papers/Wang_GraphTCN_Spatio-Temporal_Interaction_Modeling_for_Human_Trajectory_Prediction_WACV_2021_paper.pdf">link</a></td>
+      <td> </td>
+      <td>0.39/0.75</td>
+      <td>0.18/0.33</td>
+      <td>0.30/0.60</td>
+      <td>0.20/0.39</td>
+      <td>0.16/0.32</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="trajectory-forecasts-in-unknown-environments-conditioned-on-grid-based-plans">Trajectory Forecasts in Unknown Environments Conditioned on Grid-Based Plans</a></td>
+      <td>2020</td>
+      <td>ArXiv</td>
+      <td>Inversed Reinforcement Learning; Soft attention; Goal-based</td>
+      <td><a href="https://arxiv.org/pdf/2001.00735.pdf">link</a></td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>12.58/22.07</td>
+    </tr>
+    <tr>
+      <td><a href="how-can-i-see-my-future-fvtraj-using-first-person-view-for-pedestrian-trajectory-prediction">How Can I See My Future? FvTraj: Using First-person View for Pedestrian Trajectory Prediction</a></td>
+      <td>2020</td>
+      <td>ECCV</td>
+      <td>Attention Module; Simulated first-person view image</td>
+      <td><a href="http://graphics.cs.uh.edu/wp-content/papers/2020/2020-ECCV-PedestrianTrajPrediction.pdf">link</a></td>
+      <td> </td>
+      <td>0.56/1.14</td>
+      <td>0.28/0.55</td>
+      <td>0.52/1.12</td>
+      <td>0.37/0.78</td>
+      <td>0.32/0.68</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="human-trajectory-forecasting-in-crowds-a-deep-learning-perspective">Human Trajectory Forecasting in Crowds: A Deep Learning Perspective</a></td>
+      <td>2020</td>
+      <td>ArXiv</td>
+      <td>Lituracture Review; Non-grid Based &amp;  Grid-based;</td>
+      <td><a href="https://arxiv.org/pdf/2007.03639.pdf">link</a></td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="it-is-not-the-journey-but-the-destination-endpoint-conditioned-trajectory-prediction">It is not the Journey but the Destination- Endpoint Conditioned Trajectory Prediction</a></td>
+      <td>2020</td>
+      <td>ECCV</td>
+      <td>Goal-based method; VAE; KL Divergence Loss; Average Endpoint Los, Average Trajctory Loss; Non-Local Social Pooling; Truncation trick</td>
+      <td><a href="https://arxiv.org/pdf/2004.02025.pdf">link</a></td>
+      <td> </td>
+      <td>0.54/0.87</td>
+      <td>0.18/0.24</td>
+      <td>0.35/0.60</td>
+      <td>0.22/0.39</td>
+      <td>0.17/0.30</td>
+      <td>9.96/15.88</td>
+    </tr>
+    <tr>
+      <td><a href="recursive-social-behavior-graph-for-trajectory-prediction">Recursive Social Behavior Graph for Trajectory Prediction </a></td>
+      <td>2020</td>
+      <td>CVPR</td>
+      <td>CNN for Patch Image Input; BiLSTM; GCN; Handcraft Group Annotation; Exponential Loss</td>
+      <td><a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Sun_Recursive_Social_Behavior_Graph_for_Trajectory_Prediction_CVPR_2020_paper.pdf">link</a></td>
+      <td> </td>
+      <td>0.80/1.53</td>
+      <td>0.33/0.64</td>
+      <td>0.59/1.25</td>
+      <td>0.40/0.86</td>
+      <td>0.30/0.65</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="self-growing-spatial-graph-networks-for-pedestrian-trajectory-prediction">Self-Growing Spatial Graph Networks for Pedestrian Trajectory Prediction </a></td>
+      <td>2020</td>
+      <td>WACV</td>
+      <td>Spatial Graphic Network; Multiple Stacked GRU; motion features;</td>
+      <td><a href="https://openaccess.thecvf.com/content_WACV_2020/papers/Haddad_Self-Growing_Spatial_Graph_Networks_for_Pedestrian_Trajectory_Prediction_WACV_2020_paper.pdf">link</a></td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="sila-an-incremental-learning-approach-for-pedestrian-trajectoryprediction">SILA: An Incremental Learning Approach for Pedestrian TrajectoryPrediction</a></td>
+      <td>2020</td>
+      <td>CVPR</td>
+      <td>Similarty -based Icremental Learning Algorithm; Speed Improve;</td>
+      <td><a href="https://openaccess.thecvf.com/content_CVPRW_2020/papers/w66/Habibi_SILA_An_Incremental_Learning_Approach_for_Pedestrian_Trajectory_Prediction_CVPRW_2020_paper.pdf">link</a></td>
+      <td> </td>
+      <td>0.56/1.23</td>
+      <td>0.27/0.63</td>
+      <td>0.55/1.25</td>
+      <td>0.29/0.63</td>
+      <td>0.32/0.72</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="smart-simultaneous-multi-agent-recurrent-trajectory-prediction">SMART: Simultaneous Multi-Agent Recurrent Trajectory Prediction</a></td>
+      <td>2020</td>
+      <td>ECCV</td>
+      <td>ConvLSTM;CVAEs; O(1)</td>
+      <td><a href="https://arxiv.org/pdf/2007.13078.pdf">link</a></td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="social-nce-contrastive-learning-of-socially-aware-motion-representations">Social NCE: Contrastive Learning of Socially-aware Motion Representations</a></td>
+      <td>2020</td>
+      <td>NeurIPS</td>
+      <td>Contrastive Represent Learning; InfoNCE Loss; Contrastive Sampling</td>
+      <td><a href="https://arxiv.org/pdf/2012.11717.pdf">link</a></td>
+      <td><a href="https://github.com/vita-epfl/social-nce">link</a></td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="social-stgcnn-a-social-spatio-temporal-graph-convolutional-neural-network-for-human-trajectory-prediction">Social-STGCNN: A Social Spatio-Temporal Graph Convolutional Neural Network for Human Trajectory Prediction</a></td>
+      <td>2020</td>
+      <td>CVPR</td>
+      <td>GCNN;</td>
+      <td><a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Mohamed_Social-STGCNN_A_Social_Spatio-Temporal_Graph_Convolutional_Neural_Network_for_Human_CVPR_2020_paper.pdf">link</a></td>
+      <td><a href="https://github.com/abduallahmohamed/Social-STGCNN">link</a></td>
+      <td>0.64/1.11</td>
+      <td>0.49/0.85</td>
+      <td>0.44/0.79</td>
+      <td>0.34/0.53</td>
+      <td>0.30/0.48</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="social-wagdat-interaction-aware-trajectory-prediction-via-wasserstein-graph-double-attention-network">Social-WaGDAT: Interaction-aware Trajectory Prediction via Wasserstein Graph Double-Attention Network</a></td>
+      <td>2020</td>
+      <td>ArXiv</td>
+      <td>Two GAT system; Kinematic Constraint;Wasserstein generative learning</td>
+      <td><a href="https://arxiv.org/pdf/2002.06241.pdf">link</a></td>
+      <td> </td>
+      <td>0.52/0.91</td>
+      <td>0.61/0.87</td>
+      <td>0.43/1.12</td>
+      <td>0.33/0.62</td>
+      <td>0.32/0.70</td>
+      <td>22.52/38.27</td>
+    </tr>
+    <tr>
+      <td><a href="spatio-temporal-graph-transformer-networks-for-pedestrian-trajectory-prediction">Spatio-Temporal Graph Transformer Networks for Pedestrian Trajectory Prediction</a></td>
+      <td>2020</td>
+      <td>ECCV</td>
+      <td>Transformer Network; TGConv; 2-encoder structure; Graph Memory</td>
+      <td><a href="https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123570494.pdf">link</a></td>
+      <td><a href="https://github.com/Majiker/STAR">link</a></td>
+      <td>0.36/0.65</td>
+      <td>0.17/0.36</td>
+      <td>0.31/0.62</td>
+      <td>0.26/0.55</td>
+      <td>0.22/0.46</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="the-garden-of-forking-paths-towards-multi-future-trajectory-prediction">The Garden of Forking Paths: Towards Multi-Future Trajectory Prediction</a></td>
+      <td>2020</td>
+      <td>CVPR</td>
+      <td>multi-scale location encodings; convolutional RNNs over graphs</td>
+      <td><a href="https://openaccess.thecvf.com/content_CVPR_2020/papers/Liang_The_Garden_of_Forking_Paths_Towards_Multi-Future_Trajectory_Prediction_CVPR_2020_paper.pdf">link</a></td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="trajectron-dynamically-feasible-trajectory-forecasting-with-heterogeneous-data">Trajectron++: Dynamically-Feasible Trajectory Forecasting With Heterogeneous Data</a></td>
+      <td>2020</td>
+      <td>ECCV</td>
+      <td> </td>
+      <td><a href="https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123630664.pdf">link</a></td>
+      <td><a href="https://github.com/StanfordASL/Trajectron-plus-plus">link</a></td>
+      <td>0.43/0.86</td>
+      <td>0.12/0.19</td>
+      <td>0.22/0.43</td>
+      <td>0.17/0.32</td>
+      <td>0.12/0.25</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="multiple-futures-prediction">Multiple Futures Prediction</a></td>
+      <td>2019</td>
+      <td>NeurIPS</td>
+      <td> </td>
+      <td><a href="http://papers.nips.cc/paper/9676-multiple-futures-prediction.pdf">link</a></td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="stgat-modeling-spatial-temporal-interactions-for-human-trajectory-prediction">STGAT: Modeling Spatial-Temporal Interactions for Human Trajectory Prediction</a></td>
+      <td>2019</td>
+      <td>ICCV</td>
+      <td>GAT; Spatio-temporal</td>
+      <td><a href="http://openaccess.thecvf.com/content_ICCV_2019/papers/Huang_STGAT_Modeling_Spatial-Temporal_Interactions_for_Human_Trajectory_Prediction_ICCV_2019_paper.pdf">link</a></td>
+      <td> </td>
+      <td>0.65/1.12</td>
+      <td>0.35/0.66</td>
+      <td>0.52/1.10</td>
+      <td>0.34/0.69</td>
+      <td>0.29/0.60</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="social-and-scene-aware-trajectory-prediction-in-crowded-spaces">Social and Scene-Aware Trajectory Prediction in Crowded Spaces</a></td>
+      <td>2019</td>
+      <td>ICCV</td>
+      <td>Schematic segmented Scenes</td>
+      <td><a href="https://arxiv.org/pdf/1909.08840.pdf">link</a></td>
+      <td><a href="https://github.com/Oghma/sns-lstm/">link</a></td>
+      <td> </td>
+      <td>0.36/0.67</td>
+      <td>0.63/1.41</td>
+      <td>0.45/1.00</td>
+      <td>0.40/0.90</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="trajectory-prediction-by-coupling-scene-lstm-with-human-movement-lstm">Trajectory Prediction by Coupling Scene-LSTM with Human Movement LSTM </a></td>
+      <td>2019</td>
+      <td>ISVC</td>
+      <td>Grid-based Modelling</td>
+      <td><a href="https://arxiv.org/pdf/1908.08908.pdf">link</a></td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="scene-compliant-trajectory-forecast-with-agent-centric-spatio-temporal-grids">Scene Compliant Trajectory Forecast with Agent-Centric Spatio-Temporal Grids </a></td>
+      <td>2019</td>
+      <td>ArXiv</td>
+      <td>Grid representation for scene and trajectory; ConvCNN; Scene Heatmap  Output;</td>
+      <td><a href="https://arxiv.org/pdf/1909.07507.pdf">link</a></td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>14.92/27.97</td>
+    </tr>
+    <tr>
+      <td><a href="trajectory-prediction-of-mobile-construction-resources-toward-pro-active-struck-by-hazard-detection">trajectory Prediction of Mobile Construction Resources Toward Pro-active Struck-by Hazard Detection</a></td>
+      <td>2019</td>
+      <td>ISARC</td>
+      <td>Hyperparamter Tunning</td>
+      <td><a href="https://www.iaarc.org/publications/fulltext/ISARC_2019_Paper_201.pdf">link</a></td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="learning-to-infer-relations-for-future-trajectory-forecast">Learning to Infer Relations for Future Trajectory Forecast </a></td>
+      <td>2019</td>
+      <td>CVPR</td>
+      <td>2D+3D for spatial temporal features; Heatmap Generation; Monte Carlo dropout</td>
+      <td><a href="https://openaccess.thecvf.com/content_CVPRW_2019/papers/Precognition/Choi_Learning_to_Infer_Relations_for_Future_Trajectory_Forecast_CVPRW_2019_paper.pdf">link</a></td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="looking-to-relations-for-future-trajectory-forecast">Looking to Relations for Future Trajectory Forecast </a></td>
+      <td>2019</td>
+      <td>ICCV</td>
+      <td>Relational Model;</td>
+      <td><a href="https://openaccess.thecvf.com/content_ICCV_2019/papers/Choi_Looking_to_Relations_for_Future_Trajectory_Forecast_ICCV_2019_paper.pdf">link</a></td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="multi-agent-tensor-fusion-for-contextual-trajectory-prediction">Multi-Agent Tensor Fusion for Contextual Trajectory Prediction</a></td>
+      <td>2019</td>
+      <td>CVPR</td>
+      <td>Spatial Fusion; GAN;</td>
+      <td><a href="https://openaccess.thecvf.com/content_CVPR_2019/papers/Zhao_Multi-Agent_Tensor_Fusion_for_Contextual_Trajectory_Prediction_CVPR_2019_paper.pdf">link</a></td>
+      <td> </td>
+      <td>1.01/1.75</td>
+      <td>0.43/0.80</td>
+      <td>0.44/0.91</td>
+      <td>0.26/0.45</td>
+      <td>0.26/0.57</td>
+      <td>22.59/33.53</td>
+    </tr>
+    <tr>
+      <td><a href="sr-lstm-state-refinement-for-lstm-towards-pedestrian-trajectory-prediction">SR-LSTM: State Refinement for LSTM towards Pedestrian Trajectory Prediction </a></td>
+      <td>2019</td>
+      <td>CVPR</td>
+      <td>Soft Attention;  Social Intraction; Information filter</td>
+      <td><a href="https://openaccess.thecvf.com/content_CVPR_2019/papers/Zhang_SR-LSTM_State_Refinement_for_LSTM_Towards_Pedestrian_Trajectory_Prediction_CVPR_2019_paper.pdf">link</a></td>
+      <td><a href="https://github.com/zhangpur/SR-LSTM">link</a></td>
+      <td>0.63/1.25</td>
+      <td>0.37/0.74</td>
+      <td>0.51/1.10</td>
+      <td>0.41/0.90</td>
+      <td>0.32/0.70</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><a href="social-ways-learning-multi-modal-distributions-of-pedestrian-trajectories-with-gans">Social Ways: Learning Multi-Modal Distributions of Pedestrian Trajectories With GANs</a></td>
+      <td>2019</td>
+      <td>CVPR</td>
+      <td>Info GAN</td>
+      <td><a href="http://openaccess.thecvf.com/content_CVPRW_2019/papers/Precognition/Amirian_Social_Ways_Learning_Multi-Modal_Distributions_of_Pedestrian_Trajectories_With_GANs_CVPRW_2019_paper.pdf">link</a></td>
+      <td><a href="https://github.com/amiryanj/socialways">link</a></td>
+      <td>0.39/0.64</td>
+      <td>0.39/0.66</td>
+      <td>0.55/1.31</td>
+      <td>0.44/0.64</td>
+      <td>0.51/0.92</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="goal-gan-multimodal-trajectory-prediction-based-on-goal-position-estimation">Goal-GAN: Multimodal Trajectory Prediction Based on Goal Position Estimation</h2>
+<p><img src="media/16105146218643/16105168936257.jpg" alt="">
+This paper proposes Goal-GAN, a two-stage end-to-end trainable trajectory prediction method inspired by human navigation, which separates the prediction task into goal position estimation and routing. It designs a novel architecture that explicitly estimates an interpretable probability distribution of future goal positions and allows us to sample from it.</p>
+
+<h3 id="1-goal-module">1. Goal Module:</h3>
+<ul>
+  <li>RGB image with $H \times W$ as module input</li>
+  <li>U-Net as the encoder-decoder CNN network
+    <ul>
+      <li>Outputs a score map $\alpha = (\alpha_1, \alpha_2,\cdots, \alpha_n)$</li>
+      <li>Gumbel-Softmax Loss</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="2-motion-encoder">2. Motion Encoder</h3>
+<ul>
+  <li>Simple LSTM block similar to Social GAN</li>
+  <li>Aims to extract social features</li>
+</ul>
+
+<h3 id="3-routing-module">3. Routing Module</h3>
+<ul>
+  <li>Consists of <strong>an LSTM network</strong>, <strong>a visual soft attention network (ATT)</strong>, and <strong>an additional MLP layer that combines the attention map with the output of the LSTM</strong> iteratively at each timestep.</li>
+</ul>
+
+<h3 id="4-discriminator">4. Discriminator:</h3>
+<ul>
+  <li>1 x LSTM for observation sequence</li>
+  <li>1 x LSTM for predicted sequence</li>
+  <li>CNN for image patch centered around the current position at each time $t$</li>
+  <li>1 x LSTM for final output</li>
+</ul>
+
+<h3 id="5-losses">5. Losses:</h3>
+<ol>
+  <li>$L_2$ distance: 
+  <script type="math/tex">\min_k \||Y - \hat{Y}^{k}\||_2</script>
+</li>
+  <li>Least Squares Generative Adversarial Network: 
+  <script type="math/tex">L_{adv} = \frac{1}{2} E[D(X,Y) -1)^2 + \frac{1}{2}E[D(X,\hat{Y})^2]</script>
+</li>
+  <li>Goal achievement losses: 
+  <script type="math/tex">L_G = \||g-\hat{Y}^{t_{pred}}\||</script>
+</li>
+  <li>Cross-Entropy loss: 
+  <script type="math/tex">L_{GCE} = -log(p_i)</script>
+</li>
+  <li>Total Loss:
+  <script type="math/tex">L = \lambda_{adv} L_{adv} + L_{L_2} + \alpha_G L_G + \lambda_{GCE} L_{GCE}</script>
+</li>
+</ol>
+
+<h2 id="spatio-temporal-graph-transformer-networks-for-pedestrian-trajectory-prediction">Spatio-Temporal Graph Transformer Networks for Pedestrian Trajectory Prediction</h2>
+<p><img src="media/16105146218643/16105207586767.jpg" alt="-w758">
+In this paper presents STAR, a Spatio-Temporal grAph tRans- former framework, which tackles trajectory prediction by only attention mechanisms. STAR models intra-graph crowd interaction by TGConv, a novel Transformer-based graph convolution mechanism. The inter-graph temporal dependencies are modeled by separate temporal Transformers. STAR captures complex spatio-temporal interactions by interleav- ing between spatial and temporal Transformers. To calibrate the temporal prediction for the long-lasting effect of disappeared pedestrians, we introduce a read-writable external memory module, consistently being updated by the temporal Transformer.</p>
+
+<h3 id="1-temporal-transformer">1. Temporal Transformer</h3>
+<p><script type="math/tex">% <![CDATA[
+\newenvironment{rcases}
+  {\left.\begin{aligned}}
+  {\end{aligned}\right\rbrace}
+  \begin{aligned}
+\begin{rcases}
+\textbf{Query:} \space  Q_i &= f_Q({h^i_j})\\
+\textbf{Key:}K_i &= f_Q({h^i_j})\\
+\textbf{Value:}V_i &= f_Q({h^i_j})\\
+\end{rcases}
+&\Longrightarrow 
+Att(Q_i,K_i,V_i) = \frac{Softmax(Q_i K_{iT})}{\sqrt{d_k}} V_i\\
+\\
+&\Longrightarrow  MultiHead(Q_i,K_i,V_i) = f_O(Att(Q_i,K_i,V_i))
+\end{aligned} %]]></script></p>
+
+<h3 id="2-spatial-transformer">2. Spatial Transformer</h3>
+<ul>
+  <li>
+<strong>TGConv</strong>
+    <ul>
+      <li>A transformer version of GAT</li>
+    </ul>
+  </li>
+</ul>
+
+<script type="math/tex; mode=display">Attn(Q,K,V) = \frac{Softmax([m^{j\rightarrow i}]_{i,j = 1:n})}{\sqrt{dk}}[v_i]_{i=1}^{n}\\
+\textbf{where the message from node j to i in the fully connected graph}\\ \space m^{j\rightarrow i} = q_i^Tk_j</script>
+
+<h3 id="3-spatio-temporal-graph-transformer">3. Spatio-Temporal Graph Transformer</h3>
+<ul>
+  <li>Encoder 1:
+    <ul>
+      <li>To extract independent spatial and temporal information from the pedestrian history.</li>
+    </ul>
+  </li>
+  <li>Encoder 2:
+    <ul>
+      <li>spatial Transformer models spatial interaction with temporal information;</li>
+      <li>the temporal Transformer enhances the output spatial embeddings with temporal attentions.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="4-external-graph-memory">4. External Graph Memory</h3>
+<ul>
+  <li>
+    <p>In encoder 1, the temporal Transformer ﬁrst reads from memory $M$ the past graph embeddings $ {\tilde{h} _1, \tilde{h} _2,\cdots, \tilde{h} _{t-1}} $ and concatenate it with the current graph embedding $h_t$.</p>
+
+    <script type="math/tex; mode=display">\{\tilde{h}_1,\tilde{h}_2,\cdots,\tilde{h}_{t-1}\} = f_{read}(M) = \{M_1,M_2,M_3,\cdots,M_{t-1}\}</script>
+  </li>
+  <li>
+    <p>In encoder 2,  the output of Temporal Transformer is written to the graph memory which performs a smoothing over the time series data. <br>
+<script type="math/tex">M' = f_{write}(\{h'_1,h'_2,\cdots,h'_i\},M) =\{h'_1,h'_2,\cdots,h'_i\}</script></p>
+  </li>
+</ul>
+
+<h2 id="it-is-not-the-journey-but-the-destination-endpoint-conditioned-trajectory-prediction">It is not the Journey but the Destination: Endpoint Conditioned Trajectory Prediction</h2>
+<p><img src="media/16105146218643/16107203965010.jpg" alt="-w1167"></p>
+
+<h3 id="1-endpoint-vae">1. Endpoint VAE</h3>
+
+<ul>
+  <li>Definition:
+    <ul>
+      <li>past histories:  $\tau^k_p = {(x,y)}_{i=1}^{t_f}$ for pedestrian $p_k$</li>
+      <li>socially compliant future trajectories $\tau^k_f = {(x,y)}_{i=t_p + 1}^{t_p+t_f}$ for pedestrian $p_k$.</li>
+      <li>finally: $\hat{\mathcal{G}_k}, \mathcal{G}_k = {(x,y)}\rvert  _{t_p+t_f} $.</li>
+    </ul>
+  </li>
+  <li>Detail:</li>
+</ul>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\newenvironment{rcases}
+    {\left.\begin{aligned}}
+    {\end{aligned}\right\rbrace}
+    \begin{aligned}
+  \begin{rcases}
+  \space  \mathbf{E}_{past}(\tau_i)\\
+  \textbf{Key:}\space\mathbf{E}_{end}(\mathcal{G}_i)\\
+  \end{rcases}
+  &\xrightarrow{\mathbf{E}_{latent}}
+  (\mu,\sigma)\Rightarrow N(\mu,\sigma^2) \sim Z \\\\
+  \Longrightarrow
+  \begin{rcases}
+  Z\\
+  \mathbf{E}_{past}(\tau_i)
+  \end{rcases}
+  &\xrightarrow{\mathbf{D}_{latent}} \hat{\mathcal{G}}_i
+  \end{aligned} %]]></script>
+
+<h3 id="2-endpoint-conditioned-trajectory-prediction">2. Endpoint conditioned Trajectory Prediction</h3>
+<p>Social Pooling Matrix:
+<img src="media/16105146218643/16107326363430.jpg" alt="-w1284">
+<img src="media/16105146218643/16107332023249.jpg" alt="-w1207"></p>
+
+<h3 id="3-loss">3. Loss</h3>
+<p><img src="media/16105146218643/16107329252827.jpg" alt="-w1125"></p>
+<ul>
+  <li>KL divergence term is used for training the Variational Autoencoder</li>
+  <li>the Average endpoint Loss (AEL) trains $E_{end}$, $E_{past}$, $E_{latent}$ and $D_{latent}$</li>
+  <li>Average Trajectory Loss (ATL) trains the entire module together.</li>
+</ul>
+
+<h2 id="evolvegraph-multi-agent-trajectory-prediction-with-dynamic-relational-reasoning">EvolveGraph: Multi-Agent Trajectory Prediction with Dynamic Relational Reasoning</h2>
+<p><img src="media/16105146218643/16108926207575.jpg" alt="-w949">
+The main contributions of this paper are summarized as:</p>
+
+<ul>
+  <li>
+    <p>It proposes a generic trajectory forecasting framework with explicit interaction modelling via a latent graph among multiple heterogeneous, interactive agents. Both trajectory information and context information (e.g. scene images, semantic maps, point cloud density maps) can be incorporated into the system.</p>
+  </li>
+  <li>
+    <p>It proposes a dynamic mechanism to evolve the underlying interaction graph adaptively along time, which captures the dynamics of interaction patterns among multiple agents. We also introduce a double-stage training pipeline which not only improves training efﬁciency and accelerates convergence, but also enhances model performance in terms of prediction accuracy.</p>
+  </li>
+  <li>
+    <p>The proposed framework is designed to capture the uncertainty and multi-modality of future trajectories in nature from multiple aspects.</p>
+  </li>
+  <li>
+    <p>The proposed framework is validated on both synthetic simulations and trajectory forecasting benchmarks in different areas. Our EvolveGraph achieves the state-of-the-art performance consistently.</p>
+  </li>
+</ul>
+
+<h3 id="1-static-interact-on-graph-learning">1. Static interact on graph learning</h3>
+<p><img src="media/16105146218643/16108970156443.jpg" alt="-w610"></p>
+
+<ul>
+  <li>
+    <p><strong>Observation Graph</strong> aims to extract feature embeddings from raw observations, which consists of N agent nodes and one context node. Agent nodes are bidirectionally connected to each other, and the context node only has outgoing edges to each agent node. Each agent node has two types of attributes: self-attribute and social-attribute. The former only contains the node’s own state information, while the latter only contains other nodes’ state information.</p>
+  </li>
+  <li>
+    <p><strong>Interaction Graph</strong> is presented by different edge type. No edge between a pair of nodes means that the two nodes have no relation. The interaction graph represents interaction patterns with a distribution of edge types for each edge, which is built on top of the observation graph.</p>
+  </li>
+  <li>
+    <p><strong>Encoding process</strong> is to infer a latent interaction graph from the observation graph, which is essentially a multi-class edge classification task.</p>
+  </li>
+  <li>
+    <p><strong>Recurrent Decoder</strong>is applied to the interaction graph and observation graph to approximate the distribution of future trajectories.</p>
+  </li>
+</ul>
+
+<h3 id="2-dynamic-interaction-graph">2. Dynamic interaction graph</h3>
+<p>In many situations, the interaction patterns recognized from the past time steps are likely not static in the future. Moreover, many interaction systems have multi-modal properties in nature. Different modalities afterwards are likely to result in different interaction patterns and outcomes. Therefore, we designed a dynamic evolving process of the interaction patterns.</p>
+
+<h3 id="3-uncertainty-and-multi-modality">3. Uncertainty and Multi-modality</h3>
+<ol>
+  <li>Gaussian Mixture distribution in decoder</li>
+  <li>Different sampled trajectories will lead to different interaction graph evolution.</li>
+  <li>Variety loss</li>
+</ol>
+
+<h3 id="4-loss">4. Loss</h3>
+<p><img src="media/16105146218643/16108975158902.jpg" alt="-w1191"></p>
+
+<h2 id="social-wagdat-interaction-aware-trajectory-prediction-via-wasserstein-graph-double-attention-network">Social-WaGDAT: Interaction-aware Trajectory Prediction via Wasserstein Graph Double-Attention Network</h2>
+<p><img src="media/16105146218643/16107019503809.jpg" alt="-w840">
+This paper proposes a generic generative neural system (called Social-WaGDAT) for multi-agent trajectory prediction, which makes a step forward to explicit interaction modelling by incorporating relational inductive biases with a dynamic graph representation and leverages both trajectory and scene context information. We also employ an efficient kinematic constraint layer applied to vehicle trajectory prediction which not only ensures physical feasibility but also enhances model performance.</p>
+
+<h3 id="1-feature-extraction">1. Feature Extraction</h3>
+<ul>
+  <li>
+<strong>State MLP</strong> embeds the position</li>
+  <li>
+<strong>Relation MLP</strong> embeds the relative information between each pair of agents
+    <ul>
+      <li>The distance and relative angle (in a 2D polar coordinate)</li>
+      <li>The differences between the positions of the two agents along two axes</li>
+    </ul>
+  </li>
+  <li>
+<strong>Context CNN</strong> extracts spatial features for each agent from a local occupancy density map $(H \times W \times 1)$ as well as heuristic features from a local velocity ﬁeld $(H \times W \times 2)$ centered on the corresponding agent.</li>
+</ul>
+
+<h3 id="2-encoder-with-graphic-double-attentiongdat">2. Encoder with Graphic Double Attention(GDAT)</h3>
+<ul>
+  <li>History Graph &amp; Future Graph
+    <ul>
+      <li>the state features and context features are concatenated to be the node attributes</li>
+      <li>the relation features are used as edge attributes.</li>
+      <li>generated and processed in a similar fashion but with different time stamps.</li>
+      <li>The number of nodes (agents) in a graph is assumed to be ﬁxed, but the edges are eliminated if the spatial distance between two nodes is larger than a threshold.</li>
+    </ul>
+  </li>
+  <li>Topological Attention Layer
+    <ul>
+      <li>the agents with similar node attributes to the objective agent or with small spatial distance should be paid more attention to.</li>
+    </ul>
+  </li>
+  <li>Temporal Attention Layer
+    <ul>
+      <li>Input is the output of the topological ¯V attention layer</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="2-decoder-with-kinematic-constraint">2. Decoder with Kinematic Constraint</h3>
+<p><script type="math/tex">\begin{cases} 
+    \dot{x} = v \cos(\psi + \beta)  \\ 
+    \dot{y} =  v \sin(\psi + \beta) \\
+    \dot{\psi} = \frac{v}{l_r} \sin{\beta}
+\end{cases}
+\Rightarrow
+\begin{cases} 
+    \tau_{t} = [x_t,y_t,\psi_t]^T \\
+    a_{t} = [\dot{x}_t,\dot{y}_t,\dot{\psi}_t]^T \\
+    u_{t} = [v_t , \beta_t]^T
+\end{cases}
+\Rightarrow
+\begin{cases} 
+    \tau_{t+1} = \tau_t + a_t \Delta t \\
+    a_{t+1} = u_t + \dot{u} \Delta_t \\
+    a_{t} = f(u_t,\dot{u}_t, \tau_t)
+\end{cases}</script></p>
+
+<ul>
+  <li>$x$, $y$ are the coordinates of the center of mass</li>
+  <li>$\psi$ is the inertial heading</li>
+  <li>$v$ is the speed of the vehicle.</li>
+  <li>$\beta$ is the angle of the current velocity of the center of mass with respect to the longitudinal axis of the car</li>
+</ul>
+
+<h3 id="3-loss-function">3. Loss Function</h3>
+<ul>
+  <li>Wasserstein generative learning</li>
+  <li>optimization problem:
+<img src="media/16105146218643/16107202643215.jpg" alt="-w507">
+</li>
+  <li>Loss function:
+<img src="media/16105146218643/16107202966487.jpg" alt="-w464">
+</li>
+</ul>
+
+<h2 id="social-nce-contrastive-learning-of-socially-aware-motion-representations">Social NCE: Contrastive Learning of Socially-aware Motion Representations</h2>
+<p><img src="media/16105146218643/16107026038216.jpg" alt="-w1124">
+This paper proposes a social contrastive learning method to incorporate prior knowledge into motion representation learning. It adapts this learning approach in the multi-agent context and introduce Social-NCE as an auxiliary loss. Social-NCE encourages the extracted motion representation to preserve sufficient information for distinguishing a positive future event from a set of synthetic knowledge-driven negative events.</p>
+
+<h3 id="1-contrastive-representation-learning">1. Contrastive Representation Learning</h3>
+
+<p><strong>InfoNCE loss:</strong> Maximise the lower bound on the mutual information between the raw input and the latent representation.</p>
+
+<script type="math/tex; mode=display">L_{NCE} = -\log{\frac{\exp(sim(q,k^+)/\tau)}{\sum_{n=0}^n \exp(sim(q,k_n)/\tau)}} \space \textbf{where} \space sim(u,v) = \frac{u^Tv}{\||u\||\cdot \||v\||}</script>
+
+<ul>
+  <li>$\tau$: temperature hyperparameter</li>
+  <li>$q$: encoded query</li>
+</ul>
+
+<h3 id="2-social-nce">2. Social NCE</h3>
+
+<script type="math/tex; mode=display">L_{\text{Social NCE}} = -\log{\frac{\exp(\psi(h_i) \cdot \phi(s^i_{t+\delta t}, \delta t)/\tau)}{\sum_{n=0}^n \exp(\exp(\psi(h_i) \cdot \phi(s^i_{t+\delta t}, \delta t)/\tau)}} \space</script>
+
+<ul>
+  <li>query: $q = \psi(h_i)$</li>
+  <li>key: $k = \phi(s^i_{t+\delta t}, \delta t)$ where $s^i_{t+\delta t} = g(h_i)$ for the future path.</li>
+  <li>$\psi$,$\phi$ are MLP layers</li>
+</ul>
+
+<p><strong>Full training objective</strong>:
+<script type="math/tex">L(f,g,\psi,\phi) = L_{task}(f,g) + \lambda L_{\text{Social NCE}}</script></p>
+
+<ul>
+  <li>$L_{task}(f,g)$ can be any convention task loss such as $L_{L_2}$ or Negative Log-Likelihood</li>
+</ul>
+
+<h3 id="3-multi-agent-contrastive-sampling">3. Multi-agent Contrastive Sampling</h3>
+<ul>
+  <li>Draw a set of negative samples from the neighborhood of other agents in the future at time $t + \delta t$:
+  <script type="math/tex">s_{t + \delta t}^{i,n-} = s^j_{t+\delta t} + \Delta s_p + \epsilon</script>
+    <ul>
+      <li>$j\in { 1,2,\cdots, M }/ i$ is the index of other agents</li>
+      <li>$\Delta s_p = (\rho \cos \theta_p, \rho \sin  \theta_p )$</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="human-trajectory-forecasting-in-crowds-a-deep-learning-perspective">Human Trajectory Forecasting in Crowds: A Deep Learning Perspective</h2>
+<p>This paper presents an in-depth analysis of existing deep learning-based methods for modelling social interactions. It proposes two knowledge-based data-driven methods to effectively capture these social interactions.</p>
+
+<h3 id="grid-based-interaction-module">Grid Based Interaction Module</h3>
+
+<h3 id="non-grid-based-interaction-module">Non-Grid Based Interaction Module</h3>
+
+<h2 id="recursive-social-behavior-graph-for-trajectory-prediction">Recursive Social Behavior Graph for Trajectory Prediction</h2>
+<p><img src="media/16105146218643/16107262487372.jpg" alt="-w1027">
+This paper presents a novel insight of group-based social interaction model to explore relationships among pedestrians. It recursively extract social representations supervised by group-based annotations and formulate them into a social behaviour graph, called Recursive Social Behavior Graph. Its recursive mechanism explores the representation power largely. Graph Convolutional Neural Network then is used to propagate social interaction information in such a graph.</p>
+
+<h3 id="1-individual-representation">1. Individual Representation</h3>
+<ul>
+  <li>Historical Trajectory feature
+    <ul>
+      <li>Vanilla LSTM $\rightarrow$ BiLSTM</li>
+    </ul>
+  </li>
+  <li>Human context feature
+    <ul>
+      <li>For each time $t$, a image patch $s_i^t$ centered on $(x_i^t,y_i^t)$ is fed to $CNN$ to $V_i$</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="2-relational-social-representation">2. Relational Social Representation</h3>
+<ul>
+  <li>Relational Labeling:
+    <ul>
+      <li>using 0/1 to represent whether two pedestrians are in the same group</li>
+      <li>Experts with sociology background determined</li>
+    </ul>
+  </li>
+  <li>Feature design
+    <ul>
+      <li>Relation map:  $R = softmax(g_s(F)g_o(F)^T) \in R^{N\times N}$</li>
+      <li>Feature map $f_i \in F \in R^{N \times L}$</li>
+      <li>$g_s$ and $g_o$ are fully connection network</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="3-recursive-social-behaviour-graph">3. Recursive Social Behaviour Graph</h3>
+<p><script type="math/tex">% <![CDATA[
+\begin{aligned}
+        &R_k = softmax(g_s(F_k)g_o(F_k)^T) \in R^{N\times N}\\
+        \text{with} \space &F_{k+1} = fc(F_k + R_kF_k)
+    \end{aligned} %]]></script></p>
+<ul>
+  <li>For initialization, features in $F_0$ are historical trajectories in global coordinate.</li>
+  <li>$k$ is the depth</li>
+</ul>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\newenvironment{rcases}
+      {\left.\begin{aligned}}
+      {\end{aligned}\right\rbrace}
+      \begin{aligned}
+    \begin{rcases}
+    R_a = Avg( \{R_i \rvert i =0\cdots n \}) \\ \\
+   \mathcal{V} = \{v_i = t_i \rvert 0\le i \le n\} \\\\
+   \mathcal{E} = \{e_{i_1 i_2} = R_a(i_1,i_2) \rvert 0 \le i_1, i_2 < n,  i_1\neq i_2\}\\
+    \end{rcases}
+    &\Longrightarrow 
+     \mathcal{G}_{RSB} = (\mathcal{V},\mathcal{E}) & \\\\     \textbf{where} \space R_a(i_1,i_2) \space \textbf{represents the value in row } &i_1 \textbf{ and column }i_2
+    \end{aligned} %]]></script>
+
+<h3 id="4-trajectory-generation">4. Trajectory Generation</h3>
+<p><script type="math/tex">% <![CDATA[
+\begin{aligned}
+\textbf{step 1:} \space v_i^m &= Relu(fc(GCN(v_j^{m-1},e_{i,j}))) \\
+\textbf{step 2:} \space u_i &= v_i^2 \text{ for social representation}\\
+\textbf{step 3:} \space \hat{Y}^t_i &= LSTM(h_i^t) \text{ with } \space h_i^0 = [f_i,u_i]
+\end{aligned} %]]></script></p>
+
+<h3 id="5-loss">5. Loss</h3>
+<p>Exponential $L_2$ loss to consider FDE: <script type="math/tex">L_{EL_2} = \||\hat{Y}_i^t - Y_i^t\||^2 \times e^\frac{t}{\gamma}</script></p>
+
+<h2 id="social-and-scene-aware-trajectory-prediction-in-crowded-spaces">Social and Scene-Aware Trajectory Prediction in Crowded Spaces</h2>
+
+<p><img src="media/16105146218643/16108217493744.jpg" alt="">
+This paper constructs an LSTM (long short-term memory)-based model considering three fundamental factors: people interactions, past observations in terms of previously crossed areas and semantics of surrounding space. The model encompasses several pooling mechanisms to join the above elements defining multiple tensors, namely social, navigation and semantic tensors.</p>
+
+<h3 id="navigation-tensor">Navigation Tensor</h3>
+
+<h3 id="semantic-tensor">Semantic Tensor</h3>
+
+<h3 id="social-tensor">Social Tensor</h3>
+
+<h2 id="sr-lstm-state-refinement-for-lstm-towards-pedestrian-trajectory-prediction">SR-LSTM: State Refinement for LSTM towards Pedestrian Trajectory Prediction</h2>
+<p><img src="media/16105146218643/16108880554536.jpg" alt="-w674"></p>
+
+<blockquote>
+  <p>Many methods rely on previous neighboring hidden states but ignore the important current intention of the neighbors.</p>
+</blockquote>
+
+<p>This paper proposes a data-driven state refinement module for LSTM network (SR-LSTM), which activates the utilization of the current intention of neighbors, and jointly and iteratively refines the current states of all participants in the crowd through a message passing mechanism. To effectively extract the social effect of neighbors, it further introduces a social-aware information selection mechanism consisting of an element-wise motion gate and a pedestrian-wise attention to select useful message from neighboring pedestrians.</p>
+
+<h3 id="1-sr-lstm-framework">1. SR-LSTM Framework</h3>
+
+<ul>
+  <li>Vanilla cell state in LSTM 
+<script type="math/tex">c_i^t = g_i^{f,t} \odot c_i^{t-1} + g_i^{u,t} \odot g_i^{c,t}</script>
+    <ul>
+      <li>$g$ donate the gate function</li>
+    </ul>
+  </li>
+  <li>Cell state in SR-LSTM
+<script type="math/tex">\hat{c}_i^{t,l+1} = \sum_{j\in N(i)} M_j (\hat{h}_j^{t,l},\hat{h}_i^{t,l}) + \hat{c}_i^{t,l}</script>
+    <ul>
+      <li>$M$ is the message passing function</li>
+      <li>$N(i)$ donates the neighbours of pedestrain $i$</li>
+      <li>$l$ denotes the message passing iteration index.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="2-message-passing-function">2. Message Passing Function</h3>
+
+<script type="math/tex; mode=display">M(j) = \frac{W^{mp} \hat{h} _j^{t,l}}{\|N_i\|}</script>
+
+<p>Here</p>
+<ul>
+  <li>The <script type="math/tex">\|N_i\|</script> donates the number of elements in $N(i)$</li>
+  <li>The $W^{mp}$ is a linear transformation using for transmitting the message from neighboring pedestrians to the pedestrian $i$.</li>
+</ul>
+
+<h3 id="3-social-aware-information-selection">3. Social-aware information selection</h3>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{aligned}
+        \hat{c}_i^{t,l+1} &= \sum_{j\in N(i)} M_j (\hat{h}_j^{t,l},\hat{h}_i^{t,l}) + \hat{c}_i^{t,l} \\
+        &= \sum_{j\in N(i)} W^{mp} \alpha_{i,j}^{t,l} \cdot (g_{i,j}^{m,t,l} \odot \hat{h}_j^{t,l})+ \hat{c}_i^{t,l}
+    \end{aligned} %]]></script>
+
+<ul>
+  <li>
+    <p><strong>Pedestrian-wise attention</strong> $ \alpha_{i,j}^{t,l} $ is attention weight vector</p>
+
+    <script type="math/tex; mode=display">\alpha_{i,j}^{t,l} = \frac{\exp( u_{i,j}^{t,l})}{\sum_{k} \exp(u_{i,k}^{t,l})}\space\text{where}\space u_{i,j}^{t,l} = w^{aT} [r_{i,j}^{t,k},\hat{h}_{i}^{t,k},h_{j}^{t,k}]</script>
+
+    <ul>
+      <li>The relative spatial location $r_{i,j}^{t,k} = \phi _r (x_i^t - x_j^t, y_i^t - y_j^t; W^T) $</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Motion gate</strong>
+  <script type="math/tex">g_{i,j}^{t,k} = \sigma (W^m [r_{i,j}^{t,k},\hat{h}_{i}^{t,k},h_{j}^{t,k}] + b^m)</script></p>
+  </li>
+</ul>
+
+<h2 id="multi-agent-tensor-fusion-for-contextual-trajectory-prediction">Multi-Agent Tensor Fusion for Contextual Trajectory Prediction</h2>
+<p><img src="media/16105146218643/16108983717809.jpg" alt="-w549">
+Multi-Agent Tensor Fusion(MATF) encodes multiple agents’ past trajectories and the scene context into a Multi-Agent Tensor, then applies convolutional fusion to capture multi-agent interactions while retaining the spatial structure of agents and the scene context. The model decodes recurrently to multiple agents’ future trajectories, using adversarial loss to learn stochastic predictions.</p>
+
+<h3 id="1scene-and-social-feature-generation">1.Scene and Social Feature generation</h3>
+<ol>
+  <li>
+    <p>The outputs of the LSTM encoders are 1-D agent state vectors: $ {x_1’, x_2’, \cdots, x_n’ } = LSTM({x_1, x_2, \cdots, x_n })$ at time $t = t_{final}$.</p>
+  </li>
+  <li>
+    <p>The output of the scene context encoder $CNN$ is a scaled feature map $c’ = CNN(I)$ retaining the spatial structure of the bird’s-eye view static scene context image.</p>
+  </li>
+</ol>
+
+<h3 id="2-tensor-fusion">2. Tensor Fusion</h3>
+<ol>
+  <li>
+    <p>Agent encodings ${x_1’, x_2’, \cdots, x_n’ }$ are placed into one bird’s-eye view spatial tensor, which is initialized to 0 and is of the same shape (width and height) as the encoded scene image $c′$.</p>
+  </li>
+  <li>
+    <p>The agent encodings are placed into the spatial tensor with respect to their positions at the last time step of their past trajectories.</p>
+  </li>
+  <li>
+    <p>This tensor is then concatenated with the encoded scene image in the channel dimension to get a combined tensor, say Multi-agent Tensor.</p>
+  </li>
+</ol>
+
+<h3 id="3-interaction-learning">3. Interaction Learning</h3>
+<ol>
+  <li>U-Net-like architectures to model interaction at different spatial scales: $C’’ = CNN(C’)$ with retaining shape.</li>
+</ol>
+
+<h3 id="4-decoding">4. Decoding</h3>
+<ol>
+  <li>
+    <p>The fused interaction features for each agent ${ x_1’’, x_2’’, \cdots, x_n’’ }$ are extracted according to their coordinates on $C’’$</p>
+  </li>
+  <li>
+    <p>The final agent encoding vectors ${ x_1’ + x_1’’, x_2’ + x_2’’, \cdots, x_n’ + x_n’’ }$</p>
+  </li>
+  <li>
+    <p>Finally, the final agent encoding vectors are sent to LSTM to get $\hat{y}_i$.</p>
+  </li>
+</ol>
+
+<h2 id="looking-to-relations-for-future-trajectory-forecast">Looking to Relations for Future Trajectory Forecast</h2>
+<p><img src="media/16105146218643/16109025883681.jpg" alt="-w1230"></p>
+
+<p>The main contributions of this paper are as follows:</p>
+<ol>
+  <li>
+    <p>Encoding of spatio-temporal behavior of agents and their interactions toward environments, corresponding to human-human and human-space interactions.</p>
+  </li>
+  <li>
+    <p>Design of relation gating process conditioned on the past motion of the target to capture more descriptive relations with a high potential to affect its future</p>
+  </li>
+  <li>
+    <p>Prediction of a pixel-level probability map that can be penalized with the guidance of spatial dependencies and extended to learn the uncertainty of the problem.</p>
+  </li>
+  <li>
+    <p>Improvement of model performance by 14−15% over the best state-of-the-art method using the proposed framework with aforementioned contributions.</p>
+  </li>
+</ol>
+
+<h3 id="1-spatio-temporal-interactions">1. Spatio-Temporal Interactions</h3>
+<ul>
+  <li>
+    <p>Spatial representations: $S = {s_1,s_2,\cdots,s_n } = CNN2D(I_t) \in \mathbb{R}^{\tau \times d \times d \times c}$</p>
+  </li>
+  <li>
+    <p>Spatio-temporal features: $O = CNN3D(S)$</p>
+  </li>
+  <li>
+    <p>the joint use the joint use of 2D conv for spatial  modelling and 3D for temporal model outperforms methods:</p>
+    <ul>
+      <li>3D for all</li>
+      <li>2D + LSTM</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="2-relation-gate-module">2. Relation Gate Module:</h3>
+<p><img src="media/16105146218643/16109042102078.jpg" alt="-w648"></p>
+
+<ul>
+  <li>relational features $F^k \in \mathbb{R}^{1 \times w} $</li>
+</ul>
+
+<h3 id="3-trajectory-prediction-network">3. Trajectory Prediction Network</h3>
+<ul>
+  <li>
+    <p>Heatmap $\hat{H} _A^k = a _{\psi}(F^k)$ where $a _{\psi} $ is a set of deconvolutional layers with Relu.</p>
+  </li>
+  <li>
+    <p>Corrected using $L_2$ loss</p>
+  </li>
+</ul>
+
+<h3 id="4-refinement-with-spatial-dependencies">4. Refinement with Spatial Dependencies</h3>
+<ul>
+  <li>Problem: a lack of spatial dependencies among heatmap predictions</li>
+</ul>
+
+<h3 id="5uncertainty-of-future-prediction">5.Uncertainty of Future Prediction</h3>
+<ul>
+  <li>Embeds the uncertainty of future prediction by adopting Monte Carlo (MC) dropout</li>
+</ul>
+
+    </div>
+    <!-- <footer class="post-meta inner-sm width-limited">
+      <time class="published" datetime="2021-01-14 00:00">January 14, 2021</time>
+    </footer> -->
+  </article><!-- .post -->
+
+  <!-- Next/previous post navigation TBD -->
+  <!--
+  <nav class="read-next inner-sm width-limited">
+    <h2 class="read-next-title line-top">Read Next</h2>
+    <div class="post-feed grid grid-col-2">
+      <article class="post grid-item">
+        <div class="post-inside">
+          <a class="post-thumbnail" href="#"><img src="#" alt="" /></a>
+          <header class="post-header">
+            <h3 class="post-title"><a href="#" rel="bookmark">Previous Post Title</a></h3>
+            <div class="post-meta">
+              <time class="published" datetime="">Previous post date</time>
+            </div>
+          </header>
+        </div>
+      </article>
+      <article class="post grid-item">
+        <div class="post-inside">
+          <a class="post-thumbnail" href="#"><img src="#" alt="" /></a>
+          <header class="post-header">
+            <h3 class="post-title"><a href="#" rel="bookmark">Next Post Title</a></h3>
+            <div class="post-meta">
+              <time class="published" datetime="">Next post date</time>
+            </div>
+          </header>
+        </div>
+      </article>
+    </div>
+  </nav>
+  -->
+</div>
+<!-- .inner -->
+  </main><!-- .site-content -->
+
+  
+</div>
+<!-- .site -->
+    <!-- Scripts -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            showProcessingMessages: false, //关闭js加载过程信息
+            messageStyle: "none", //不显示信息
+            extensions: ["tex2jax.js"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+            tex2jax: {
+                inlineMath:  [ ["$", "$"] ], //行内公式选择$
+                displayMath: [ ["$$","$$"] ], //段内公式选择$$
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'], //避开某些标签
+                ignoreClass:"comment-content" //避开含该Class的标签
+            },
+            "HTML-CSS": {
+                availableFonts: ["STIX","TeX"], //可选字体
+               
+               
+
+            }
+        });
+        MathJax.Hub.Queue(function(){
+            var all = MathJax.Hub.getAllJax(),i;
+            for(i=0;i<all.length;i++){
+                var jax = document.getElementById(all[i].inputID + '-Frame');
+                if(jax.parentNode.tagName == "DIV" ){
+                    jax.parentNode.classList.add('has-jax');
+                }else if(jax.parentNode.tagName == "P" && jax.parentNode.parentNode.tagName != "LI" ){
+                    jax.parentNode.classList.add('has-jax');
+                }
+            }
+        });
+        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script src="/assets/js/plugins.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+</body>
+<footer id="colophon" class="site-footer outer">
+  <div class="inner">
+    <div class="site-footer-inside">
+      <div class="site-info">
+        
+        
+        <span class="copyright">© Renhao Huang. All rights reserved.</span>
+        
+        
+      </div>
+<!-- .site-info -->
+      
+      
+      <div class="social-links">
+        
+
+        
+<a class=" button-icon" href="https://github.com/HRHLALALA" target="_blank" rel="noopener">
+  
+  <span class="icon fab fa-github" aria-hidden="true"></span><span class="screen-reader-text">GitHub</span>
+  
+</a>
+
+        
+
+        
+<a class=" button-icon" href="https://www.instagram.com/" target="_blank" rel="noopener">
+  
+  <span class="icon fab fa-instagram" aria-hidden="true"></span><span class="screen-reader-text">Instagram</span>
+  
+</a>
+
+        
+
+        
+<a class=" button-icon" href="https://dribbble.com/" target="_blank" rel="noopener">
+  
+  <span class="icon fab fa-envelope" aria-hidden="true"></span><span class="screen-reader-text">Dribbble</span>
+  
+</a>
+
+        
+
+        
+<a class=" button-icon" href="https://www.linkedin.com/" target="_blank" rel="noopener">
+  
+  <span class="icon fab fa-linkedin" aria-hidden="true"></span><span class="screen-reader-text">LinkedIn</span>
+  
+</a>
+
+        
+      </div>
+<!-- .social-links -->
+      
+    </div>
+<!-- .site-footer-inside -->
+  </div>
+<!-- .inner -->
+</footer><!-- .site-footer -->
+
+</html>

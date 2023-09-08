@@ -1,0 +1,175 @@
+[
+    
+    
+        {
+            
+            "thumb_image": "images/goal-gan.jpg",
+            "rel_dir" : "blog",
+            "title"    : "Goal-GAN: Multimodal Trajectory Prediction Based on Goal Position Estimation (Literacture Review)",
+            "category" : "",
+            "tags"     : "",
+            "url"      : "/blog/Goal-GAN:%20Multimodal%20Trajectory%20Prediction%20Based%20on%20Goal%20Position%20Estimation%20(Literacture%20Review)/",
+            "date"     : "2021-01-25",
+            "label"    : ""
+            
+        } ,
+    
+        {
+            
+            "thumb_image": "images/code-smell.png",
+            "rel_dir" : "blog",
+            "title"    : "Good Design - Python (Chinese)",
+            "category" : "",
+            "tags"     : "",
+            "url"      : "/blog/Good%20Design/",
+            "date"     : "2020-09-19",
+            "label"    : ""
+            
+        } ,
+    
+        {
+            
+            "thumb_image": "images/miss-yoga.png",
+            "rel_dir" : "portfolio",
+            "title"    : "Miss Yoga",
+            "category" : "",
+            "tags"     : "",
+            "url"      : "/portfolio/Miss%20Yoga/",
+            "date"     : "2020-09-17",
+            "label"    : ""
+            
+        } ,
+    
+        {
+            
+            "thumb_image": "images/photo_tutor_cover.png",
+            "rel_dir" : "portfolio",
+            "title"    : "Photo Tutor",
+            "category" : "",
+            "tags"     : "",
+            "url"      : "/portfolio/Photo%20tutor/",
+            "date"     : "2020-12-1",
+            "label"    : ""
+            
+        } ,
+    
+        {
+            
+            "thumb_image": "images/python.png",
+            "rel_dir" : "blog",
+            "title"    : "Python Coding Style (Chinese)",
+            "category" : "",
+            "tags"     : "",
+            "url"      : "/blog/Python%20Code%20Style/",
+            "date"     : "2020-09-12",
+            "label"    : ""
+            
+        } ,
+    
+        {
+            
+            "thumb_image": "images/P2TIRL.jpg",
+            "rel_dir" : "blog",
+            "title"    : "Trajectory Forecasts in Unknown Environments Conditioned on Grid-Based Plans (Literacture Review)",
+            "category" : "",
+            "tags"     : "",
+            "url"      : "/blog/Trajectory%20Forecasts%20in%20Unknown%20Environments%20Conditioned%20on%20Grid-Based%20Plans/",
+            "date"     : "2021-01-25",
+            "label"    : ""
+            
+        } ,
+    
+        {
+            
+            "thumb_image": "images/SE-GAN.png",
+            "rel_dir" : "blog",
+            "title"    : "Trajectory Prediction Paper Literature Review",
+            "category" : "",
+            "tags"     : "",
+            "url"      : "/blog/Trajectory%20Prediction%20Paper%20Review%202020/",
+            "date"     : "2021-01-14",
+            "label"    : ""
+            
+        } ,
+    
+        {
+            
+            "thumb_image": "images/SE-GAN.png",
+            "rel_dir" : "portfolio",
+            "title"    : "Shared-Encoder GAN",
+            "category" : "",
+            "tags"     : "",
+            "url"      : "/portfolio/Trajectory%20Prediction/",
+            "date"     : "2020-09-17",
+            "label"    : ""
+            
+        } ,
+    
+        {
+            
+        } ,
+    
+        {
+            
+        } ,
+    
+        {
+            
+        } ,
+    
+        {
+            
+            "thumb_image": "",
+            "rel_dir" : "blog",
+            "title"    : "Blog",
+            "category" : "",
+            "tags"     : "",
+            "url"      : "/blog/",
+            "date"     : "",
+            "label"    : ""
+            
+        } ,
+    
+        {
+            
+        } ,
+    
+        {
+            
+            "thumb_image": "",
+            "rel_dir" : "portfolio",
+            "title"    : "Projects",
+            "category" : "",
+            "tags"     : "",
+            "url"      : "/portfolio/",
+            "date"     : "",
+            "label"    : ""
+            
+        } ,
+    
+        {
+            
+        } ,
+    
+        {
+            
+            "thumb_image": "images/3601.jpg",
+            "rel_dir" : "portfolio",
+            "title"    : "FPGA Music Player",
+            "category" : "",
+            "tags"     : "",
+            "url"      : "/portfolio/music_player/",
+            "date"     : "2019-12-20",
+            "label"    : ""
+            
+        } ,
+    
+        {
+            
+        } ,
+    
+        {
+            
+        } 
+    
+]

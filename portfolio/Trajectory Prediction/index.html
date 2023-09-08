@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Shared-Encoder GAN -
+        Renhao Huang's Personal Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the new world">
+
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- <link rel="stylesheet" href="/assets/css/dark_theme.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <div id="page" class="site palette-light accent-pink">
+  <header id="masthead" class="site-header outer">
+  <!-- HTML elements for search -->
+
+  <div class="inner">
+
+    <div class="site-header-inside">
+      <div class="site-branding">
+        
+        
+        <p class="site-title"><a href="/%20/">Renhao Huang</a></p>
+        
+      </div>
+<!-- .site-branding -->
+      
+      
+      <button id="menu-open" class="menu-toggle"><span class="screen-reader-text">Close Menu</span><span class="icon-menu" aria-hidden="true"></span></button>
+
+
+
+
+      <nav id="main-navigation" class="site-navigation" aria-label="Main Navigation">
+
+        <div class="site-nav-inside">
+
+          <button id="menu-close" class="menu-toggle"><span class="screen-reader-text">Open Menu</span><span class="icon-close" aria-hidden="true"></span></button>
+          <ul class="menu">
+            <div class="menu-item">
+              <link rel="stylesheet" href="http://localhost:4000/assets/css/search.css">
+
+<div id="search-container">
+    <input type="text" id="search-input" placeholder="Search...">
+
+    <ul id="results-container"></ul>
+</div>
+<script src="http://localhost:4000/assets/js/simple-jekyll-search.min.js"></script>
+<script>
+    
+    window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: 'http://localhost:4000/search.json',
+        searchResultTemplate: '<li ><a class="dropdown-item" href="http://localhost:4000{url}">{title}<p>{url}</p></a></li>',
+        noResultsText: 'No results found',
+        limit: 8,
+        fuzzy: true,
+        exclude: ['Renhao Huang', 'Projects', 'About Me', 'Contact'],
+        success: function (data) {
+            console.log("search component success data： " + data);
+        }
+    })
+</script>
+            </div>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/">
+  
+  Home
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/portfolio/">
+  
+  Projects
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/blog/">
+  
+  Blog
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/cv/">
+  
+  CV
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/about/">
+  
+  About
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/contact/">
+  
+  Contact
+  
+</a>
+
+            </li>
+            
+
+          </ul>
+<!-- .menu -->
+
+        </div>
+<!-- .site-nav-inside -->
+      </nav><!-- .site-navigation -->
+      
+
+
+
+    </div>
+<!-- .site-header-inside -->
+  </div>
+<!-- .inner -->
+</header><!-- .site-header -->
+  <main id="content" class="site-content">
+    <div class="inner outer">
+  <article class="post post-full">
+    <header class="post-header line-up inner-sm width-limited">
+      <h1 class="post-title line-top">Shared-Encoder GAN</h1>
+      
+      
+      <div class="post-subtitle">
+        An Improved Discriminator for GAN-Based Trajectory Prediction Models
+      </div>
+      <div class="post-proj-info inner-sm width-limited">
+        <i class="fab fa-user"></i> Renhao Huang, Dr. Yang Song, Dr. Maurice Pagnucco
+        <br>
+        <i class="fab fa-calendar-alt"></i> <time class="published" datetime="2020-09-17 00:00">September 17, 2020</time>
+      </div>
+      
+    </header>
+
+
+    
+    
+    
+    
+    <div class="post-image">
+      <img src="/images/SE_GAN_Model.png" alt="Shared-Encoder GAN">
+    </div>
+<!-- .post-image -->
+    
+
+    
+
+    <style>
+    .section-nav {
+        color: aquamarine;
+        background-color: transparent;
+
+        top: 0px;
+    }
+
+    .post-toc {
+        margin: 0 auto;
+    }
+
+    .section-nav a {
+        color: darkturquoise;
+    }
+
+    .section-nav a:hover {
+        color: red;
+    }
+
+    #toc-collapse-icon {
+        display: none;
+    }
+
+    @media only screen and (min-width: 1664px) {
+        .post-toc {
+            position: absolute;
+            display: block;
+            width: calc(50% - 27rem);
+            max-width:32em;
+            right: 0;
+            z-index: 10;
+            border-left: 1px solid lightgrey;
+            padding: 1.5rem;
+            transition: none !important;
+            top: 0;
+            overflow-y: auto;
+            bottom: -7.5em;
+
+        }
+
+
+        .section-nav {
+            width: 100%;
+            font-size: 0.901em !important;
+        }
+
+        #toc-collapse-icon {
+            display: block;
+            float: right;
+            color: black;
+        }
+
+        #toc-collapse-icon:hover {
+            color: skyblue;
+        }
+    }
+</style>
+
+
+
+
+
+<script>
+    if (window.outerWidth >= 1664) {
+        window.onscroll = function () { stickToc() };
+        var position = $("#toc-container").position();
+        var toc = document.getElementById("toc-container");
+        var sticky_top = position.top;
+        var sticky_bottom = toc.clientHeight + sticky_top;
+        console.log(window.innerHeight);
+        toc.style.maxHeight = (window.innerHeight) + 'px';
+        function stickToc() {
+            if (window.pageYOffset >= sticky_top) {
+                toc.style.top = window.pageYOffset - 90 + 'px';
+            }
+            else {
+                toc.style.top = '0px';
+
+            }
+        }
+    }
+
+    function collapse_toc() {
+        console.log("here");
+        var toc = document.getElementById("toc-inner");
+        var toc_container = document.getElementById("toc-container");
+        if (toc.style.display != "none") {
+            toc.style.display = "none";
+            toc_container.style["border-left"] = "0"
+        }
+        else {
+            toc.style.display = "block";
+            toc_container.style["border-left"] = "1px solid lightgrey"
+        }
+    }
+</script>
+    <div class="post-content inner-sm width-limited">
+      <h2 id="overview">Overview</h2>
+<p>Predicting pedestrians’ future trajectories is challenging especially when their destinations are unknown. Many factors may increase the complexity of trajectories such as human-human interactions, surrounding environment and individual decisions. Nevertheless, pedestrians tend to follow social rules to adjust their paths to avoid collisions with their surrounding pedestrians or obstacles. These rules form social forces [1] that navigate pedestrians and can give some clues to predict future movement. Earlier methods statistically handcraft social features or build Long-Short Term Memory (LSTM) models [2] to predict future paths.</p>
+
+<p>Stochastic models have recently been developed to generate multiple plausible routes for each pedestrian, most of which follow the encoder-decoder structure as shown in Fig. 1. Among the stochastic models, Social GAN [3], SoPhie [4], Social Ways [5] and Social BiGAT [6] incorporate the GAN architecture [7], which has a discriminator to distinguish whether a path is real or fake to assist with predicting a distribution conditioned on observed paths. In particular, Social GAN and SoPhie use the LSTM-based GANs, Social Ways uses InfoGAN [8] and Social BiGAT integrates BicycleGAN [9]. These GAN-based models achieve excellent performance on multiple datasets. There are also some non-GAN based models [10], [11] that remove the discriminator but incorporate graphs for further improvement. For example, SGAT [10] uses the Graph Attention Network [12] in the encoder to capture the interaction between pedestrians.</p>
+
+<p>Social GAN follows the training process that repeatedly updates the discriminator using $L_D$ then the generator using $λL_{L2} + (1 − λ)L_G$. Initially, $L_{L_2}$ dominates the total losses (10 times of $L_G$) to create new trajectories with convincing direction and speed. Then, with the convergence of $L_{L2}, L_G$ starts to control the generated trajectories, which results in a limited span of distribution. This phenomenon is indicated in [13] as well. Although further training helps spread the trajectories to a suitable distribution, the generated trajectories tend to divert considerably from the ground truths. Therefore, the prediction performance in terms of ADE and FDE at around 100 epochs is actually better than that at 200 epochs even though the distribution is more realistic qualitatively at 200 epochs.</p>
+
+<p>A plausible explanation is that, different from image tasks, temporal data generation is hard for GAN. If the decoder fails to generate accurate predictions at previous time steps, the future steps may follow such results to generate new inac- curate predictions. For stochastic models, both generator and discriminator have their own RNNs to encode the embedded human trajectories, but they aim to handle different tasks: the generator uses those features to generate future paths while the discriminator attempts to evaluate the generated path. Therefore, it is challenging to ensure that the RNNs in generator and discriminator are successfully trained and correlated with each other.</p>
+
+<p>Therefore, we propose a simpler solution that the discriminator shares parameters of the encoder with the generator: each time the discriminator needs to extract trajectory features, it uses the encoder pre-trained by the generator. Then, the generator can well train its encoder due to the $L_{L_2}$ correction. In addition, because the discriminator only needs to train its fully connected layers that follow a feedforward structure, the model complexity decreases and hence the training becomes more stable.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"> </th>
+      <th style="text-align: center">SGAN</th>
+      <th style="text-align: center">SGAN-SE</th>
+      <th style="text-align: center">FSGAN</th>
+      <th style="text-align: center">SGAT-GAN</th>
+      <th style="text-align: center">SGAT-SE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">ETH</td>
+      <td style="text-align: center">0.81/1.52</td>
+      <td style="text-align: center">0.63/1.13</td>
+      <td style="text-align: center">0.68/1.16</td>
+      <td style="text-align: center">0.70/1.35</td>
+      <td style="text-align: center">0.61/1.06</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">HOTEL</td>
+      <td style="text-align: center">0.48/1.03</td>
+      <td style="text-align: center">0.39/0.79</td>
+      <td style="text-align: center">0.43/0.89</td>
+      <td style="text-align: center">0.37/0.67</td>
+      <td style="text-align: center">0.43/0.91</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">UNIV</td>
+      <td style="text-align: center">0.60/1.26</td>
+      <td style="text-align: center">0.53/1.15</td>
+      <td style="text-align: center">0.54/1.14</td>
+      <td style="text-align: center">0.59/1.23</td>
+      <td style="text-align: center">0.50/1.19</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">ZARA1</td>
+      <td style="text-align: center">0.34/0.69</td>
+      <td style="text-align: center">0.34/0.70</td>
+      <td style="text-align: center">0.35/0.71</td>
+      <td style="text-align: center">0.35/0.69</td>
+      <td style="text-align: center">0.34/0.70</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">ZARA2</td>
+      <td style="text-align: center">0.42/0.84</td>
+      <td style="text-align: center">0.36/0.61</td>
+      <td style="text-align: center">0.32/0.67</td>
+      <td style="text-align: center">0.31/0.64</td>
+      <td style="text-align: center">0.36/0.78</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="reference">Reference</h4>
+<ol>
+  <li>
+    <p>D.HelbingandP.Molna ́r,“Socialforcemodelforpedestriandynamics.”
+Physical review. E, Statistical physics, plasmas, fluids, and related
+interdisciplinary topics, vol. 51, no. 5, pp. 4282–4286, 1995.</p>
+  </li>
+  <li>
+    <p>A. Alahi, K. Goel, V. Ramanathan, A. Robicquet, F.-F. Li, and S. Savarese, “Social LSTM: Human trajectory prediction in crowded
+spaces,” in CVPR, 2016.</p>
+  </li>
+  <li>
+    <p>A. Gupta, J. Johnson, L. Fei-Fei, S. Savarese, and A. Alahi, “Social
+GAN: Socially acceptable trajectories with generative adversarial net-
+works,” in CVPR, 2018.</p>
+  </li>
+  <li>
+    <p>A.Sadeghian,V.Kosaraju,A.Sadeghian,N.Hirose,H.Rezatofighi,and
+S. Savarese, “SoPhie: An attentive gan for predicting paths compliant
+to social and physical constraints,” in CVPR, 2019.</p>
+  </li>
+  <li>
+    <p>J. Amirian, J.-B. Hayet, and J. Pettre ́, “Social ways: Learning multi-
+modal distributions of pedestrian trajectories with gans,” in CVPRW,
+2019.</p>
+  </li>
+  <li>
+    <p>V. Kosaraju, A. Sadeghian, R. Mart ́ın-Mart ́ın, I. D. Reid, S. H.
+Rezatofighi, and S. Savarese, “Social-BiGAT: Multimodal trajectory forecasting using Bicycle-GAN and graph attention networks,” in NeurIPS, 2019.</p>
+  </li>
+  <li>
+    <p>I. J. Goodfellow, J. Pouget-Abadie, M. Mirza, B. Xu, D. Warde-Farley, S. Ozair, A. C. Courville, and Y. Bengio, “Generative adversarial nets,” in NeurIPS, 2014.</p>
+  </li>
+  <li>
+    <p>X. Chen, Y. Duan, R. Houthooft, J. Schulman, I. Sutskever, and P. Abbeel, “InfoGAN: Interpretable representation learning by informa- tion maximizing generative adversarial nets,” in NeurIPS, 2016.</p>
+  </li>
+  <li>
+    <p>J.Zhu,R.Zhang,D.Pathak,andT.Darrell,“Towardmultimodalimage- to-image translation,” in NeurIPS, 2017.</p>
+  </li>
+  <li>
+    <p>Y. Huang, H. Bi, Z. Li, T. Mao, and Z. Wang, “STGAT: Modeling spatial-temporal interactions for human trajectory prediction,” in ICCV, 2019.</p>
+  </li>
+  <li>
+    <p>A.Mohamed,K.Qian,M.Elhoseiny,andC.Claudel,“Social-STGCNN: A social spatio-temporal graph convolutional neural network for human trajectory prediction,” in CVPR, 2020.</p>
+  </li>
+  <li>
+    <p>P. Velic ̆kovic ́, G. Cucurull, A. Casanova, A. Romero, P. Lio`, and Y. Bengio, “Graph attention networks,” in ICLR, 2018.</p>
+  </li>
+  <li>
+    <p>K. Parth and A. Alexandre, “Adversarial loss for human trajectory prediction,” in hEART, 2019.</p>
+  </li>
+</ol>
+
+
+    </div>
+  </article><!-- .post -->
+
+
+</div>
+<!-- .inner -->
+  </main><!-- .site-content -->
+
+  
+</div>
+<!-- .site -->
+    <!-- Scripts -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            showProcessingMessages: false, //关闭js加载过程信息
+            messageStyle: "none", //不显示信息
+            extensions: ["tex2jax.js"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+            tex2jax: {
+                inlineMath:  [ ["$", "$"] ], //行内公式选择$
+                displayMath: [ ["$$","$$"] ], //段内公式选择$$
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'], //避开某些标签
+                ignoreClass:"comment-content" //避开含该Class的标签
+            },
+            "HTML-CSS": {
+                availableFonts: ["STIX","TeX"], //可选字体
+               
+               
+
+            }
+        });
+        MathJax.Hub.Queue(function(){
+            var all = MathJax.Hub.getAllJax(),i;
+            for(i=0;i<all.length;i++){
+                var jax = document.getElementById(all[i].inputID + '-Frame');
+                if(jax.parentNode.tagName == "DIV" ){
+                    jax.parentNode.classList.add('has-jax');
+                }else if(jax.parentNode.tagName == "P" && jax.parentNode.parentNode.tagName != "LI" ){
+                    jax.parentNode.classList.add('has-jax');
+                }
+            }
+        });
+        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script src="/assets/js/plugins.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+</body>
+<footer id="colophon" class="site-footer outer">
+  <div class="inner">
+    <div class="site-footer-inside">
+      <div class="site-info">
+        
+        
+        <span class="copyright">© Renhao Huang. All rights reserved.</span>
+        
+        
+      </div>
+<!-- .site-info -->
+      
+      
+      <div class="social-links">
+        
+
+        
+<a class=" button-icon" href="https://github.com/HRHLALALA" target="_blank" rel="noopener">
+  
+  <span class="icon fab fa-github" aria-hidden="true"></span><span class="screen-reader-text">GitHub</span>
+  
+</a>
+
+        
+
+        
+<a class=" button-icon" href="https://www.instagram.com/" target="_blank" rel="noopener">
+  
+  <span class="icon fab fa-instagram" aria-hidden="true"></span><span class="screen-reader-text">Instagram</span>
+  
+</a>
+
+        
+
+        
+<a class=" button-icon" href="https://dribbble.com/" target="_blank" rel="noopener">
+  
+  <span class="icon fab fa-envelope" aria-hidden="true"></span><span class="screen-reader-text">Dribbble</span>
+  
+</a>
+
+        
+
+        
+<a class=" button-icon" href="https://www.linkedin.com/" target="_blank" rel="noopener">
+  
+  <span class="icon fab fa-linkedin" aria-hidden="true"></span><span class="screen-reader-text">LinkedIn</span>
+  
+</a>
+
+        
+      </div>
+<!-- .social-links -->
+      
+    </div>
+<!-- .site-footer-inside -->
+  </div>
+<!-- .inner -->
+</footer><!-- .site-footer -->
+
+</html>

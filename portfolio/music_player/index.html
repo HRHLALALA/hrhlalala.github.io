@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>FPGA Music Player -
+        Renhao Huang's Personal Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the new world">
+
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- <link rel="stylesheet" href="/assets/css/dark_theme.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <div id="page" class="site palette-light accent-pink">
+  <header id="masthead" class="site-header outer">
+  <!-- HTML elements for search -->
+
+  <div class="inner">
+
+    <div class="site-header-inside">
+      <div class="site-branding">
+        
+        
+        <p class="site-title"><a href="/%20/">Renhao Huang</a></p>
+        
+      </div>
+<!-- .site-branding -->
+      
+      
+      <button id="menu-open" class="menu-toggle"><span class="screen-reader-text">Close Menu</span><span class="icon-menu" aria-hidden="true"></span></button>
+
+
+
+
+      <nav id="main-navigation" class="site-navigation" aria-label="Main Navigation">
+
+        <div class="site-nav-inside">
+
+          <button id="menu-close" class="menu-toggle"><span class="screen-reader-text">Open Menu</span><span class="icon-close" aria-hidden="true"></span></button>
+          <ul class="menu">
+            <div class="menu-item">
+              <link rel="stylesheet" href="http://localhost:4000/assets/css/search.css">
+
+<div id="search-container">
+    <input type="text" id="search-input" placeholder="Search...">
+
+    <ul id="results-container"></ul>
+</div>
+<script src="http://localhost:4000/assets/js/simple-jekyll-search.min.js"></script>
+<script>
+    
+    window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: 'http://localhost:4000/search.json',
+        searchResultTemplate: '<li ><a class="dropdown-item" href="http://localhost:4000{url}">{title}<p>{url}</p></a></li>',
+        noResultsText: 'No results found',
+        limit: 8,
+        fuzzy: true,
+        exclude: ['Renhao Huang', 'Projects', 'About Me', 'Contact'],
+        success: function (data) {
+            console.log("search component success data： " + data);
+        }
+    })
+</script>
+            </div>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/">
+  
+  Home
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/portfolio/">
+  
+  Projects
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/blog/">
+  
+  Blog
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/cv/">
+  
+  CV
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/about/">
+  
+  About
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/contact/">
+  
+  Contact
+  
+</a>
+
+            </li>
+            
+
+          </ul>
+<!-- .menu -->
+
+        </div>
+<!-- .site-nav-inside -->
+      </nav><!-- .site-navigation -->
+      
+
+
+
+    </div>
+<!-- .site-header-inside -->
+  </div>
+<!-- .inner -->
+</header><!-- .site-header -->
+  <main id="content" class="site-content">
+    <div class="inner outer">
+  <article class="post post-full">
+    <header class="post-header line-up inner-sm width-limited">
+      <h1 class="post-title line-top">FPGA Music Player</h1>
+      
+      
+      <div class="post-subtitle">
+        COMP3601 Project
+      </div>
+      <div class="post-proj-info inner-sm width-limited">
+        <i class="fab fa-user"></i> Elizabeth Willer, Renhao Huang, Nathan Ng
+        <br>
+        <i class="fab fa-calendar-alt"></i> <time class="published" datetime="2019-12-20 00:00">December 20, 2019</time>
+      </div>
+      
+    </header>
+
+
+    
+    
+    
+    
+    <div class="post-image">
+      <img src="/images/3601fpga.png" alt="FPGA Music Player">
+    </div>
+<!-- .post-image -->
+    
+
+    
+
+    <style>
+    .section-nav {
+        color: aquamarine;
+        background-color: transparent;
+
+        top: 0px;
+    }
+
+    .post-toc {
+        margin: 0 auto;
+    }
+
+    .section-nav a {
+        color: darkturquoise;
+    }
+
+    .section-nav a:hover {
+        color: red;
+    }
+
+    #toc-collapse-icon {
+        display: none;
+    }
+
+    @media only screen and (min-width: 1664px) {
+        .post-toc {
+            position: absolute;
+            display: block;
+            width: calc(50% - 27rem);
+            max-width:32em;
+            right: 0;
+            z-index: 10;
+            border-left: 1px solid lightgrey;
+            padding: 1.5rem;
+            transition: none !important;
+            top: 0;
+            overflow-y: auto;
+            bottom: -7.5em;
+
+        }
+
+
+        .section-nav {
+            width: 100%;
+            font-size: 0.901em !important;
+        }
+
+        #toc-collapse-icon {
+            display: block;
+            float: right;
+            color: black;
+        }
+
+        #toc-collapse-icon:hover {
+            color: skyblue;
+        }
+    }
+</style>
+
+
+
+
+
+<script>
+    if (window.outerWidth >= 1664) {
+        window.onscroll = function () { stickToc() };
+        var position = $("#toc-container").position();
+        var toc = document.getElementById("toc-container");
+        var sticky_top = position.top;
+        var sticky_bottom = toc.clientHeight + sticky_top;
+        console.log(window.innerHeight);
+        toc.style.maxHeight = (window.innerHeight) + 'px';
+        function stickToc() {
+            if (window.pageYOffset >= sticky_top) {
+                toc.style.top = window.pageYOffset - 90 + 'px';
+            }
+            else {
+                toc.style.top = '0px';
+
+            }
+        }
+    }
+
+    function collapse_toc() {
+        console.log("here");
+        var toc = document.getElementById("toc-inner");
+        var toc_container = document.getElementById("toc-container");
+        if (toc.style.display != "none") {
+            toc.style.display = "none";
+            toc_container.style["border-left"] = "0"
+        }
+        else {
+            toc.style.display = "block";
+            toc_container.style["border-left"] = "1px solid lightgrey"
+        }
+    }
+</script>
+    <div class="post-content inner-sm width-limited">
+      <p>In this project, a music player was created that can receive music files from a PC, then play the music back. The tempo should be able to be controlled via a non-trivial controller. A software program which allows the creation of the music files was also created. The project completed all goals on time, and on budget.</p>
+
+<h2 id="language">Language</h2>
+<ul>
+  <li>Software: C++(Qt)</li>
+  <li>Hardware: VHDL</li>
+</ul>
+
+<h2 id="hardware-design">Hardware Design</h2>
+<h3 id="ultrasonic-sensor">Ultrasonic Sensor</h3>
+<p>The ultrasonic sensor is a simple HC-SR04 connected to the FX-2 IO pins of the FPGA for input/output. The sensor draws 5V from the VV rail of the FX-2 expansion board and is grounded in a similar manner. Since this is an off-the-shelf component, it does not require any additional circuitry to function, and the distance sensing and calculation is handled in the VHDL module.</p>
+
+<h3 id="wave-generator">Wave Generator</h3>
+<p>The wave generator is implemented based on the Digital-Analog Converter(DAC) circuit plus a voltage follower. Compared with the integrator circuit method in the initial design, the DAC seems to be a better option because it is stable and easy to be built. However, due to the low voltage and the accuracy of the resistors, the DAC only supports 4 bits which causes low sample rate and affect the purity. The FPGA sends 4 bits into the circuit and the DAC generates voltages with different levels according to the number. Finally, the speaker receives the voltage and makes the sound.</p>
+
+<h3 id="frequency-and-tempo-generation">Frequency and Tempo Generation</h3>
+<p>Since there are a limited number of notes the music player needs to produce, the number of 50MHz clock ticks required to produce a square wave of the desired frequency was calculated for each note. These values are stored in a LUT which is then checked every time a new note is read in from RAM.</p>
+
+<p>Tempo generation is a much more complex affair. Since the player is capable of generating any tempo from 60 to 120 (in integer steps), it is much less desirable to write a 60 entry LUT. However, the division functions implemented by standard VHDL libraries such as numeric_std are not capable of integer/variable division. Hence an additional module was written, which takes the input from either the sensor or RAM, and performs manual division through repeated subtraction, and outputs a quotient representing the number of 50MHz clock ticks for each beat. The actual mathematical operations performed are (50 000 000/16*60)/TEMPO.</p>
+
+<h3 id="fpga-software-interface">FPGA Software Interface</h3>
+<p>In order to build the communication between the software and hardware, the Enhanced Parallel Protocol was used to send and receive the file data. This protocol is used for the parallel port: the USB connection. The PC sends chunks of 8 bits in a loop to the FPGA until the file is totally read. The data received by FPGA is directly sent to the memory and the device will read until the ready signal rises.</p>
+
+<p>On the software side, unlike the initial design, the DMGR and DEPP libraries were used to implement the protocol initialization and file transferring so that the software is able to detect the connection of the device and the PC, and user does not need to manually config the device table.</p>
+
+<p>There are two main functions that are used to initialize the enumeration, which are 
+DmgrEnumDevices() and DmgrGetDvc(), which are performing the enumeration of the device in the system and get the device information. Furthermore, DeppEnable() is used to open the port, DeppPutReg() to write a single dat and DeppClose() to close the port. In addition, the software uses the DmgrOpen() function that attempts to open the device each second in order to check that the device is open (by inspecting its return value).</p>
+
+<p>However, the FPGA does need to care about the detailed value of the timing and uses the state machine to dynamically detects the rising edge of the data and address strobe. Fortunately, the dpimref.vhdl provides the simple code to receive the data, and in this project, register 0 was used to carry the data. The memory grabs data from the EPP interface and stores it from the address 0 to 128. Therefore, the memory supports 129 characters, which is sufficient for a simple song.</p>
+
+<h2 id="software-design">Software Design</h2>
+
+<h3 id="notes">Notes</h3>
+<p><img src="images/note.png" alt="note" width="100%">
+<img src="images/note_length.png" alt="note length" width="100%"></p>
+
+<h3 id="introduction">Introduction</h3>
+<p>The software performs six main tasks: sending data to the board, creating the data, checking the data is correct, opening data from and saving the data to the computer, translating it from one data representation form to another, playing a preview of the song.</p>
+
+<p>The main views of the software are given in figures 7 and 8. The circled components numbered 1 in figure 7, allow playback of the song, components 2 is a display that changes between a stave and a text box, depending on the radio button selected in components 5. When it is in stave mode, the user can click on the notations in components 3 and place them on the stave, as well as changing the tempo using component 4. When the user checks the data or tries to save the data or move from one format to another and there is an issue, component 7 displays an error message such as “Missing ‘@’ from the end of the string”. Figure 8 displays the window that appears to send the data to the board, it includes the PC format, the board format, progress and various options such as testing the device is connected.</p>
+
+<p><img src="images/software.png" alt="software" width="100%"></p>
+<center>Figure 7: GUI File Creation Software</center>
+
+<p><img src="images/software-format.png" alt="software" width="100%"></p>
+<center>Figure 8: GUI Data Transfer Software</center>
+
+
+    </div>
+  </article><!-- .post -->
+
+
+</div>
+<!-- .inner -->
+  </main><!-- .site-content -->
+
+  
+</div>
+<!-- .site -->
+    <!-- Scripts -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            showProcessingMessages: false, //关闭js加载过程信息
+            messageStyle: "none", //不显示信息
+            extensions: ["tex2jax.js"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+            tex2jax: {
+                inlineMath:  [ ["$", "$"] ], //行内公式选择$
+                displayMath: [ ["$$","$$"] ], //段内公式选择$$
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'], //避开某些标签
+                ignoreClass:"comment-content" //避开含该Class的标签
+            },
+            "HTML-CSS": {
+                availableFonts: ["STIX","TeX"], //可选字体
+               
+               
+
+            }
+        });
+        MathJax.Hub.Queue(function(){
+            var all = MathJax.Hub.getAllJax(),i;
+            for(i=0;i<all.length;i++){
+                var jax = document.getElementById(all[i].inputID + '-Frame');
+                if(jax.parentNode.tagName == "DIV" ){
+                    jax.parentNode.classList.add('has-jax');
+                }else if(jax.parentNode.tagName == "P" && jax.parentNode.parentNode.tagName != "LI" ){
+                    jax.parentNode.classList.add('has-jax');
+                }
+            }
+        });
+        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script src="/assets/js/plugins.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+</body>
+<footer id="colophon" class="site-footer outer">
+  <div class="inner">
+    <div class="site-footer-inside">
+      <div class="site-info">
+        
+        
+        <span class="copyright">© Renhao Huang. All rights reserved.</span>
+        
+        
+      </div>
+<!-- .site-info -->
+      
+      
+      <div class="social-links">
+        
+
+        
+<a class=" button-icon" href="https://github.com/HRHLALALA" target="_blank" rel="noopener">
+  
+  <span class="icon fab fa-github" aria-hidden="true"></span><span class="screen-reader-text">GitHub</span>
+  
+</a>
+
+        
+
+        
+<a class=" button-icon" href="https://www.instagram.com/" target="_blank" rel="noopener">
+  
+  <span class="icon fab fa-instagram" aria-hidden="true"></span><span class="screen-reader-text">Instagram</span>
+  
+</a>
+
+        
+
+        
+<a class=" button-icon" href="https://dribbble.com/" target="_blank" rel="noopener">
+  
+  <span class="icon fab fa-envelope" aria-hidden="true"></span><span class="screen-reader-text">Dribbble</span>
+  
+</a>
+
+        
+
+        
+<a class=" button-icon" href="https://www.linkedin.com/" target="_blank" rel="noopener">
+  
+  <span class="icon fab fa-linkedin" aria-hidden="true"></span><span class="screen-reader-text">LinkedIn</span>
+  
+</a>
+
+        
+      </div>
+<!-- .social-links -->
+      
+    </div>
+<!-- .site-footer-inside -->
+  </div>
+<!-- .inner -->
+</footer><!-- .site-footer -->
+
+</html>

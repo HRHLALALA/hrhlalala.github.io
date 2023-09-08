@@ -1,0 +1,42 @@
+
+#results-container{
+    position: absolute !important;
+    background-color: white !important;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 2 !important;
+    margin:0px !important;
+    padding:0px !important;
+    /* 
+    background-color: #f9f9f9 !important;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+}
+
+#results-container li{
+    list-style-type: none;
+}
+#results-container a {
+    width:100%;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    
+}
+
+#results-container a p {
+    color:gray;
+    margin:0;
+}
+  
+#results-container a:hover{
+    background-color: #f1f1f1
+}
+
+@media only screen and (max-height: 601px) {
+    #results-container{
+        position: relative !important;
+        max-height: 200px;
+        overflow-y: scroll;
+    }
+}
+  

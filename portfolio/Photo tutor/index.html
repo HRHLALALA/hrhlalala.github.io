@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Photo Tutor -
+        Renhao Huang's Personal Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the new world">
+
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- <link rel="stylesheet" href="/assets/css/dark_theme.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <div id="page" class="site palette-light accent-pink">
+  <header id="masthead" class="site-header outer">
+  <!-- HTML elements for search -->
+
+  <div class="inner">
+
+    <div class="site-header-inside">
+      <div class="site-branding">
+        
+        
+        <p class="site-title"><a href="/%20/">Renhao Huang</a></p>
+        
+      </div>
+<!-- .site-branding -->
+      
+      
+      <button id="menu-open" class="menu-toggle"><span class="screen-reader-text">Close Menu</span><span class="icon-menu" aria-hidden="true"></span></button>
+
+
+
+
+      <nav id="main-navigation" class="site-navigation" aria-label="Main Navigation">
+
+        <div class="site-nav-inside">
+
+          <button id="menu-close" class="menu-toggle"><span class="screen-reader-text">Open Menu</span><span class="icon-close" aria-hidden="true"></span></button>
+          <ul class="menu">
+            <div class="menu-item">
+              <link rel="stylesheet" href="http://localhost:4000/assets/css/search.css">
+
+<div id="search-container">
+    <input type="text" id="search-input" placeholder="Search...">
+
+    <ul id="results-container"></ul>
+</div>
+<script src="http://localhost:4000/assets/js/simple-jekyll-search.min.js"></script>
+<script>
+    
+    window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: 'http://localhost:4000/search.json',
+        searchResultTemplate: '<li ><a class="dropdown-item" href="http://localhost:4000{url}">{title}<p>{url}</p></a></li>',
+        noResultsText: 'No results found',
+        limit: 8,
+        fuzzy: true,
+        exclude: ['Renhao Huang', 'Projects', 'About Me', 'Contact'],
+        success: function (data) {
+            console.log("search component success data： " + data);
+        }
+    })
+</script>
+            </div>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/">
+  
+  Home
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/portfolio/">
+  
+  Projects
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/blog/">
+  
+  Blog
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/cv/">
+  
+  CV
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/about/">
+  
+  About
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/contact/">
+  
+  Contact
+  
+</a>
+
+            </li>
+            
+
+          </ul>
+<!-- .menu -->
+
+        </div>
+<!-- .site-nav-inside -->
+      </nav><!-- .site-navigation -->
+      
+
+
+
+    </div>
+<!-- .site-header-inside -->
+  </div>
+<!-- .inner -->
+</header><!-- .site-header -->
+  <main id="content" class="site-content">
+    <div class="inner outer">
+  <article class="post post-full">
+    <header class="post-header line-up inner-sm width-limited">
+      <h1 class="post-title line-top">Photo Tutor</h1>
+      
+      
+      <div class="post-subtitle">
+        An AR/sensor fusion based photo sharing and recommendation service.
+      </div>
+      <div class="post-proj-info inner-sm width-limited">
+        <i class="fab fa-user"></i> Renhao Huang, Junning Fan, Ruofei Huang, Kah May Tan, Daniel Wu
+        <br>
+        <i class="fab fa-calendar-alt"></i> <time class="published" datetime="2020-12-01 00:00">December 01, 2020</time>
+      </div>
+      
+    </header>
+
+
+    
+    
+    <div class="post-video-container">
+      <iframe class="post-video" src="https://www.youtube.com/embed/O5LAuL-iuIM" frame-border="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+      </iframe>
+
+    </div>
+
+    
+
+    <style>
+    .section-nav {
+        color: aquamarine;
+        background-color: transparent;
+
+        top: 0px;
+    }
+
+    .post-toc {
+        margin: 0 auto;
+    }
+
+    .section-nav a {
+        color: darkturquoise;
+    }
+
+    .section-nav a:hover {
+        color: red;
+    }
+
+    #toc-collapse-icon {
+        display: none;
+    }
+
+    @media only screen and (min-width: 1664px) {
+        .post-toc {
+            position: absolute;
+            display: block;
+            width: calc(50% - 27rem);
+            max-width:32em;
+            right: 0;
+            z-index: 10;
+            border-left: 1px solid lightgrey;
+            padding: 1.5rem;
+            transition: none !important;
+            top: 0;
+            overflow-y: auto;
+            bottom: -7.5em;
+
+        }
+
+
+        .section-nav {
+            width: 100%;
+            font-size: 0.901em !important;
+        }
+
+        #toc-collapse-icon {
+            display: block;
+            float: right;
+            color: black;
+        }
+
+        #toc-collapse-icon:hover {
+            color: skyblue;
+        }
+    }
+</style>
+
+
+
+
+<div id="toc-container" class="post-toc width-limited">
+    <i id="toc-collapse-icon" onclick="collapse_toc()" class="fab fa-bars" aria-hidden="true"></i>
+    <div id="toc-inner">
+        <p style="color:gray;width:auto;">TABLE OF CONTENT</p>
+        <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h3"><a href="#developer">Developer</a></li>
+<li class="toc-entry toc-h3"><a href="#about">About</a></li>
+<li class="toc-entry toc-h3"><a href="#primary-language">Primary Language</a></li>
+<li class="toc-entry toc-h3">
+<a href="#function">Function</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#1-user-profile">1. User Profile</a></li>
+<li class="toc-entry toc-h4"><a href="#2-navigation">2. Navigation</a></li>
+<li class="toc-entry toc-h4"><a href="#3-photo-recommendationview">3. Photo Recommendation/View</a></li>
+</ul>
+</li>
+</ul>
+    </div>
+</div>
+
+
+
+<script>
+    if (window.outerWidth >= 1664) {
+        window.onscroll = function () { stickToc() };
+        var position = $("#toc-container").position();
+        var toc = document.getElementById("toc-container");
+        var sticky_top = position.top;
+        var sticky_bottom = toc.clientHeight + sticky_top;
+        console.log(window.innerHeight);
+        toc.style.maxHeight = (window.innerHeight) + 'px';
+        function stickToc() {
+            if (window.pageYOffset >= sticky_top) {
+                toc.style.top = window.pageYOffset - 90 + 'px';
+            }
+            else {
+                toc.style.top = '0px';
+
+            }
+        }
+    }
+
+    function collapse_toc() {
+        console.log("here");
+        var toc = document.getElementById("toc-inner");
+        var toc_container = document.getElementById("toc-container");
+        if (toc.style.display != "none") {
+            toc.style.display = "none";
+            toc_container.style["border-left"] = "0"
+        }
+        else {
+            toc.style.display = "block";
+            toc_container.style["border-left"] = "1px solid lightgrey"
+        }
+    }
+</script>
+    <div class="post-content inner-sm width-limited">
+      <h3 id="developer">Developer</h3>
+<ul>
+  <li>Junning Fan</li>
+  <li>Ruofei Huang</li>
+  <li>Renhao Huang</li>
+  <li>Kah May Tan</li>
+  <li>Daniel Wu</li>
+</ul>
+
+<h3 id="about">About</h3>
+<p>An AR/sensor fusion based photo sharing and recommendation service. Users can share images on this service. When taking photos, the service will record metadata including orientation, time, location and weather. When a user is at scenic spots, photos taken at that spot, at similar hours, weather condition and orientation will be recommended for the user, which helps them to compose their photo.</p>
+
+<h3 id="primary-language">Primary Language</h3>
+<ul>
+  <li>Frontend: Android Java</li>
+  <li>Backend: GO</li>
+</ul>
+
+<h3 id="function">Function</h3>
+<h4 id="1-user-profile">1. User Profile</h4>
+<ul>
+  <li>Update user details &amp; View other users’ profiles
+    <ul>
+      <li>Photos</li>
+      <li>Followers</li>
+      <li>Followings</li>
+      <li>Follow and unfollow behaviour (if other users’ profile)</li>
+    </ul>
+  </li>
+  <li>Notification page
+    <ul>
+      <li>Get notification on who followed or liked/unliked/commented on the post.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="2-navigation">2. Navigation</h4>
+<ul>
+  <li>Map (Google Maps API, Google Distances API)</li>
+  <li>AR View and Navigation(ARcore, Arcore-location API)</li>
+</ul>
+
+<h4 id="3-photo-recommendationview">3. Photo Recommendation/View</h4>
+<ul>
+  <li>Like/ Dislike</li>
+  <li>Comment</li>
+  <li>Location, Coordinates</li>
+  <li>Data and Time</li>
+  <li>Photo</li>
+  <li>Photo title</li>
+  <li>Photo Description</li>
+  <li>Weather</li>
+  <li>Tags</li>
+</ul>
+
+
+    </div>
+  </article><!-- .post -->
+
+
+</div>
+<!-- .inner -->
+  </main><!-- .site-content -->
+
+  
+</div>
+<!-- .site -->
+    <!-- Scripts -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            showProcessingMessages: false, //关闭js加载过程信息
+            messageStyle: "none", //不显示信息
+            extensions: ["tex2jax.js"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+            tex2jax: {
+                inlineMath:  [ ["$", "$"] ], //行内公式选择$
+                displayMath: [ ["$$","$$"] ], //段内公式选择$$
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'], //避开某些标签
+                ignoreClass:"comment-content" //避开含该Class的标签
+            },
+            "HTML-CSS": {
+                availableFonts: ["STIX","TeX"], //可选字体
+               
+               
+
+            }
+        });
+        MathJax.Hub.Queue(function(){
+            var all = MathJax.Hub.getAllJax(),i;
+            for(i=0;i<all.length;i++){
+                var jax = document.getElementById(all[i].inputID + '-Frame');
+                if(jax.parentNode.tagName == "DIV" ){
+                    jax.parentNode.classList.add('has-jax');
+                }else if(jax.parentNode.tagName == "P" && jax.parentNode.parentNode.tagName != "LI" ){
+                    jax.parentNode.classList.add('has-jax');
+                }
+            }
+        });
+        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script src="/assets/js/plugins.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+</body>
+<footer id="colophon" class="site-footer outer">
+  <div class="inner">
+    <div class="site-footer-inside">
+      <div class="site-info">
+        
+        
+        <span class="copyright">© Renhao Huang. All rights reserved.</span>
+        
+        
+      </div>
+<!-- .site-info -->
+      
+      
+      <div class="social-links">
+        
+
+        
+<a class=" button-icon" href="https://github.com/HRHLALALA" target="_blank" rel="noopener">
+  
+  <span class="icon fab fa-github" aria-hidden="true"></span><span class="screen-reader-text">GitHub</span>
+  
+</a>
+
+        
+
+        
+<a class=" button-icon" href="https://www.instagram.com/" target="_blank" rel="noopener">
+  
+  <span class="icon fab fa-instagram" aria-hidden="true"></span><span class="screen-reader-text">Instagram</span>
+  
+</a>
+
+        
+
+        
+<a class=" button-icon" href="https://dribbble.com/" target="_blank" rel="noopener">
+  
+  <span class="icon fab fa-envelope" aria-hidden="true"></span><span class="screen-reader-text">Dribbble</span>
+  
+</a>
+
+        
+
+        
+<a class=" button-icon" href="https://www.linkedin.com/" target="_blank" rel="noopener">
+  
+  <span class="icon fab fa-linkedin" aria-hidden="true"></span><span class="screen-reader-text">LinkedIn</span>
+  
+</a>
+
+        
+      </div>
+<!-- .social-links -->
+      
+    </div>
+<!-- .site-footer-inside -->
+  </div>
+<!-- .inner -->
+</footer><!-- .site-footer -->
+
+</html>

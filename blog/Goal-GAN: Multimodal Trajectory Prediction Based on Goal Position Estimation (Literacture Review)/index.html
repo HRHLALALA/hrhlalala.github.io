@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Goal-GAN: Multimodal Trajectory Prediction Based on Goal Position Estimation (Literacture Review) -
+        Renhao Huang's Personal Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the new world">
+
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- <link rel="stylesheet" href="/assets/css/dark_theme.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <div id="page" class="site palette-light accent-pink">
+  <header id="masthead" class="site-header outer">
+  <!-- HTML elements for search -->
+
+  <div class="inner">
+
+    <div class="site-header-inside">
+      <div class="site-branding">
+        
+        
+        <p class="site-title"><a href="/%20/">Renhao Huang</a></p>
+        
+      </div>
+<!-- .site-branding -->
+      
+      
+      <button id="menu-open" class="menu-toggle"><span class="screen-reader-text">Close Menu</span><span class="icon-menu" aria-hidden="true"></span></button>
+
+
+
+
+      <nav id="main-navigation" class="site-navigation" aria-label="Main Navigation">
+
+        <div class="site-nav-inside">
+
+          <button id="menu-close" class="menu-toggle"><span class="screen-reader-text">Open Menu</span><span class="icon-close" aria-hidden="true"></span></button>
+          <ul class="menu">
+            <div class="menu-item">
+              <link rel="stylesheet" href="http://localhost:4000/assets/css/search.css">
+
+<div id="search-container">
+    <input type="text" id="search-input" placeholder="Search...">
+
+    <ul id="results-container"></ul>
+</div>
+<script src="http://localhost:4000/assets/js/simple-jekyll-search.min.js"></script>
+<script>
+    
+    window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: 'http://localhost:4000/search.json',
+        searchResultTemplate: '<li ><a class="dropdown-item" href="http://localhost:4000{url}">{title}<p>{url}</p></a></li>',
+        noResultsText: 'No results found',
+        limit: 8,
+        fuzzy: true,
+        exclude: ['Renhao Huang', 'Projects', 'About Me', 'Contact'],
+        success: function (data) {
+            console.log("search component success data： " + data);
+        }
+    })
+</script>
+            </div>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/">
+  
+  Home
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/portfolio/">
+  
+  Projects
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/blog/">
+  
+  Blog
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/cv/">
+  
+  CV
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/about/">
+  
+  About
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/contact/">
+  
+  Contact
+  
+</a>
+
+            </li>
+            
+
+          </ul>
+<!-- .menu -->
+
+        </div>
+<!-- .site-nav-inside -->
+      </nav><!-- .site-navigation -->
+      
+
+
+
+    </div>
+<!-- .site-header-inside -->
+  </div>
+<!-- .inner -->
+</header><!-- .site-header -->
+  <main id="content" class="site-content">
+    <div class="inner outer">
+
+  <article class="post post-full">
+    <header class="post-header inner-sm width-limited">
+
+      <h1 class="post-title line-top">Goal-GAN: Multimodal Trajectory Prediction Based on Goal Position Estimation (Literacture Review)</h1>
+      
+      
+      <time class="published" datetime="2021-01-25 00:00">January 25, 2021</time>
+    </header>
+
+    <style>
+    .section-nav {
+        color: aquamarine;
+        background-color: transparent;
+
+        top: 0px;
+    }
+
+    .post-toc {
+        margin: 0 auto;
+    }
+
+    .section-nav a {
+        color: darkturquoise;
+    }
+
+    .section-nav a:hover {
+        color: red;
+    }
+
+    #toc-collapse-icon {
+        display: none;
+    }
+
+    @media only screen and (min-width: 1664px) {
+        .post-toc {
+            position: absolute;
+            display: block;
+            width: calc(50% - 27rem);
+            max-width:32em;
+            right: 0;
+            z-index: 10;
+            border-left: 1px solid lightgrey;
+            padding: 1.5rem;
+            transition: none !important;
+            top: 0;
+            overflow-y: auto;
+            bottom: -7.5em;
+
+        }
+
+
+        .section-nav {
+            width: 100%;
+            font-size: 0.901em !important;
+        }
+
+        #toc-collapse-icon {
+            display: block;
+            float: right;
+            color: black;
+        }
+
+        #toc-collapse-icon:hover {
+            color: skyblue;
+        }
+    }
+</style>
+
+
+
+
+<div id="toc-container" class="post-toc width-limited">
+    <i id="toc-collapse-icon" onclick="collapse_toc()" class="fab fa-bars" aria-hidden="true"></i>
+    <div id="toc-inner">
+        <p style="color:gray;width:auto;">TABLE OF CONTENT</p>
+        <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#problem-address">Problem address</a></li>
+<li class="toc-entry toc-h2"><a href="#highlight-of-model-structure">Highlight of model structure</a></li>
+<li class="toc-entry toc-h2"><a href="#motion-encoder">Motion Encoder</a></li>
+<li class="toc-entry toc-h2">
+<a href="#goal-module">Goal Module</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#how-to-fuse-motion-features-with-scene-context">How to fuse motion features with scene context?</a></li>
+<li class="toc-entry toc-h3">
+<a href="#what-is-gumbel-softmax-trick">What is Gumbel Softmax trick?</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#law-of-the-unconscious-statsticianlotus">Law of the unconscious statstician(LOTUS)</a></li>
+<li class="toc-entry toc-h4">
+<a href="#gumbel-distribution">Gumbel Distribution</a>
+<ul>
+<li class="toc-entry toc-h5"><a href="#gumbel-max-trick">Gumbel-max Trick</a></li>
+<li class="toc-entry toc-h5"><a href="#gumbel-softmax-trick">Gumbel-softmax Trick</a></li>
+<li class="toc-entry toc-h5"><a href="#goal-sampling-vs-soft-attention">Goal Sampling vs. Soft Attention</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#least-square-loss">Least Square Loss</a></li>
+<li class="toc-entry toc-h3">
+<a href="#quantitative-result">Quantitative Result</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#benchmark-results">Benchmark results</a></li>
+<li class="toc-entry toc-h4"><a href="#negative-log-likelihood">Negative Log-likelihood</a></li>
+<li class="toc-entry toc-h4"><a href="#mode-converge">Mode Converge</a></li>
+<li class="toc-entry toc-h4"><a href="#feasibility">Feasibility</a></li>
+<li class="toc-entry toc-h4"><a href="#synthetic-dataset">Synthetic Dataset</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+    </div>
+</div>
+
+
+
+<script>
+    if (window.outerWidth >= 1664) {
+        window.onscroll = function () { stickToc() };
+        var position = $("#toc-container").position();
+        var toc = document.getElementById("toc-container");
+        var sticky_top = position.top;
+        var sticky_bottom = toc.clientHeight + sticky_top;
+        console.log(window.innerHeight);
+        toc.style.maxHeight = (window.innerHeight) + 'px';
+        function stickToc() {
+            if (window.pageYOffset >= sticky_top) {
+                toc.style.top = window.pageYOffset - 90 + 'px';
+            }
+            else {
+                toc.style.top = '0px';
+
+            }
+        }
+    }
+
+    function collapse_toc() {
+        console.log("here");
+        var toc = document.getElementById("toc-inner");
+        var toc_container = document.getElementById("toc-container");
+        if (toc.style.display != "none") {
+            toc.style.display = "none";
+            toc_container.style["border-left"] = "0"
+        }
+        else {
+            toc.style.display = "block";
+            toc_container.style["border-left"] = "1px solid lightgrey"
+        }
+    }
+</script>
+
+    
+    
+
+    <div class="post-content inner-sm width-limited">
+
+      <h2 id="problem-address">Problem address</h2>
+<p>This paper addresses the problem that vanilla GAN models generate highly diverse trajectories but tend to neglect the physical structure of the environment. The resulting trajectories are not necessarily feasible, and often do not fully cover multiple possible directions that a pedestrian can take. 
+<img src="media/16112149228111/16112156462136.jpg" alt="-w732"></p>
+
+<h2 id="highlight-of-model-structure">Highlight of model structure</h2>
+<p><img src="media/16112149228111/16112158935638.jpg" alt="-w724"></p>
+<ul>
+  <li>
+<strong>Motion Encoder</strong> extracts the pedestrians’ dynamic features recursively with a long short-term memory (LSTM) unit capturing the speed and direction of motion of the past trajectory.</li>
+  <li>
+<strong>Goal Module</strong> combines visual scene information and dynamic pedestrian features to predict the goal position for a given pedestrian. This module estimates the probability distribution over possible goal (target) positions, which is in turn used to sample goal positions.</li>
+  <li>
+<strong>Routing Module</strong> generates the trajectory to the goal position sampled from the GM. While the goal position of the prediction is determined by the</li>
+</ul>
+
+<h2 id="motion-encoder">Motion Encoder</h2>
+<ul>
+  <li>Vanilla LSTM-based encoder same as in Social GAN</li>
+</ul>
+
+<h2 id="goal-module">Goal Module</h2>
+<h3 id="how-to-fuse-motion-features-with-scene-context">How to fuse motion features with scene context?</h3>
+<ol>
+  <li>
+    <p>The scene image is passed through an encoder-decoder CNN network with skip connections.</p>
+  </li>
+  <li>
+    <p>The scene image features in the bottleneck layer are concatenated with the motion features h ME from the Motion Encoder</p>
+  </li>
+</ol>
+
+<p>Bottleneck dimension calculation example</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grid_size_in: input grid size = 32
+grid_size_out: output grid size =32
+num_layers: numbers of layers of encoder = 3
+ 
+bottleneck dim = (grid_size_in / (2^2))^2 = 64  
+</code></pre></div></div>
+
+<p>Social feature to CNN structure:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>f: linear layers with activations and output dim = bottleneck dim
+h: social features (hidden) from motion encoder
+I: scene image
+cnn_enc: Encoder blocks with output dim = bottleneck dim
+cnn_dec: Decoder part of the CNN with input dim = bottleneck dim
+
+traj_enc = f(h)    
+scene_features = cnn_enc(I)
+decoder_input =  concatenate([traj_enc, scene_features) 
+</code></pre></div></div>
+<p>Send to decoder:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>output = cnn_dec(decoder_input)
+return outpu
+</code></pre></div></div>
+
+<h3 id="what-is-gumbel-softmax-trick">What is Gumbel Softmax trick?</h3>
+<h4 id="law-of-the-unconscious-statsticianlotus">Law of the unconscious statstician(LOTUS)</h4>
+<blockquote>
+  <p>A theorem used to calculate the expected value of a function $g(X)$ of a random variable $X$ when one knows the probability distribution of X but one does not know the distribution of $g(X)$. The form of the law can depend on the form in which one states the probability distribution of the random variable $X$.</p>
+</blockquote>
+
+<script type="math/tex; mode=display">% <![CDATA[
+E[g(x)] = \begin{cases} \sum_x g(x) f_X(x) & \text{if discrete}                \\\\      \int_{-\infty}^{\infty} g(x) f_X(x) dx& \text{if continue}
+              \end{cases}  \\ %]]></script>
+
+<p>Assume that $z = g(\varepsilon, \phi)$ where $z$ has a distribution depending on parameter $\phi$,  get that for any measurable function $f$:</p>
+
+<script type="math/tex; mode=display">E(f(z)) = E(f(g(\varepsilon, z)))</script>
+
+<p>Find the gradient function via Monte Carlo:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{aligned}
+    \nabla_{\phi} E(f(g(z))) &= E(\nabla_{\phi} f(\varepsilon, z)) \\
+    &\approx \frac{1}{M} \sum_{i=1}^M \nabla f(g(\varepsilon^i,\phi))
+    \end{aligned} %]]></script>
+
+<p><strong>Problem</strong>: For the function relation $z = g(\phi, \varepsilon)$, it is not differentiable in discrete case.</p>
+
+<h4 id="gumbel-distribution">Gumbel Distribution</h4>
+<blockquote>
+  <p><strong>Definition</strong>: a continuous distribution over the simplex that can approximate samples from a categorical distribution</p>
+</blockquote>
+
+<ul>
+  <li>CDF: <script type="math/tex">F(x;\mu, \beta) = e^{-e^{-\frac{x-\mu}{\beta}}}</script>
+</li>
+  <li>standard form: <script type="math/tex">F(x;\mu, \beta) = e^{-e^{-x}}</script>
+</li>
+  <li>its probability density function <script type="math/tex">f(x;\mu, \beta) = e^{-(x+e^{-x})}</script>
+</li>
+</ul>
+
+<h5 id="gumbel-max-trick">Gumbel-max Trick</h5>
+<p>Firstly, from inverse transform sampling, we get:
+    <script type="math/tex">G = -log(-log(U \sim [0,1]))</script>. where $U$ is sampled from a uniform distribution. Then we can sample from a categorial distribution:</p>
+
+<p><script type="math/tex">X = \arg \max_k (\log \alpha_k + G_k)</script></p>
+<ul>
+  <li>$G_k$ is a sequence of standard Gumbel random variables.</li>
+  <li>$\alpha_k$ is any random constant sampled from uniform distribution $\alpha \sim [0,1]$</li>
+</ul>
+
+<p><img src="media/16112380575973/16112488004667.png" alt=""></p>
+
+<h5 id="gumbel-softmax-trick">Gumbel-softmax Trick</h5>
+<blockquote>
+  <p>Any discrete random variable can always be expressed as a one-hot vector by mapping the realisation of the variable to the index of the non-zero entry of the vector;</p>
+</blockquote>
+
+<script type="math/tex; mode=display">X^\tau \sim Concrete(\alpha,\tau) = (X^\tau_k)_k = f_\tau(\log \alpha + G) = softmax(\log \alpha_k + G_k)</script>
+
+<p><img src="media/16112380575973/16112494692784.png" alt=""></p>
+
+<h5 id="goal-sampling-vs-soft-attention">Goal Sampling vs. Soft Attention</h5>
+
+<h3 id="least-square-loss">Least Square Loss</h3>
+<blockquote>
+  <p>The original formulation using a classifier with sigmoid cross entropy function potentially leads to the vanishing gradient problem.</p>
+</blockquote>
+
+<script type="math/tex; mode=display">L_{Adv} = \frac{1}{2} \mathbb{E}[(D(X,Y) - 1)^2] +\frac{1}{2}\mathbb{E}[(D(\hat{X},Y) - 0)^2]</script>
+
+<h3 id="quantitative-result">Quantitative Result</h3>
+<h4 id="benchmark-results">Benchmark results</h4>
+<p><img src="media/16112149228111/16113054083214.jpg" alt="-w653">
+<img src="media/16112149228111/16113053949797.jpg" alt="-w658"></p>
+
+<h4 id="negative-log-likelihood">Negative Log-likelihood</h4>
+<p>Compares the probability density function between the ground truth and predicted positions using Kernel Density Estimation(KDE), proposed in <a href="https://arxiv.org/pdf/1810.05993.pdf">Trajectron</a>.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    total_score = 0
+    For each future time step:
+        kde = scipy.states.gaussian_kde(positions)
+        log_pdf = kde.logpdf(ground truth)
+        total_score += log_pdf / num_time_steps
+</code></pre></div></div>
+<h4 id="mode-converge">Mode Converge</h4>
+<p>Assesses if at least one of the k generated trajectories $\hat{y}$ reaches the final position of the ground truth final up to a distance of $2m$:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+MC = \frac{1}{n} \sum_i^n S( \hat{y} ) \space \text{with} \space S( \hat{y} ) = \begin{cases} 1 & \text{if} \space \exists k, \parallel \hat{y}^k - y \parallel _2 < 2m \\ 0 & \space \text{else}\end{cases} %]]></script>
+
+<h4 id="feasibility">Feasibility</h4>
+<p>The ratio of trajectories lying inside the feasible area:
+<script type="math/tex">% <![CDATA[
+F = \frac{1}{N} \sum_{i,k}^n f(\hat{y_i}) = \begin{cases}1 & \hat{y}\in F \\ 0 & \text{else}\end{cases} %]]></script></p>
+
+<h4 id="synthetic-dataset">Synthetic Dataset</h4>
+
+<p><img src="media/16112149228111/16114363178424.jpg" alt="-w720"></p>
+
+
+    </div>
+    <!-- <footer class="post-meta inner-sm width-limited">
+      <time class="published" datetime="2021-01-25 00:00">January 25, 2021</time>
+    </footer> -->
+  </article><!-- .post -->
+
+  <!-- Next/previous post navigation TBD -->
+  <!--
+  <nav class="read-next inner-sm width-limited">
+    <h2 class="read-next-title line-top">Read Next</h2>
+    <div class="post-feed grid grid-col-2">
+      <article class="post grid-item">
+        <div class="post-inside">
+          <a class="post-thumbnail" href="#"><img src="#" alt="" /></a>
+          <header class="post-header">
+            <h3 class="post-title"><a href="#" rel="bookmark">Previous Post Title</a></h3>
+            <div class="post-meta">
+              <time class="published" datetime="">Previous post date</time>
+            </div>
+          </header>
+        </div>
+      </article>
+      <article class="post grid-item">
+        <div class="post-inside">
+          <a class="post-thumbnail" href="#"><img src="#" alt="" /></a>
+          <header class="post-header">
+            <h3 class="post-title"><a href="#" rel="bookmark">Next Post Title</a></h3>
+            <div class="post-meta">
+              <time class="published" datetime="">Next post date</time>
+            </div>
+          </header>
+        </div>
+      </article>
+    </div>
+  </nav>
+  -->
+</div>
+<!-- .inner -->
+  </main><!-- .site-content -->
+
+  
+</div>
+<!-- .site -->
+    <!-- Scripts -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            showProcessingMessages: false, //关闭js加载过程信息
+            messageStyle: "none", //不显示信息
+            extensions: ["tex2jax.js"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+            tex2jax: {
+                inlineMath:  [ ["$", "$"] ], //行内公式选择$
+                displayMath: [ ["$$","$$"] ], //段内公式选择$$
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'], //避开某些标签
+                ignoreClass:"comment-content" //避开含该Class的标签
+            },
+            "HTML-CSS": {
+                availableFonts: ["STIX","TeX"], //可选字体
+               
+               
+
+            }
+        });
+        MathJax.Hub.Queue(function(){
+            var all = MathJax.Hub.getAllJax(),i;
+            for(i=0;i<all.length;i++){
+                var jax = document.getElementById(all[i].inputID + '-Frame');
+                if(jax.parentNode.tagName == "DIV" ){
+                    jax.parentNode.classList.add('has-jax');
+                }else if(jax.parentNode.tagName == "P" && jax.parentNode.parentNode.tagName != "LI" ){
+                    jax.parentNode.classList.add('has-jax');
+                }
+            }
+        });
+        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script src="/assets/js/plugins.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+</body>
+<footer id="colophon" class="site-footer outer">
+  <div class="inner">
+    <div class="site-footer-inside">
+      <div class="site-info">
+        
+        
+        <span class="copyright">© Renhao Huang. All rights reserved.</span>
+        
+        
+      </div>
+<!-- .site-info -->
+      
+      
+      <div class="social-links">
+        
+
+        
+<a class=" button-icon" href="https://github.com/HRHLALALA" target="_blank" rel="noopener">
+  
+  <span class="icon fab fa-github" aria-hidden="true"></span><span class="screen-reader-text">GitHub</span>
+  
+</a>
+
+        
+
+        
+<a class=" button-icon" href="https://www.instagram.com/" target="_blank" rel="noopener">
+  
+  <span class="icon fab fa-instagram" aria-hidden="true"></span><span class="screen-reader-text">Instagram</span>
+  
+</a>
+
+        
+
+        
+<a class=" button-icon" href="https://dribbble.com/" target="_blank" rel="noopener">
+  
+  <span class="icon fab fa-envelope" aria-hidden="true"></span><span class="screen-reader-text">Dribbble</span>
+  
+</a>
+
+        
+
+        
+<a class=" button-icon" href="https://www.linkedin.com/" target="_blank" rel="noopener">
+  
+  <span class="icon fab fa-linkedin" aria-hidden="true"></span><span class="screen-reader-text">LinkedIn</span>
+  
+</a>
+
+        
+      </div>
+<!-- .social-links -->
+      
+    </div>
+<!-- .site-footer-inside -->
+  </div>
+<!-- .inner -->
+</footer><!-- .site-footer -->
+
+</html>

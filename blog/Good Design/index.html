@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Good Design - Python (Chinese) -
+        Renhao Huang's Personal Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This blog concludes how to distinguish bad designs and how to reconstruct them. It is suitable for beginners who haven't learnt OOP yet. It was used to be instructed to my Python students because they were designing software application by themselves. ">
+
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- <link rel="stylesheet" href="/assets/css/dark_theme.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <div id="page" class="site palette-light accent-pink">
+  <header id="masthead" class="site-header outer">
+  <!-- HTML elements for search -->
+
+  <div class="inner">
+
+    <div class="site-header-inside">
+      <div class="site-branding">
+        
+        
+        <p class="site-title"><a href="/%20/">Renhao Huang</a></p>
+        
+      </div>
+<!-- .site-branding -->
+      
+      
+      <button id="menu-open" class="menu-toggle"><span class="screen-reader-text">Close Menu</span><span class="icon-menu" aria-hidden="true"></span></button>
+
+
+
+
+      <nav id="main-navigation" class="site-navigation" aria-label="Main Navigation">
+
+        <div class="site-nav-inside">
+
+          <button id="menu-close" class="menu-toggle"><span class="screen-reader-text">Open Menu</span><span class="icon-close" aria-hidden="true"></span></button>
+          <ul class="menu">
+            <div class="menu-item">
+              <link rel="stylesheet" href="http://localhost:4000/assets/css/search.css">
+
+<div id="search-container">
+    <input type="text" id="search-input" placeholder="Search...">
+
+    <ul id="results-container"></ul>
+</div>
+<script src="http://localhost:4000/assets/js/simple-jekyll-search.min.js"></script>
+<script>
+    
+    window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: 'http://localhost:4000/search.json',
+        searchResultTemplate: '<li ><a class="dropdown-item" href="http://localhost:4000{url}">{title}<p>{url}</p></a></li>',
+        noResultsText: 'No results found',
+        limit: 8,
+        fuzzy: true,
+        exclude: ['Renhao Huang', 'Projects', 'About Me', 'Contact'],
+        success: function (data) {
+            console.log("search component success data： " + data);
+        }
+    })
+</script>
+            </div>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/">
+  
+  Home
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/portfolio/">
+  
+  Projects
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/blog/">
+  
+  Blog
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/cv/">
+  
+  CV
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/about/">
+  
+  About
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/contact/">
+  
+  Contact
+  
+</a>
+
+            </li>
+            
+
+          </ul>
+<!-- .menu -->
+
+        </div>
+<!-- .site-nav-inside -->
+      </nav><!-- .site-navigation -->
+      
+
+
+
+    </div>
+<!-- .site-header-inside -->
+  </div>
+<!-- .inner -->
+</header><!-- .site-header -->
+  <main id="content" class="site-content">
+    <div class="inner outer">
+
+  <article class="post post-full">
+    <header class="post-header inner-sm width-limited">
+
+      <h1 class="post-title line-top">Good Design - Python (Chinese)</h1>
+      
+      
+      <time class="published" datetime="2020-09-19 00:00">September 19, 2020</time>
+    </header>
+
+    <style>
+    .section-nav {
+        color: aquamarine;
+        background-color: transparent;
+
+        top: 0px;
+    }
+
+    .post-toc {
+        margin: 0 auto;
+    }
+
+    .section-nav a {
+        color: darkturquoise;
+    }
+
+    .section-nav a:hover {
+        color: red;
+    }
+
+    #toc-collapse-icon {
+        display: none;
+    }
+
+    @media only screen and (min-width: 1664px) {
+        .post-toc {
+            position: absolute;
+            display: block;
+            width: calc(50% - 27rem);
+            max-width:32em;
+            right: 0;
+            z-index: 10;
+            border-left: 1px solid lightgrey;
+            padding: 1.5rem;
+            transition: none !important;
+            top: 0;
+            overflow-y: auto;
+            bottom: -7.5em;
+
+        }
+
+
+        .section-nav {
+            width: 100%;
+            font-size: 0.901em !important;
+        }
+
+        #toc-collapse-icon {
+            display: block;
+            float: right;
+            color: black;
+        }
+
+        #toc-collapse-icon:hover {
+            color: skyblue;
+        }
+    }
+</style>
+
+
+
+
+
+<script>
+    if (window.outerWidth >= 1664) {
+        window.onscroll = function () { stickToc() };
+        var position = $("#toc-container").position();
+        var toc = document.getElementById("toc-container");
+        var sticky_top = position.top;
+        var sticky_bottom = toc.clientHeight + sticky_top;
+        console.log(window.innerHeight);
+        toc.style.maxHeight = (window.innerHeight) + 'px';
+        function stickToc() {
+            if (window.pageYOffset >= sticky_top) {
+                toc.style.top = window.pageYOffset - 90 + 'px';
+            }
+            else {
+                toc.style.top = '0px';
+
+            }
+        }
+    }
+
+    function collapse_toc() {
+        console.log("here");
+        var toc = document.getElementById("toc-inner");
+        var toc_container = document.getElementById("toc-container");
+        if (toc.style.display != "none") {
+            toc.style.display = "none";
+            toc_container.style["border-left"] = "0"
+        }
+        else {
+            toc.style.display = "block";
+            toc_container.style["border-left"] = "1px solid lightgrey"
+        }
+    }
+</script>
+
+    
+    
+    <div class="post-image">
+      <img src="/images/code-smell.png" alt="Good Design - Python (Chinese)">
+    </div>
+    
+
+    <div class="post-content inner-sm width-limited">
+
+      <h2 id="code-smells-代码异味">Code Smells 代码异味</h2>
+<h3 id="1-duplicated-code-代码重复">1. Duplicated Code 代码重复</h3>
+
+<h4 id="例子">例子</h4>
+
+<p>已经写过类似的Python代码，但是没有放在函数里，所以能难使用</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">turtle</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">turtle</span><span class="p">.</span><span class="n">Pen</span><span class="p">()</span>
+<span class="n">t</span><span class="p">.</span><span class="n">pensize</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="c1">#1绿色枝干
+</span><span class="n">t</span><span class="p">.</span><span class="n">color</span><span class="p">(</span><span class="s">"green"</span><span class="p">)</span>
+<span class="n">t</span><span class="p">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">t</span><span class="p">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="c1">#2蓝色叶子
+</span><span class="n">t</span><span class="p">.</span><span class="n">color</span><span class="p">(</span><span class="s">"blue"</span><span class="p">)</span>
+
+<span class="c1">#两片叶子
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">):</span>
+        <span class="n">t</span><span class="p">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+        <span class="n">t</span><span class="p">.</span><span class="n">right</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+    <span class="n">t</span><span class="p">.</span><span class="n">right</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+    
+<span class="c1">#3紫色枝干
+</span><span class="n">t</span><span class="p">.</span><span class="n">color</span><span class="p">(</span><span class="s">"purple"</span><span class="p">)</span>
+<span class="n">t</span><span class="p">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span>
+<span class="c1">#4红色的花
+</span><span class="n">t</span><span class="p">.</span><span class="n">color</span><span class="p">(</span><span class="s">"red"</span><span class="p">)</span>
+<span class="c1"># 花
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">):</span>
+            <span class="n">t</span><span class="p">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+            <span class="n">t</span><span class="p">.</span><span class="n">right</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+        <span class="n">t</span><span class="p">.</span><span class="n">right</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+    <span class="n">t</span><span class="p">.</span><span class="n">left</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>解决方案： 把重复的部分放入函数调用</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">turtle</span>
+
+<span class="c1">#绘制叶子的函数
+</span><span class="k">def</span> <span class="nf">draw_leaf</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">):</span>
+            <span class="n">t</span><span class="p">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+            <span class="n">t</span><span class="p">.</span><span class="n">right</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+        <span class="n">t</span><span class="p">.</span><span class="n">right</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">turtle</span><span class="p">.</span><span class="n">Pen</span><span class="p">()</span>
+<span class="n">t</span><span class="p">.</span><span class="n">pensize</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="c1">#1绿色枝干
+</span><span class="n">t</span><span class="p">.</span><span class="n">color</span><span class="p">(</span><span class="s">"green"</span><span class="p">)</span>
+<span class="n">t</span><span class="p">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">t</span><span class="p">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="c1">#2蓝色叶子
+</span><span class="n">t</span><span class="p">.</span><span class="n">color</span><span class="p">(</span><span class="s">"blue"</span><span class="p">)</span>
+<span class="n">draw_leaf</span><span class="p">()</span>
+<span class="c1">#3紫色枝干
+</span><span class="n">t</span><span class="p">.</span><span class="n">color</span><span class="p">(</span><span class="s">"purple"</span><span class="p">)</span>
+<span class="n">t</span><span class="p">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span>
+<span class="c1">#4红色的花
+</span><span class="n">t</span><span class="p">.</span><span class="n">color</span><span class="p">(</span><span class="s">"red"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+    <span class="n">draw_leaf</span><span class="p">()</span>
+    <span class="n">t</span><span class="p">.</span><span class="n">left</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>已经写过类似功能的函数，但是需要修改后才能使用，但是函数没有办法修改</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">init_board</span><span class="p">():</span>
+    <span class="c1"># initialize 3x3 board
+</span>    
+    <span class="n">board</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+            <span class="n">row</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">board</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    
+ <span class="c1"># 一段很长的代码都需要init_board_3....但是用户说需要5x5的盘，于是
+</span>    
+<span class="n">board</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+        <span class="n">row</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">board</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span> 
+<span class="p">...</span>
+</code></pre></div></div>
+
+<p>解决方案：</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">init_board</span><span class="p">(</span><span class="n">board_size</span><span class="p">):</span>
+    <span class="c1"># initialize 3x3 board
+</span>    
+    <span class="n">board</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">board_size</span><span class="p">):</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">board_size</span><span class="p">):</span>
+            <span class="n">row</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">board</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>    
+<span class="n">init_board</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="p">...</span>
+<span class="n">init_board</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="p">...</span>
+
+</code></pre></div></div>
+
+<h4 id="例子-1">例子</h4>
+<p>已经写过类似功能的函数，但是只需要其中一部分</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 2048.py
+</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="k">def</span> <span class="nf">init_board</span><span class="p">():</span>
+    <span class="c1"># 新建空白棋盘，随机两个位置放入2或4
+</span>    <span class="n">board</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+            <span class="n">row</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">board</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+        
+    
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="n">choice</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+            <span class="n">i</span><span class="o">=</span><span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+            <span class="n">j</span><span class="o">=</span><span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+        
+            <span class="k">if</span> <span class="n">board</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">!=</span><span class="mi">0</span><span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">board</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">random</span><span class="p">.</span><span class="n">choice</span><span class="p">(</span><span class="n">choice</span><span class="p">)</span>
+                    <span class="k">break</span>
+    <span class="k">return</span> <span class="n">board</span>
+    
+<span class="p">...</span>
+
+<span class="c1"># 现在更改了游戏规则，需要增加全部都是2的棋盘
+</span><span class="n">board</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+        <span class="n">row</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">board</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+<span class="p">...</span>
+
+</code></pre></div></div>
+<p>重构后：</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 2048.py
+</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="k">def</span> <span class="nf">init_board</span><span class="p">(</span><span class="n">size</span><span class="p">,</span><span class="n">init_num</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="c1"># 新建空白棋盘，随机两个位置放入2或4
+</span>    <span class="n">board</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+            <span class="n">row</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">init_num</span><span class="p">)</span>
+        <span class="n">board</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">init_random_positions</span><span class="p">(</span><span class="n">board</span><span class="p">):</span>   
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="n">choice</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+            <span class="n">i</span><span class="o">=</span><span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">board</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">j</span><span class="o">=</span><span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">board</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        
+            <span class="k">if</span> <span class="n">board</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">!=</span><span class="mi">0</span><span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">board</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">random</span><span class="p">.</span><span class="n">choice</span><span class="p">(</span><span class="n">choice</span><span class="p">)</span>
+                    <span class="k">break</span>
+    <span class="k">return</span> <span class="n">board</span>
+    
+<span class="p">...</span>
+
+<span class="c1"># 现在更改了游戏规则，需要增加全部都是2的棋盘
+</span><span class="n">board</span> <span class="o">=</span> <span class="n">init_board</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="n">init_num</span> <span class="o">=</span> <span class="mi">2</span><span class="p">):</span>
+<span class="p">...</span>
+
+</code></pre></div></div>
+
+<h3 id="解决方案">解决方案</h3>
+<ul>
+  <li>将重复的代码放入函数</li>
+  <li>设置重要的参数</li>
+  <li>拆分函数，让函数能适应各种情况</li>
+</ul>
+
+<h3 id="2-长函数">2. 长函数</h3>
+
+<ul>
+  <li>因为写代码比读代码容易，所以在方法变成一个丑陋的、巨大的庞然大物之前是感觉不到的</li>
+  <li>“代码只有两行，为它创建一个完整的函数是没有意义的……”这意味着又加了一行又一行，产生了一堆乱七八糟的代码</li>
+</ul>
+
+<h4 id="例子-2">例子</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">t</span> <span class="o">=</span> <span class="n">turtle</span><span class="p">.</span><span class="n">Pen</span><span class="p">()</span>
+<span class="n">t</span><span class="p">.</span><span class="n">pensize</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">t</span><span class="p">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">draw_leaf</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">):</span>
+            <span class="n">t</span><span class="p">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+            <span class="n">t</span><span class="p">.</span><span class="n">right</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+        <span class="n">t</span><span class="p">.</span><span class="n">right</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">draw_flower</span><span class="p">():</span>
+    <span class="c1">#1绿色枝干
+</span>    <span class="n">t</span><span class="p">.</span><span class="n">color</span><span class="p">(</span><span class="s">"green"</span><span class="p">)</span>
+    <span class="n">t</span><span class="p">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+    <span class="c1">#2蓝色叶子
+</span>    <span class="n">t</span><span class="p">.</span><span class="n">color</span><span class="p">(</span><span class="s">"blue"</span><span class="p">)</span>
+    <span class="n">draw_leaf</span><span class="p">()</span>
+    <span class="c1">#3紫色枝干
+</span>    <span class="n">t</span><span class="p">.</span><span class="n">color</span><span class="p">(</span><span class="s">"purple"</span><span class="p">)</span>
+    <span class="n">t</span><span class="p">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span>
+    <span class="c1">#4红色的花
+</span>    <span class="n">t</span><span class="p">.</span><span class="n">color</span><span class="p">(</span><span class="s">"red"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+        <span class="n">draw_leaf</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h4 id="解决方案-1">解决方案</h4>
+<ul>
+  <li>拆分函数</li>
+  <li>尝试给代码加上注释</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">t</span> <span class="o">=</span> <span class="n">turtle</span><span class="p">.</span><span class="n">Pen</span><span class="p">()</span>
+<span class="n">t</span><span class="p">.</span><span class="n">pensize</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">t</span><span class="p">.</span><span class="n">left</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">draw_leaf</span><span class="p">(</span><span class="n">color</span><span class="p">):</span>
+    <span class="n">t</span><span class="p">.</span><span class="n">color</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">):</span>
+            <span class="n">t</span><span class="p">.</span><span class="n">forward</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+            <span class="n">t</span><span class="p">.</span><span class="n">right</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+        <span class="n">t</span><span class="p">.</span><span class="n">right</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">draw_branch</span><span class="p">(</span><span class="n">color</span><span class="p">,</span><span class="n">length</span><span class="p">):</span>
+    <span class="c1"># 枝干
+</span>    <span class="n">t</span><span class="p">.</span><span class="n">color</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">t</span><span class="p">.</span><span class="n">forward</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
+ 
+<span class="k">def</span> <span class="nf">draw_petal</span><span class="p">(</span><span class="n">color</span><span class="p">,</span><span class="n">petal_num</span><span class="p">):</span>
+    <span class="c1"># 花瓣
+</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">petal_num</span><span class="p">):</span>
+        <span class="n">draw_leaf</span><span class="p">()</span>
+        <span class="n">t</span><span class="p">.</span><span class="n">left</span><span class="p">(</span><span class="mi">360</span><span class="o">/</span><span class="n">petal_num</span><span class="p">)</span>
+   
+<span class="k">def</span> <span class="nf">draw_flower</span><span class="p">():</span>
+    
+    <span class="c1">#1绿色枝干
+</span>    <span class="n">draw_branch</span><span class="p">(</span><span class="s">"green"</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+    
+    <span class="c1">#2蓝色叶子
+</span>    <span class="n">draw_leaf</span><span class="p">(</span><span class="s">"blue"</span><span class="p">)</span>
+    
+    <span class="c1">#3紫色枝干
+</span>    <span class="n">draw_branch</span><span class="p">(</span><span class="s">"purple"</span><span class="p">,</span><span class="mi">150</span><span class="p">)</span>
+    
+    <span class="c1">#4红色的花
+</span>    <span class="n">draw_petal</span><span class="p">(</span><span class="s">"red"</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="3-divergent-change-发散式变化">3. Divergent Change 发散式变化</h3>
+<ul>
+  <li>当添加一个新功能的时候，需要修改很多地方</li>
+  <li>添加新的功能会很困难</li>
+  <li>通常发生在添加新功能的时候</li>
+</ul>
+
+<h4 id="例子-3">例子</h4>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">taste1</span><span class="p">():</span>
+    <span class="n">something</span><span class="p">()</span>
+<span class="p">...</span>
+<span class="k">def</span> <span class="nf">tasteN</span><span class="p">():</span>
+    <span class="n">something</span><span class="p">()</span>
+    
+<span class="k">def</span> <span class="nf">smell1</span><span class="p">():</span>
+    <span class="n">something</span><span class="p">()</span>
+<span class="p">...</span>
+<span class="k">def</span> <span class="nf">smellN</span><span class="p">():</span>
+    <span class="n">something</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">taste</span><span class="p">(</span><span class="n">fruit_name</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">fruit_name</span> <span class="o">==</span> <span class="s">"apple"</span><span class="p">:</span>
+        <span class="n">taste1</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">fruit_name</span> <span class="o">==</span> <span class="s">"pear"</span><span class="p">:</span>
+        <span class="n">taste2</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">fruit_name</span> <span class="o">==</span> <span class="s">"watermelon"</span><span class="p">:</span>
+        <span class="n">taste3</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="p">...</span>
+        <span class="n">tasteN</span><span class="p">()</span>
+
+        
+<span class="k">def</span> <span class="nf">smell</span><span class="p">(</span><span class="n">fruit_name</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">fruit_name</span> <span class="o">==</span> <span class="s">"apple"</span><span class="p">:</span>
+        <span class="n">smell1</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">fruit_name</span> <span class="o">==</span> <span class="s">"pear"</span><span class="p">:</span>
+        <span class="n">smell2</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">fruit_name</span> <span class="o">==</span> <span class="s">"watermelon"</span><span class="p">:</span>
+        <span class="n">smell3</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="p">...</span>
+        <span class="n">smellN</span><span class="p">()</span>
+
+
+
+<span class="n">fruit_name</span> <span class="o">=</span> <span class="s">"apple"</span>
+
+</code></pre></div></div>
+
+<p>如果<code class="highlighter-rouge">fruit_name</code> 换成其他水果，就需要对这些函数都添加一遍</p>
+
+<h4 id="解决方案-2">解决方案</h4>
+<p>避免使用这类一连串 if 语句</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+<span class="k">def</span> <span class="nf">taste1</span><span class="p">():</span>
+    <span class="n">something</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">smell1</span><span class="p">():</span>
+    <span class="n">something</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">taste</span><span class="p">(</span><span class="n">fruit</span><span class="p">):</span>
+    <span class="n">fruit</span><span class="p">[</span><span class="s">'taste'</span><span class="p">]()</span>
+    
+
+        
+<span class="k">def</span> <span class="nf">smell</span><span class="p">(</span><span class="n">fruit</span><span class="p">):</span>
+    <span class="n">fruit</span><span class="p">[</span><span class="s">'smell'</span><span class="p">]()</span>
+
+<span class="n">fruit</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"name"</span><span class="p">:</span> <span class="s">"apple"</span><span class="p">,</span>
+    <span class="s">"taste"</span><span class="p">:</span>  <span class="n">taste1</span><span class="p">,</span>
+    <span class="s">"smell"</span><span class="p">:</span> <span class="n">smell1</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+</code></pre></div></div>
+
+<h3 id="4-shotgun-surgery-霰弹枪手术">4. Shotgun Surgery 霰弹枪手术</h3>
+<ul>
+  <li>当修改一个函数的时候，其他函数都要跟着修正</li>
+  <li>通常Debug的时候</li>
+  <li>危害
+    <ul>
+      <li>增加开发人员的工作量</li>
+      <li>代码的潜在疏忽</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="例子-4">例子</h4>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 原要求：每个函数你都需要检测 money 不能小于0且不能超过1000
+</span>
+<span class="k">def</span> <span class="nf">save_money</span><span class="p">(</span><span class="n">money</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">money</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">money</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"money can only in range between 0 and 1000"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">_here_save_money</span><span class="p">()</span>
+        
+<span class="k">def</span> <span class="nf">transfer_money</span><span class="p">(</span><span class="n">money</span><span class="p">,</span><span class="n">target</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">money</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">money</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"money can only in range between 0 and 1000"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">_transfer_money</span><span class="p">()</span>
+    
+<span class="p">....</span>
+
+
+<span class="c1"># 新要求：money 不能小于0且不能超过500 而且money不等于100
+# 这样就需要重新修改这些函数
+</span>      
+</code></pre></div></div>
+<h4 id="解决方案-3">解决方案</h4>
+<p>拆分函数，把公共部分拿出来</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 要求：money 不能小于0且不能超过500 而且money不等于100，
+</span><span class="n">rule</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"lower_bound"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="s">"upper_bound"</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span>
+    <span class="s">"sensitive_values"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="k">def</span> <span class="nf">print_rule_invalid_msg</span><span class="p">(</span><span class="n">rule</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"cannot in range"</span><span class="p">,</span><span class="n">rule</span><span class="p">[</span><span class="s">'lower_bound'</span><span class="p">],</span> <span class="s">"and"</span><span class="p">,</span> <span class="p">...)</span>
+    
+<span class="k">def</span> <span class="nf">check_money_validation</span><span class="p">(</span><span class="n">money</span><span class="p">,</span> <span class="n">rule</span> <span class="o">=</span> <span class="n">rule</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">money</span> <span class="o">&lt;</span> <span class="n">rule</span><span class="p">[</span><span class="s">'lower_bound'</span><span class="p">]</span> <span class="ow">or</span> 
+        <span class="n">money</span> <span class="o">&lt;</span> <span class="n">rule</span><span class="p">[</span><span class="s">'upper_bound'</span><span class="p">]</span> <span class="ow">or</span> 
+        <span class="n">money</span> <span class="o">==</span> <span class="n">rule</span><span class="p">[</span><span class="s">'sensitive_values'</span><span class="p">]):</span>
+        <span class="c1"># start
+</span>        <span class="n">print_rule_invalid_msg</span><span class="p">(</span><span class="n">rule</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">True</span>
+        
+
+<span class="k">def</span> <span class="nf">save_money</span><span class="p">(</span><span class="n">money</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">check_money_validation</span><span class="p">(</span><span class="n">money</span><span class="p">):</span>
+        <span class="n">_here_save_money</span><span class="p">()</span>
+        
+<span class="k">def</span> <span class="nf">transfer_money</span><span class="p">(</span><span class="n">money</span><span class="p">,</span><span class="n">target</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">check_money_validation</span><span class="p">(</span><span class="n">money</span><span class="p">)</span>
+        <span class="n">_transfer_money</span><span class="p">()</span>
+      
+</code></pre></div></div>
+<p>如果可能需要应对不同的情况 仿Strategy Pattern</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">check_upper_lower_bound</span><span class="p">(</span><span class="n">moneey</span><span class="p">,</span><span class="n">lower</span><span class="p">,</span><span class="n">upper</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">money</span><span class="o">&lt;</span> <span class="n">lower</span> <span class="ow">or</span> <span class="n">money</span> <span class="o">&gt;</span> <span class="n">upper</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">True</span>
+<span class="k">def</span> <span class="nf">check_sensitive_amounts</span><span class="p">(</span><span class="n">moneey</span><span class="p">,</span><span class="n">amounts</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">money</span> <span class="ow">in</span> <span class="n">amounts</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">True</span>   
+             
+<span class="k">def</span> <span class="nf">print_rule_invalid_msg</span><span class="p">(</span><span class="n">rule</span><span class="p">):</span>
+    <span class="s">"""
+    Some code here
+    """</span>
+    <span class="k">print</span><span class="p">(...)</span>
+   
+<span class="s">"""
+例：假如Money 不能在区间100-150，300-350之内，且不能等于120 和170
+"""</span>    
+<span class="n">rules</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="k">lambda</span> <span class="n">money</span><span class="p">:</span> <span class="n">check_upper_lower_bound</span><span class="p">(</span><span class="n">money</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">150</span><span class="p">),</span>
+    <span class="k">lambda</span> <span class="n">money</span><span class="p">:</span> <span class="n">check_upper_lower_bound</span><span class="p">(</span><span class="n">money</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">350</span><span class="p">),</span>
+    <span class="k">lambda</span> <span class="n">money</span><span class="p">:</span> <span class="n">check_sensitive_amounts</span><span class="p">(</span><span class="n">money</span><span class="p">,[</span><span class="mi">120</span><span class="p">,</span><span class="mi">170</span><span class="p">]),</span>   
+<span class="p">]</span>
+  
+<span class="k">def</span> <span class="nf">check_money_validation</span><span class="p">(</span><span class="n">money</span><span class="p">,</span><span class="n">rules</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="n">rules</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">rule</span><span class="p">():</span>
+            <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="bp">True</span>
+            
+        
+
+<span class="k">def</span> <span class="nf">save_money</span><span class="p">(</span><span class="n">money</span><span class="p">):</span>
+    <span class="s">"""
+    init rules here
+    """</span>
+    <span class="k">if</span> <span class="n">check_money_validation</span><span class="p">(</span><span class="n">money</span><span class="p">,</span><span class="n">rules</span><span class="p">):</span>
+        <span class="n">_here_save_money</span><span class="p">()</span>
+        
+<span class="k">def</span> <span class="nf">transfer_money</span><span class="p">(</span><span class="n">money</span><span class="p">,</span><span class="n">target</span><span class="p">):</span>
+    <span class="s">"""
+    init rules here
+    """</span>
+    <span class="k">if</span> <span class="n">check_money_validation</span><span class="p">(</span><span class="n">money</span><span class="p">,</span><span class="n">rules</span><span class="p">)</span>
+        <span class="n">_transfer_money</span><span class="p">()</span>
+      
+</code></pre></div></div>
+
+<h3 id="5-long-parameter-list-长参数群">5. Long Parameter List 长参数群</h3>
+<ul>
+  <li>函数的参数过多</li>
+  <li>在将几种类型的算法合并到一个方法中之后，可能会出现一长串参数</li>
+  <li>参数传递会很困难，容易出错</li>
+  <li>不容易Debug</li>
+  <li>
+</li>
+</ul>
+
+<h4 id="例子-5">例子：</h4>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">def</span> <span class="nf">draw_flower</span><span class="p">(</span>    
+                    <span class="n">upper_left_point</span><span class="p">,</span>
+                    <span class="n">lower_right_point</span><span class="p">,</span>
+                    <span class="n">lower_branch_color</span><span class="p">,</span>
+                    <span class="n">lower_branch_length</span><span class="p">,</span>
+                    <span class="n">leaf_color</span><span class="p">,</span>
+                    <span class="n">leaf_length</span><span class="p">,</span>
+                    <span class="n">upper_branch_color</span><span class="p">,</span>
+                    <span class="n">upper_branch_length</span><span class="p">,</span>
+                    <span class="n">petal_color</span><span class="p">,</span>
+                    <span class="n">petal_num</span><span class="p">,</span>
+                    <span class="n">pen_size</span><span class="p">,</span> 
+                    <span class="p">)</span><span class="err">：</span>
+    
+    <span class="n">t</span><span class="p">.</span><span class="n">pensize</span><span class="p">(</span><span class="n">pen_size</span><span class="p">)</span>
+    
+    <span class="c1">#----------------
+</span>    <span class="c1"># 画笔归位代码
+</span>    <span class="c1">#----------------
+</span>    
+    <span class="c1">#1绿色枝干
+</span>    <span class="n">draw_branch</span><span class="p">(</span><span class="n">lower_branch_color</span><span class="p">,</span> <span class="n">lower_branch_length</span><span class="p">)</span>
+    
+    <span class="c1">#2蓝色叶子
+</span>    <span class="n">draw_leaf</span><span class="p">(</span><span class="n">leaf_color</span><span class="p">,</span><span class="n">leaf_length</span><span class="p">)</span>
+    
+    <span class="c1">#3紫色枝干
+</span>    <span class="n">draw_branch</span><span class="p">(</span><span class="n">upper_branch_color</span><span class="p">,</span><span class="n">upper_branch_length</span><span class="p">)</span>
+    
+    <span class="c1">#4红色的花
+</span>    <span class="n">draw_petal</span><span class="p">(</span><span class="n">petal_color</span><span class="p">,</span> <span class="n">petal_num</span><span class="p">)</span>
+ 
+<span class="k">def</span> <span class="nf">draw_flowers</span><span class="p">(</span>
+                <span class="n">num_flowers</span><span class="p">,</span>
+                <span class="n">upper_left_point</span><span class="p">,</span>
+                <span class="n">lower_right_point</span><span class="p">,</span>
+                <span class="n">lower_branch_color</span><span class="p">,</span>
+                <span class="n">lower_branch_length</span><span class="p">,</span>
+                <span class="n">leaf_color</span><span class="p">,</span>
+                <span class="n">leaf_length</span><span class="p">,</span>
+                <span class="n">upper_branch_color</span><span class="p">,</span>
+                <span class="n">upper_branch_length</span><span class="p">,</span>
+                <span class="n">petal_color</span><span class="p">,</span>
+                <span class="n">petal_num</span><span class="p">,</span>
+                <span class="n">pen_size</span><span class="p">):</span>  
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_flowers</span><span class="p">)</span>               
+        <span class="n">draw_flower</span><span class="p">(</span>
+                <span class="n">upper_left_point</span><span class="p">,</span>
+                <span class="n">lower_right_point</span><span class="p">,</span>
+                <span class="n">lower_branch_color</span><span class="p">,</span>
+                <span class="n">lower_branch_length</span><span class="p">,</span>
+                <span class="n">leaf_color</span><span class="p">,</span>
+                <span class="n">leaf_length</span><span class="p">,</span>
+                <span class="n">upper_branch_color</span><span class="p">,</span>
+                <span class="n">upper_branch_length</span><span class="p">,</span>
+                <span class="n">petal_color</span><span class="p">,</span>
+                <span class="n">petal_num</span><span class="p">,</span>
+                <span class="n">pen_size</span>
+        <span class="p">)</span>
+        <span class="c1"># some code to adjust direction
+</span>    <span class="c1"># some code to do with flowers
+</span></code></pre></div></div>
+
+<p>原来设想upper_left_point和lower_right_point作为花的bounding box的位置，但是发现代码与愿相违</p>
+
+<p>如果需要将upper_left_point, lower_right_point 换成起始点x，y怎么办</p>
+
+<h3 id="解决方案-4">解决方案</h3>
+<p>在python 中可以使用 *args或**kwarg的方法，或者设定默认值</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">flower_config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"num_flowers"</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+    <span class="s">"upper_left_point"</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span>
+    <span class="s">"lower_right_point"</span><span class="p">:(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span>
+    <span class="s">"lower_branch_color"</span><span class="p">:</span><span class="s">"green"</span><span class="p">,</span>
+    <span class="s">"lower_branch_length"</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+    <span class="s">"leaf_color"</span><span class="p">:</span><span class="s">"yellow"</span><span class="p">,</span>
+    <span class="s">"leaf_length"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span>
+    <span class="s">"upper_branch_color"</span><span class="p">:</span> <span class="s">"purple"</span><span class="p">,</span>
+    <span class="s">"upper_branch_length"</span><span class="p">:</span> <span class="mi">150</span><span class="p">,</span>
+    <span class="s">"petal_color"</span><span class="p">:</span> <span class="s">"purple"</span><span class="p">,</span>
+    <span class="s">"petal_num"</span><span class="p">:</span><span class="mi">6</span> <span class="p">,</span>
+    <span class="s">"pen_size"</span><span class="p">:</span><span class="mi">5</span>
+    
+<span class="p">}</span>
+    
+<span class="k">def</span> <span class="nf">back_to_position</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+    <span class="n">somecode</span><span class="p">()</span>
+    
+<span class="k">def</span> <span class="nf">draw_flower</span><span class="p">(</span><span class="o">**</span><span class="n">configs</span><span class="p">)</span><span class="err">：</span>
+    
+    <span class="n">t</span><span class="p">.</span><span class="n">pensize</span><span class="p">(</span><span class="n">configs</span><span class="p">.</span><span class="n">pen_size</span><span class="p">)</span>
+    
+    <span class="n">back_to_position</span><span class="p">()</span>
+    
+    <span class="c1">#1绿色枝干
+</span>    <span class="n">draw_branch</span><span class="p">(</span><span class="n">configs</span><span class="p">.</span><span class="n">lower_branch_color</span><span class="p">,</span> <span class="n">configs</span><span class="p">.</span><span class="n">lower_branch_length</span><span class="p">)</span>
+    
+    <span class="c1">#2蓝色叶子
+</span>    <span class="n">draw_leaf</span><span class="p">(</span><span class="n">configs</span><span class="p">.</span><span class="n">leaf_color</span><span class="p">,</span><span class="n">configs</span><span class="p">.</span><span class="n">leaf_length</span><span class="p">)</span>
+    
+    <span class="c1">#3紫色枝干
+</span>    <span class="n">draw_branch</span><span class="p">(</span><span class="n">configs</span><span class="p">.</span><span class="n">upper_branch_color</span><span class="p">,</span><span class="n">configs</span><span class="p">.</span><span class="n">upper_branch_length</span><span class="p">)</span>
+    
+    <span class="c1">#4红色的花
+</span>    <span class="n">draw_petal</span><span class="p">(</span><span class="n">configs</span><span class="p">.</span><span class="n">petal_color</span><span class="p">,</span> <span class="n">configs</span><span class="p">.</span><span class="n">petal_num</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">draw_flowers</span><span class="p">(</span><span class="n">num_flowers</span><span class="p">,</span><span class="o">**</span><span class="n">flower_configs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_flowers</span><span class="p">):</span>            
+        <span class="n">draw_flower</span><span class="p">(</span><span class="n">follow_configs</span><span class="p">)</span>
+        
+<span class="n">draw_flowers</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">flower_configs</span><span class="p">)</span>        
+</code></pre></div></div>
+
+<h3 id="6-function-chains-信息链">6. Function Chains 信息链</h3>
+<ul>
+  <li>A函数调用B函数，B函数调用C函数,…</li>
+  <li>如果一个比较深的函数出现问题，其他都会影响</li>
+  <li>Debug 困难</li>
+</ul>
+
+<h4 id="例子-6">例子</h4>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">cal_common_factors</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="c1">#------------
+</span>    <span class="c1"># Some code to calculate common factors
+</span>    <span class="c1">#------------
+</span>    <span class="k">return</span> <span class="n">common_factors</span>
+    
+<span class="k">def</span> <span class="nf">cal_common_factors_3</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+    <span class="n">common_factors</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">common_factor</span> <span class="ow">in</span> <span class="n">cal_common_factors</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+        <span class="n">common_factors</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">common_factors</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">common_factor</span><span class="p">))</span>
+        
+    <span class="k">return</span> <span class="n">common_factors</span>
+    
+<span class="k">def</span> <span class="nf">cal_common_factors_4</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">):</span>
+    <span class="n">common_factors</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">common_factor</span> <span class="ow">in</span> <span class="n">cal_common_factors_3</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+        <span class="n">common_factors</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">common_factors</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">common_factor</span><span class="p">))</span>
+        
+    <span class="k">return</span> <span class="n">common_factors</span>
+</code></pre></div></div>
+
+<h4 id="解决方案-5">解决方案</h4>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">cal_common_factors_2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="c1">#------------
+</span>    <span class="c1"># Some code to calculate common factors
+</span>    <span class="c1">#------------
+</span>    <span class="k">return</span> <span class="n">common_factors</span>
+    
+<span class="k">def</span> <span class="nf">cal_common_factors</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="c1">#------------
+</span>    <span class="c1"># Some code to calculate common factors using cal_common_factors_2
+</span>    <span class="c1">#------------
+</span>    <span class="n">dosomething</span><span class="p">()</span>
+    
+
+
+</code></pre></div></div>
+
+    </div>
+    <!-- <footer class="post-meta inner-sm width-limited">
+      <time class="published" datetime="2020-09-19 00:00">September 19, 2020</time>
+    </footer> -->
+  </article><!-- .post -->
+
+  <!-- Next/previous post navigation TBD -->
+  <!--
+  <nav class="read-next inner-sm width-limited">
+    <h2 class="read-next-title line-top">Read Next</h2>
+    <div class="post-feed grid grid-col-2">
+      <article class="post grid-item">
+        <div class="post-inside">
+          <a class="post-thumbnail" href="#"><img src="#" alt="" /></a>
+          <header class="post-header">
+            <h3 class="post-title"><a href="#" rel="bookmark">Previous Post Title</a></h3>
+            <div class="post-meta">
+              <time class="published" datetime="">Previous post date</time>
+            </div>
+          </header>
+        </div>
+      </article>
+      <article class="post grid-item">
+        <div class="post-inside">
+          <a class="post-thumbnail" href="#"><img src="#" alt="" /></a>
+          <header class="post-header">
+            <h3 class="post-title"><a href="#" rel="bookmark">Next Post Title</a></h3>
+            <div class="post-meta">
+              <time class="published" datetime="">Next post date</time>
+            </div>
+          </header>
+        </div>
+      </article>
+    </div>
+  </nav>
+  -->
+</div>
+<!-- .inner -->
+  </main><!-- .site-content -->
+
+  
+</div>
+<!-- .site -->
+    <!-- Scripts -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            showProcessingMessages: false, //关闭js加载过程信息
+            messageStyle: "none", //不显示信息
+            extensions: ["tex2jax.js"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+            tex2jax: {
+                inlineMath:  [ ["$", "$"] ], //行内公式选择$
+                displayMath: [ ["$$","$$"] ], //段内公式选择$$
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'], //避开某些标签
+                ignoreClass:"comment-content" //避开含该Class的标签
+            },
+            "HTML-CSS": {
+                availableFonts: ["STIX","TeX"], //可选字体
+               
+               
+
+            }
+        });
+        MathJax.Hub.Queue(function(){
+            var all = MathJax.Hub.getAllJax(),i;
+            for(i=0;i<all.length;i++){
+                var jax = document.getElementById(all[i].inputID + '-Frame');
+                if(jax.parentNode.tagName == "DIV" ){
+                    jax.parentNode.classList.add('has-jax');
+                }else if(jax.parentNode.tagName == "P" && jax.parentNode.parentNode.tagName != "LI" ){
+                    jax.parentNode.classList.add('has-jax');
+                }
+            }
+        });
+        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script src="/assets/js/plugins.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+</body>
+<footer id="colophon" class="site-footer outer">
+  <div class="inner">
+    <div class="site-footer-inside">
+      <div class="site-info">
+        
+        
+        <span class="copyright">© Renhao Huang. All rights reserved.</span>
+        
+        
+      </div>
+<!-- .site-info -->
+      
+      
+      <div class="social-links">
+        
+
+        
+<a class=" button-icon" href="https://github.com/HRHLALALA" target="_blank" rel="noopener">
+  
+  <span class="icon fab fa-github" aria-hidden="true"></span><span class="screen-reader-text">GitHub</span>
+  
+</a>
+
+        
+
+        
+<a class=" button-icon" href="https://www.instagram.com/" target="_blank" rel="noopener">
+  
+  <span class="icon fab fa-instagram" aria-hidden="true"></span><span class="screen-reader-text">Instagram</span>
+  
+</a>
+
+        
+
+        
+<a class=" button-icon" href="https://dribbble.com/" target="_blank" rel="noopener">
+  
+  <span class="icon fab fa-envelope" aria-hidden="true"></span><span class="screen-reader-text">Dribbble</span>
+  
+</a>
+
+        
+
+        
+<a class=" button-icon" href="https://www.linkedin.com/" target="_blank" rel="noopener">
+  
+  <span class="icon fab fa-linkedin" aria-hidden="true"></span><span class="screen-reader-text">LinkedIn</span>
+  
+</a>
+
+        
+      </div>
+<!-- .social-links -->
+      
+    </div>
+<!-- .site-footer-inside -->
+  </div>
+<!-- .inner -->
+</footer><!-- .site-footer -->
+
+</html>

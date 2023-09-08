@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Trajectory Forecasts in Unknown Environments Conditioned on Grid-Based Plans (Literacture Review) -
+        Renhao Huang's Personal Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the new world">
+
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- <link rel="stylesheet" href="/assets/css/dark_theme.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <div id="page" class="site palette-light accent-pink">
+  <header id="masthead" class="site-header outer">
+  <!-- HTML elements for search -->
+
+  <div class="inner">
+
+    <div class="site-header-inside">
+      <div class="site-branding">
+        
+        
+        <p class="site-title"><a href="/%20/">Renhao Huang</a></p>
+        
+      </div>
+<!-- .site-branding -->
+      
+      
+      <button id="menu-open" class="menu-toggle"><span class="screen-reader-text">Close Menu</span><span class="icon-menu" aria-hidden="true"></span></button>
+
+
+
+
+      <nav id="main-navigation" class="site-navigation" aria-label="Main Navigation">
+
+        <div class="site-nav-inside">
+
+          <button id="menu-close" class="menu-toggle"><span class="screen-reader-text">Open Menu</span><span class="icon-close" aria-hidden="true"></span></button>
+          <ul class="menu">
+            <div class="menu-item">
+              <link rel="stylesheet" href="http://localhost:4000/assets/css/search.css">
+
+<div id="search-container">
+    <input type="text" id="search-input" placeholder="Search...">
+
+    <ul id="results-container"></ul>
+</div>
+<script src="http://localhost:4000/assets/js/simple-jekyll-search.min.js"></script>
+<script>
+    
+    window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: 'http://localhost:4000/search.json',
+        searchResultTemplate: '<li ><a class="dropdown-item" href="http://localhost:4000{url}">{title}<p>{url}</p></a></li>',
+        noResultsText: 'No results found',
+        limit: 8,
+        fuzzy: true,
+        exclude: ['Renhao Huang', 'Projects', 'About Me', 'Contact'],
+        success: function (data) {
+            console.log("search component success data： " + data);
+        }
+    })
+</script>
+            </div>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/">
+  
+  Home
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/portfolio/">
+  
+  Projects
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/blog/">
+  
+  Blog
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/cv/">
+  
+  CV
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/about/">
+  
+  About
+  
+</a>
+
+            </li>
+            
+            
+            
+            <li class="menu-item">
+
+              
+<a class="" href="/contact/">
+  
+  Contact
+  
+</a>
+
+            </li>
+            
+
+          </ul>
+<!-- .menu -->
+
+        </div>
+<!-- .site-nav-inside -->
+      </nav><!-- .site-navigation -->
+      
+
+
+
+    </div>
+<!-- .site-header-inside -->
+  </div>
+<!-- .inner -->
+</header><!-- .site-header -->
+  <main id="content" class="site-content">
+    <div class="inner outer">
+
+  <article class="post post-full">
+    <header class="post-header inner-sm width-limited">
+
+      <h1 class="post-title line-top">Trajectory Forecasts in Unknown Environments Conditioned on Grid-Based Plans (Literacture Review)</h1>
+      
+      
+      <time class="published" datetime="2021-01-25 00:00">January 25, 2021</time>
+    </header>
+
+    <style>
+    .section-nav {
+        color: aquamarine;
+        background-color: transparent;
+
+        top: 0px;
+    }
+
+    .post-toc {
+        margin: 0 auto;
+    }
+
+    .section-nav a {
+        color: darkturquoise;
+    }
+
+    .section-nav a:hover {
+        color: red;
+    }
+
+    #toc-collapse-icon {
+        display: none;
+    }
+
+    @media only screen and (min-width: 1664px) {
+        .post-toc {
+            position: absolute;
+            display: block;
+            width: calc(50% - 27rem);
+            max-width:32em;
+            right: 0;
+            z-index: 10;
+            border-left: 1px solid lightgrey;
+            padding: 1.5rem;
+            transition: none !important;
+            top: 0;
+            overflow-y: auto;
+            bottom: -7.5em;
+
+        }
+
+
+        .section-nav {
+            width: 100%;
+            font-size: 0.901em !important;
+        }
+
+        #toc-collapse-icon {
+            display: block;
+            float: right;
+            color: black;
+        }
+
+        #toc-collapse-icon:hover {
+            color: skyblue;
+        }
+    }
+</style>
+
+
+
+
+<div id="toc-container" class="post-toc width-limited">
+    <i id="toc-collapse-icon" onclick="collapse_toc()" class="fab fa-bars" aria-hidden="true"></i>
+    <div id="toc-inner">
+        <p style="color:gray;width:auto;">TABLE OF CONTENT</p>
+        <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#introduction">Introduction</a></li>
+<li class="toc-entry toc-h2">
+<a href="#maximum-entropy-inverse-reinforcement-learning-for-path-forecasting">Maximum Entropy Inverse Reinforcement Learning for Path Forecasting</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#markov-decision-process">Markov Decision Process</a></li>
+<li class="toc-entry toc-h3"><a href="#probability-formation">Probability Formation</a></li>
+<li class="toc-entry toc-h3"><a href="#object">Object</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2">
+<a href="#model-architecture">Model Architecture</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#reward-learning">Reward Learning</a></li>
+<li class="toc-entry toc-h3"><a href="#approximate-value-iteration-with-inferred-goals">Approximate Value Iteration with inferred goals</a></li>
+<li class="toc-entry toc-h3"><a href="#trajectory-generator">Trajectory Generator</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#results">Results</a></li>
+</ul>
+    </div>
+</div>
+
+
+
+<script>
+    if (window.outerWidth >= 1664) {
+        window.onscroll = function () { stickToc() };
+        var position = $("#toc-container").position();
+        var toc = document.getElementById("toc-container");
+        var sticky_top = position.top;
+        var sticky_bottom = toc.clientHeight + sticky_top;
+        console.log(window.innerHeight);
+        toc.style.maxHeight = (window.innerHeight) + 'px';
+        function stickToc() {
+            if (window.pageYOffset >= sticky_top) {
+                toc.style.top = window.pageYOffset - 90 + 'px';
+            }
+            else {
+                toc.style.top = '0px';
+
+            }
+        }
+    }
+
+    function collapse_toc() {
+        console.log("here");
+        var toc = document.getElementById("toc-inner");
+        var toc_container = document.getElementById("toc-container");
+        if (toc.style.display != "none") {
+            toc.style.display = "none";
+            toc_container.style["border-left"] = "0"
+        }
+        else {
+            toc.style.display = "block";
+            toc_container.style["border-left"] = "1px solid lightgrey"
+        }
+    }
+</script>
+
+    
+    
+
+    <div class="post-content inner-sm width-limited">
+
+      <h2 id="introduction">Introduction</h2>
+<blockquote>
+  <p>This paper proposes P2TIRL that uses a maximum entropy inverse reinforcement learning policy to infer goal and trajectory plan over a discrete grid. P2TRL assigns rewards to future goals that are learned by the training policy which is slow and computationally expensive.</p>
+</blockquote>
+
+<p>Authors:</p>
+<ul>
+  <li>Nachiket Deo</li>
+  <li>Mohan M. Trivedi</li>
+</ul>
+
+<h2 id="maximum-entropy-inverse-reinforcement-learning-for-path-forecasting">Maximum Entropy Inverse Reinforcement Learning for Path Forecasting</h2>
+<h3 id="markov-decision-process">Markov Decision Process</h3>
+<p><script type="math/tex">M = \{S,A,T,r\}</script></p>
+<ul>
+  <li>$S$: the state space consisting of cells in a 2-D grid deﬁned over the scene.</li>
+  <li>$A$: action space consisting of 4 discrete actions: {up,down,left,right}</li>
+  <li>$T$: state transition function where $S_{n-1} \times A \rightarrow S_n$</li>
+  <li>$r$: reward function mapping each state to a real value less or equal to 0</li>
+</ul>
+
+<h3 id="probability-formation">Probability Formation</h3>
+<p><script type="math/tex">P(\tau) = \frac{1}{Z} \exp{(r(\tau))} = \frac{1}{Z} \exp({\sum_{i=1}^N r(s_i)})</script></p>
+<ul>
+  <li>$Z$ is the normalising constant for $\sum{P} =1$</li>
+  <li>$r_\theta(s)$ is the reward function parameterised by $\theta$</li>
+</ul>
+
+<h3 id="object">Object</h3>
+<p>The objective is to learn a reward function that maximises the log likelihood of observing a training set of demonstrations $\tau \in T = {\tau_1,\tau_2, \cdots, \tau_n}$
+<script type="math/tex">\arg \max_\theta L_\theta = \arg \max_\theta \sum_{\tau \in T}\log(P(\tau))</script></p>
+
+<p>This can be solved using 
+<script type="math/tex">\frac{\delta L_\theta}{\delta \theta} = \sum_{\tau \in T}(D_\tau - D_\theta) \frac{\delta r_\theta}{\delta \theta}</script></p>
+<ul>
+  <li>$D$ is the state visitation algorithm
+    <ol>
+      <li>calculate $\pi_\theta(a|s)$: the probability of taking action $a$ given state $s$
+<img src="media/16114838146872/16115004658300.jpg" alt="-w539">
+</li>
+      <li>calculate $D$ using $\pi_\theta$
+<img src="media/16114838146872/16115004432641.jpg" alt="-w544">
+</li>
+    </ol>
+  </li>
+  <li>
+</li>
+</ul>
+
+<h2 id="model-architecture">Model Architecture</h2>
+<p><img src="media/16114838146872/16115006830592.jpg" alt="-w1121"></p>
+<h3 id="reward-learning">Reward Learning</h3>
+<p><img src="media/16114838146872/16115016400122.jpg" alt="-w530"></p>
+
+<p><strong>Path reward</strong>:
+    <script type="math/tex">r_{p_\theta} = CNN_p(\phi_I,\phi_M)</script></p>
+
+<p><strong>Goal reward</strong>
+    <script type="math/tex">r_{g_\theta} = CNN_g(\phi_I,\phi_M)</script></p>
+
+<ul>
+  <li>$\phi <em>I = CNN</em>{feat}(I)$</li>
+  <li>$\phi _M = [|v|, \Delta \theta, r]$ where
+    <ul>
+      <li>$|v|$: speed</li>
+      <li>$\Delta \theta$: angular deviation between a cell location and the instantaneous direction of the agents’ motion.</li>
+      <li>$r$: distance</li>
+    </ul>
+  </li>
+  <li>$CNN_{feat}(I)$ is pretrained on ISPRS Potsdam dataset</li>
+</ul>
+
+<h3 id="approximate-value-iteration-with-inferred-goals">Approximate Value Iteration with inferred goals</h3>
+
+<p><img src="media/16114838146872/16115030123633.jpg" alt="-w535"></p>
+<ul>
+  <li>Main difference:
+    <ol>
+      <li>Do not hold the $V(s_{goal})$ ﬁxed at 0 to enforce goal directed behavior.
+<img src="media/16114838146872/16115030268453.jpg" alt="-w541">
+</li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="trajectory-generator">Trajectory Generator</h3>
+<p><strong>Motion encoder</strong>: <script type="math/tex">h_{m_t} = GRU(h_{m_{t-1}}, e_x(X_t))</script></p>
+<ul>
+  <li>$e_x(\cdot)$ is a fully connected embedding layer for the track co-ordinates.</li>
+</ul>
+
+<p><strong>Plan encoder</strong>: 
+<img src="media/16114838146872/16115027395288.jpg" alt="-w544"></p>
+
+<p><script type="math/tex">h_{s_n}^{(i)} = BiGRU(h_{s_n}^{(i-1)},h_{s_n}^{(i+1)},\phi_s(s_n))</script></p>
+<ul>
+  <li>two inputs concatenated as the input:
+    <ul>
+      <li>position coordinate</li>
+      <li>scene patch</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Attention based Encoder</strong>
+<script type="math/tex">h_{dec_t}^{(i)} = GRU_{dec}(h_{t-1}^{(i)}, Attn(h_{t-1}^{(i)},h_{S_{1:N}}^{(i)}))</script></p>
+<ul>
+  <li>$h_0$: final hidden state from motion encoder</li>
+  <li>Attention mechanism: soft attention
+    <ul>
+      <li>Pay attention to a specific state</li>
+    </ul>
+  </li>
+  <li>Decoder: $GRU$</li>
+</ul>
+
+<h2 id="results">Results</h2>
+<p><img src="media/16114838146872/16115031805533.jpg" alt="-w474"></p>
+
+    </div>
+    <!-- <footer class="post-meta inner-sm width-limited">
+      <time class="published" datetime="2021-01-25 00:00">January 25, 2021</time>
+    </footer> -->
+  </article><!-- .post -->
+
+  <!-- Next/previous post navigation TBD -->
+  <!--
+  <nav class="read-next inner-sm width-limited">
+    <h2 class="read-next-title line-top">Read Next</h2>
+    <div class="post-feed grid grid-col-2">
+      <article class="post grid-item">
+        <div class="post-inside">
+          <a class="post-thumbnail" href="#"><img src="#" alt="" /></a>
+          <header class="post-header">
+            <h3 class="post-title"><a href="#" rel="bookmark">Previous Post Title</a></h3>
+            <div class="post-meta">
+              <time class="published" datetime="">Previous post date</time>
+            </div>
+          </header>
+        </div>
+      </article>
+      <article class="post grid-item">
+        <div class="post-inside">
+          <a class="post-thumbnail" href="#"><img src="#" alt="" /></a>
+          <header class="post-header">
+            <h3 class="post-title"><a href="#" rel="bookmark">Next Post Title</a></h3>
+            <div class="post-meta">
+              <time class="published" datetime="">Next post date</time>
+            </div>
+          </header>
+        </div>
+      </article>
+    </div>
+  </nav>
+  -->
+</div>
+<!-- .inner -->
+  </main><!-- .site-content -->
+
+  
+</div>
+<!-- .site -->
+    <!-- Scripts -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            showProcessingMessages: false, //关闭js加载过程信息
+            messageStyle: "none", //不显示信息
+            extensions: ["tex2jax.js"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+            tex2jax: {
+                inlineMath:  [ ["$", "$"] ], //行内公式选择$
+                displayMath: [ ["$$","$$"] ], //段内公式选择$$
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'], //避开某些标签
+                ignoreClass:"comment-content" //避开含该Class的标签
+            },
+            "HTML-CSS": {
+                availableFonts: ["STIX","TeX"], //可选字体
+               
+               
+
+            }
+        });
+        MathJax.Hub.Queue(function(){
+            var all = MathJax.Hub.getAllJax(),i;
+            for(i=0;i<all.length;i++){
+                var jax = document.getElementById(all[i].inputID + '-Frame');
+                if(jax.parentNode.tagName == "DIV" ){
+                    jax.parentNode.classList.add('has-jax');
+                }else if(jax.parentNode.tagName == "P" && jax.parentNode.parentNode.tagName != "LI" ){
+                    jax.parentNode.classList.add('has-jax');
+                }
+            }
+        });
+        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script src="/assets/js/plugins.js"></script>
+    <script src="/assets/js/main.js"></script>
+
+</body>
+<footer id="colophon" class="site-footer outer">
+  <div class="inner">
+    <div class="site-footer-inside">
+      <div class="site-info">
+        
+        
+        <span class="copyright">© Renhao Huang. All rights reserved.</span>
+        
+        
+      </div>
+<!-- .site-info -->
+      
+      
+      <div class="social-links">
+        
+
+        
+<a class=" button-icon" href="https://github.com/HRHLALALA" target="_blank" rel="noopener">
+  
+  <span class="icon fab fa-github" aria-hidden="true"></span><span class="screen-reader-text">GitHub</span>
+  
+</a>
+
+        
+
+        
+<a class=" button-icon" href="https://www.instagram.com/" target="_blank" rel="noopener">
+  
+  <span class="icon fab fa-instagram" aria-hidden="true"></span><span class="screen-reader-text">Instagram</span>
+  
+</a>
+
+        
+
+        
+<a class=" button-icon" href="https://dribbble.com/" target="_blank" rel="noopener">
+  
+  <span class="icon fab fa-envelope" aria-hidden="true"></span><span class="screen-reader-text">Dribbble</span>
+  
+</a>
+
+        
+
+        
+<a class=" button-icon" href="https://www.linkedin.com/" target="_blank" rel="noopener">
+  
+  <span class="icon fab fa-linkedin" aria-hidden="true"></span><span class="screen-reader-text">LinkedIn</span>
+  
+</a>
+
+        
+      </div>
+<!-- .social-links -->
+      
+    </div>
+<!-- .site-footer-inside -->
+  </div>
+<!-- .inner -->
+</footer><!-- .site-footer -->
+
+</html>
