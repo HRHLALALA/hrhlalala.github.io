@@ -31,7 +31,7 @@
             
             "thumb_image": "images/miss-yoga.png",
             "rel_dir" : "portfolio",
-            "title"    : "Miss Yoga",
+            "title"    : "A Yoga Assistant Mobile Application Based on Keypoint Detection",
             "category" : "",
             "tags"     : "",
             "url"      : "/portfolio/Miss%20Yoga/",
@@ -96,7 +96,7 @@
             
             "thumb_image": "images/SE-GAN.png",
             "rel_dir" : "portfolio",
-            "title"    : "Shared-Encoder GAN",
+            "title"    : "An Improved Discriminator for GAN-Based Trajectory Prediction Models",
             "category" : "",
             "tags"     : "",
             "url"      : "/portfolio/Trajectory%20Prediction/",
@@ -114,6 +114,19 @@
         } ,
     
         {
+            
+        } ,
+    
+        {
+            
+            "thumb_image": "images/collas/collas.png",
+            "rel_dir" : "portfolio",
+            "title"    : "Towards Single Source Domain Generalisation in Trajectory Prediction: A Motion Prior based Approach",
+            "category" : "",
+            "tags"     : "",
+            "url"      : "/portfolio/hypertraj/",
+            "date"     : "2023-08-11",
+            "label"    : ""
             
         } ,
     

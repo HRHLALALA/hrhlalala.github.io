@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <title>Photo Tutor -
+    <title>Towards Single Source Domain Generalisation in Trajectory Prediction: A Motion Prior based Approach -
         Renhao Huang's Personal Blog</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -145,16 +145,16 @@
     <div class="inner outer">
   <article class="post post-full">
     <header class="post-header line-up inner-sm width-limited">
-      <h1 class="post-title line-top">Photo Tutor</h1>
+      <h1 class="post-title line-top">Towards Single Source Domain Generalisation in Trajectory Prediction: A Motion Prior based Approach</h1>
       
       
       <div class="post-subtitle">
-        An AR/sensor fusion based photo sharing and recommendation service.
+        Published at 2nd Conference on Lifelong Learning Agents (CoLLAs), 2023
       </div>
       <div class="post-proj-info inner-sm width-limited">
-        <i class="fab fa-user"></i> Renhao Huang, Junning Fan, Ruofei Huang, Kah May Tan, Daniel Wu
+        <i class="fab fa-user"></i> Renhao Huang, Anthony Tompkins, Maurice Pagnucco, Yang Song
         <br>
-        <i class="fab fa-calendar-alt"></i> <time class="published" datetime="2020-12-01 00:00">December 01, 2020</time>
+        <i class="fab fa-calendar-alt"></i> <time class="published" datetime="2023-08-11 00:00">August 11, 2023</time>
       </div>
       
     </header>
@@ -164,8 +164,8 @@
     
     <div class="post-video-container">
 
-      <!-- <body></body> -->
-      <iframe class="post-video" src="https://www.youtube.com/embed/O5LAuL-iuIM" frame-border="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+      <!-- <body>/images/collas/collas_model.png</body> -->
+      <iframe class="post-video" src="https://www.youtube.com/embed/UMv8eIIkreg" frame-border="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
       </iframe>
 
     </div>
@@ -234,27 +234,6 @@
 
 
 
-<div id="toc-container" class="post-toc width-limited">
-    <i id="toc-collapse-icon" onclick="collapse_toc()" class="fab fa-bars" aria-hidden="true"></i>
-    <div id="toc-inner">
-        <p style="color:gray;width:auto;">TABLE OF CONTENT</p>
-        <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h3"><a href="#developer">Developer</a></li>
-<li class="toc-entry toc-h3"><a href="#about">About</a></li>
-<li class="toc-entry toc-h3"><a href="#primary-language">Primary Language</a></li>
-<li class="toc-entry toc-h3">
-<a href="#function">Function</a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#1-user-profile">1. User Profile</a></li>
-<li class="toc-entry toc-h4"><a href="#2-navigation">2. Navigation</a></li>
-<li class="toc-entry toc-h4"><a href="#3-photo-recommendationview">3. Photo Recommendation/View</a></li>
-</ul>
-</li>
-</ul>
-    </div>
-</div>
-
-
 
 <script>
     if (window.outerWidth >= 1664) {
@@ -291,61 +270,30 @@
     }
 </script>
     <div class="post-content inner-sm width-limited">
-      <h3 id="developer">Developer</h3>
-<ul>
-  <li>Junning Fan</li>
-  <li>Ruofei Huang</li>
-  <li>Renhao Huang</li>
-  <li>Kah May Tan</li>
-  <li>Daniel Wu</li>
-</ul>
+      <h2 id="abstract">Abstract</h2>
+<p>Trajectory prediction is an important task in many real-world applications. However, data-driven approaches typically suffer from dramatic performance degradation when applied to unseen environments due to the inevitable domain shift brought by changes in factors such as pedestrian walking speed, the geometry of the environment, etc. In particular, when a dataset does not contain sufficient samples to determine prediction rules, the trained model can easily consider some important features as domain variant. We propose a framework that integrates a simple motion prior with deep learning to achieve, for the first time, exceptional single-source domain generalisation for trajectory prediction, in which deep learning models are only trained using a single domain and then applied to multiple novel domains. Instead of predicting the exact future positions directly from the model, we first assign a constant velocity motion prior to each pedestrian and then learn a conditional trajectory prediction model to predict residuals to the motion prior using auxiliary information from the surrounding environment. This strategy combines deep learning models with knowledge priors to simultaneously simplify training and enhance generalisation, allowing the model to focus on disentangling data-driven spatio-temporal factors while not overfitting to individual motions. We also propose a novel Train-on-Best-Motion strategy that can alleviate the adverse effects of domain shift, brought on by changes in environment, by exploiting invariances inherent to the choice of motion prior. Experiments across multiple datasets of different domains demonstrate that our approach reduces the influence of domain shift and also generalizes better to unseen environments. <a href="https://lifelong-ml.cc/virtual-2023/poster_64.html">URL</a></p>
 
-<h3 id="about">About</h3>
-<p>An AR/sensor fusion based photo sharing and recommendation service. Users can share images on this service. When taking photos, the service will record metadata including orientation, time, location and weather. When a user is at scenic spots, photos taken at that spot, at similar hours, weather condition and orientation will be recommended for the user, which helps them to compose their photo.</p>
+<h2 id="model-architecture">Model Architecture</h2>
+<p><img src="/images/collas/collas_model.png"></p>
 
-<h3 id="primary-language">Primary Language</h3>
-<ul>
-  <li>Frontend: Android Java</li>
-  <li>Backend: GO</li>
-</ul>
+<p>Given pedestrians’ observed trajectories, we first assign a motion prior using a physical motion model. Then we send them together with observed trajectories into a deep learning based trajectory prediction model to predict the residuals. The final prediction is the aggregation between the motion prior and the residuals.</p>
 
-<h3 id="function">Function</h3>
-<h4 id="1-user-profile">1. User Profile</h4>
-<ul>
-  <li>Update user details &amp; View other users’ profiles
-    <ul>
-      <li>Photos</li>
-      <li>Followers</li>
-      <li>Followings</li>
-      <li>Follow and unfollow behaviour (if other users’ profile)</li>
-    </ul>
-  </li>
-  <li>Notification page
-    <ul>
-      <li>Get notification on who followed or liked/unliked/commented on the post.</li>
-    </ul>
-  </li>
-</ul>
+<h2 id="overall-results">Overall Results</h2>
+<p><img src="/images/collas/collas_results.png"></p>
 
-<h4 id="2-navigation">2. Navigation</h4>
-<ul>
-  <li>Map (Google Maps API, Google Distances API)</li>
-  <li>AR View and Navigation(ARcore, Arcore-location API)</li>
-</ul>
+<p>The performance of our methods against our basesline as shown above. Our method that integrates a motion prior can outperform all baselines across different datasets, indicating the effectiveness of integrating motion priors alongside a deep learning model. A better performance of +10.2% can be achieved when using Train-on-Best-Motion which reaches state-of-the-art in this benchmark. Specifically, our model outperforms T-GNN by around 50% and the current state-of-the-art model TTA-GNN by around 6%, which validates that our method can be even better than current single source domain adaptation methods. Domains such as Hotel (B) contain different trajectories to others and hence the performance gaps between D2B and C2B using T-GNN and TTA-GNN are around 0.24/0.34 and 0.09/0.25 of ADE/FDE respectively. On the other hand, our method only produces a difference of only 0.06/0.13 in ADE/FDE after adding the motion and 0.01/0.02 after using the ``Train-on-Best-Motion’’, which indicates our model can generalise better to unseen domains. We also note that our method is better than SF-STGCNN. A plausible reason is that the motion prior can be more direct and effective in reducing model overfitting than counterfactual learning.</p>
 
-<h4 id="3-photo-recommendationview">3. Photo Recommendation/View</h4>
-<ul>
-  <li>Like/ Dislike</li>
-  <li>Comment</li>
-  <li>Location, Coordinates</li>
-  <li>Data and Time</li>
-  <li>Photo</li>
-  <li>Photo title</li>
-  <li>Photo Description</li>
-  <li>Weather</li>
-  <li>Tags</li>
-</ul>
+<h2 id="visualisation">Visualisation</h2>
+<p><img src="/images/collas/collas_vis.png"></p>
 
+<h2 id="bibtex">BibTex</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> @InProceedings{mp-traj,
+    author    = {Huang, Renhao and Tompkins, Anthony and Pagnucco, Maurice and Song, Yang},
+    title     = {Towards Single Source Domain Generalisation in Trajectory Prediction: A Motion Prior based Approach},
+    booktitle = {Conference on Lifelong Learning Agents},
+    year      = {2023},
+}
+</code></pre></div></div>
 
     </div>
   </article><!-- .post -->

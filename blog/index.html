@@ -47,21 +47,21 @@
           <button id="menu-close" class="menu-toggle"><span class="screen-reader-text">Open Menu</span><span class="icon-close" aria-hidden="true"></span></button>
           <ul class="menu">
             <div class="menu-item">
-              <link rel="stylesheet" href="/assets/css/search.css">
+              <link rel="stylesheet" href="http://localhost:4000/assets/css/search.css">
 
 <div id="search-container">
     <input type="text" id="search-input" placeholder="Search...">
 
     <ul id="results-container"></ul>
 </div>
-<script src="/assets/js/simple-jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/simple-jekyll-search.min.js"></script>
 <script>
     
     window.simpleJekyllSearch = new SimpleJekyllSearch({
         searchInput: document.getElementById('search-input'),
         resultsContainer: document.getElementById('results-container'),
-        json: '/search.json',
-        searchResultTemplate: '<li ><a class="dropdown-item" href="{url}">{title}<p>{url}</p></a></li>',
+        json: 'http://localhost:4000/search.json',
+        searchResultTemplate: '<li ><a class="dropdown-item" href="http://localhost:4000{url}">{title}<p>{url}</p></a></li>',
         noResultsText: 'No results found',
         limit: 8,
         fuzzy: true,
@@ -117,32 +117,6 @@
             <li class="menu-item">
 
               
-<a class="" href="/cv/">
-  
-  CV
-  
-</a>
-
-            </li>
-            
-            
-            
-            <li class="menu-item">
-
-              
-<a class="" href="/about/">
-  
-  About
-  
-</a>
-
-            </li>
-            
-            
-            
-            <li class="menu-item">
-
-              
 <a class="" href="/contact/">
   
   Contact
@@ -187,55 +161,21 @@
       <div class="post-inside">
         
         
-        <a class="post-thumbnail" href="/blog/Trajectory%20Forecasts%20in%20Unknown%20Environments%20Conditioned%20on%20Grid-Based%20Plans/">
-          <img src="/images/P2TIRL.jpg" alt="Trajectory Forecasts in Unknown Environments Conditioned on Grid-Based Plans (Literacture Review)">
+        <a class="post-thumbnail" href="/blog/Python%20Code%20Style/">
+          <img src="/images/python.png" alt="Python Coding Style (Chinese)">
         </a>
         
         <header class="post-header">
-          <h2 class="post-title"><a href="/blog/Trajectory%20Forecasts%20in%20Unknown%20Environments%20Conditioned%20on%20Grid-Based%20Plans/" rel="bookmark">Trajectory Forecasts in Unknown Environments Conditioned on Grid-Based Plans (Literacture Review)</a></h2>
+          <h2 class="post-title"><a href="/blog/Python%20Code%20Style/" rel="bookmark">Python Coding Style (Chinese)</a></h2>
           <div class="post-meta">
-            <time class="published" datetime="2021-01-25 00:00">January 25, 2021</time>
+            <time class="published" datetime="2020-09-12 00:00">September 12, 2020</time>
           </div>
         </header>
         
         
-      </div>
-    </article><!-- .post -->
-    
-    <article class="post grid-item">
-      <div class="post-inside">
-        
-        
-        <a class="post-thumbnail" href="/blog/Goal-GAN:%20Multimodal%20Trajectory%20Prediction%20Based%20on%20Goal%20Position%20Estimation%20(Literacture%20Review)/">
-          <img src="/images/goal-gan.jpg" alt="Goal-GAN: Multimodal Trajectory Prediction Based on Goal Position Estimation (Literacture Review)">
-        </a>
-        
-        <header class="post-header">
-          <h2 class="post-title"><a href="/blog/Goal-GAN:%20Multimodal%20Trajectory%20Prediction%20Based%20on%20Goal%20Position%20Estimation%20(Literacture%20Review)/" rel="bookmark">Goal-GAN: Multimodal Trajectory Prediction Based on Goal Position Estimation (Literacture Review)</a></h2>
-          <div class="post-meta">
-            <time class="published" datetime="2021-01-25 00:00">January 25, 2021</time>
-          </div>
-        </header>
-        
-        
-      </div>
-    </article><!-- .post -->
-    
-    <article class="post grid-item">
-      <div class="post-inside">
-        
-        
-        <a class="post-thumbnail" href="/blog/Trajectory%20Prediction%20Paper%20Review%202020/">
-          <img src="/images/SE-GAN.png" alt="Trajectory Prediction Paper Literature Review">
-        </a>
-        
-        <header class="post-header">
-          <h2 class="post-title"><a href="/blog/Trajectory%20Prediction%20Paper%20Review%202020/" rel="bookmark">Trajectory Prediction Paper Literature Review</a></h2>
-          <div class="post-meta">
-            <time class="published" datetime="2021-01-14 00:00">January 14, 2021</time>
-          </div>
-        </header>
-        
+        <p class="post-content">
+          Coding style is essential for teamworks. Good coding styles not only indicates a sense of community that programmers have, but also increase the continuity of the project. This blog concludes the python coding style from python documents.
+        </p>
         
       </div>
     </article><!-- .post -->
@@ -267,21 +207,55 @@
       <div class="post-inside">
         
         
-        <a class="post-thumbnail" href="/blog/Python%20Code%20Style/">
-          <img src="/images/python.png" alt="Python Coding Style (Chinese)">
+        <a class="post-thumbnail" href="/blog/Trajectory%20Prediction%20Paper%20Review%202020/">
+          <img src="/images/SE-GAN.png" alt="Trajectory Prediction Paper Literature Review">
         </a>
         
         <header class="post-header">
-          <h2 class="post-title"><a href="/blog/Python%20Code%20Style/" rel="bookmark">Python Coding Style (Chinese)</a></h2>
+          <h2 class="post-title"><a href="/blog/Trajectory%20Prediction%20Paper%20Review%202020/" rel="bookmark">Trajectory Prediction Paper Literature Review</a></h2>
           <div class="post-meta">
-            <time class="published" datetime="2020-09-12 00:00">September 12, 2020</time>
+            <time class="published" datetime="2021-01-14 00:00">January 14, 2021</time>
           </div>
         </header>
         
         
-        <p class="post-content">
-          Coding style is essential for teamworks. Good coding styles not only indicates a sense of community that programmers have, but also increase the continuity of the project. This blog concludes the python coding style from python documents.
-        </p>
+      </div>
+    </article><!-- .post -->
+    
+    <article class="post grid-item">
+      <div class="post-inside">
+        
+        
+        <a class="post-thumbnail" href="/blog/Goal-GAN:%20Multimodal%20Trajectory%20Prediction%20Based%20on%20Goal%20Position%20Estimation%20(Literacture%20Review)/">
+          <img src="/images/goal-gan.jpg" alt="Goal-GAN: Multimodal Trajectory Prediction Based on Goal Position Estimation (Literacture Review)">
+        </a>
+        
+        <header class="post-header">
+          <h2 class="post-title"><a href="/blog/Goal-GAN:%20Multimodal%20Trajectory%20Prediction%20Based%20on%20Goal%20Position%20Estimation%20(Literacture%20Review)/" rel="bookmark">Goal-GAN: Multimodal Trajectory Prediction Based on Goal Position Estimation (Literacture Review)</a></h2>
+          <div class="post-meta">
+            <time class="published" datetime="2021-01-25 00:00">January 25, 2021</time>
+          </div>
+        </header>
+        
+        
+      </div>
+    </article><!-- .post -->
+    
+    <article class="post grid-item">
+      <div class="post-inside">
+        
+        
+        <a class="post-thumbnail" href="/blog/Trajectory%20Forecasts%20in%20Unknown%20Environments%20Conditioned%20on%20Grid-Based%20Plans/">
+          <img src="/images/P2TIRL.jpg" alt="Trajectory Forecasts in Unknown Environments Conditioned on Grid-Based Plans (Literacture Review)">
+        </a>
+        
+        <header class="post-header">
+          <h2 class="post-title"><a href="/blog/Trajectory%20Forecasts%20in%20Unknown%20Environments%20Conditioned%20on%20Grid-Based%20Plans/" rel="bookmark">Trajectory Forecasts in Unknown Environments Conditioned on Grid-Based Plans (Literacture Review)</a></h2>
+          <div class="post-meta">
+            <time class="published" datetime="2021-01-25 00:00">January 25, 2021</time>
+          </div>
+        </header>
+        
         
       </div>
     </article><!-- .post -->
@@ -300,7 +274,6 @@
 
 </div>
 <!-- .inner-->
-
   </main><!-- .site-content -->
 
   

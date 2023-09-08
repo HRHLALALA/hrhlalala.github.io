@@ -47,21 +47,21 @@
           <button id="menu-close" class="menu-toggle"><span class="screen-reader-text">Open Menu</span><span class="icon-close" aria-hidden="true"></span></button>
           <ul class="menu">
             <div class="menu-item">
-              <link rel="stylesheet" href="/assets/css/search.css">
+              <link rel="stylesheet" href="http://localhost:4000/assets/css/search.css">
 
 <div id="search-container">
     <input type="text" id="search-input" placeholder="Search...">
 
     <ul id="results-container"></ul>
 </div>
-<script src="/assets/js/simple-jekyll-search.min.js"></script>
+<script src="http://localhost:4000/assets/js/simple-jekyll-search.min.js"></script>
 <script>
     
     window.simpleJekyllSearch = new SimpleJekyllSearch({
         searchInput: document.getElementById('search-input'),
         resultsContainer: document.getElementById('results-container'),
-        json: '/search.json',
-        searchResultTemplate: '<li ><a class="dropdown-item" href="{url}">{title}<p>{url}</p></a></li>',
+        json: 'http://localhost:4000/search.json',
+        searchResultTemplate: '<li ><a class="dropdown-item" href="http://localhost:4000{url}">{title}<p>{url}</p></a></li>',
         noResultsText: 'No results found',
         limit: 8,
         fuzzy: true,
@@ -107,32 +107,6 @@
 <a class="" href="/blog/">
   
   Blog
-  
-</a>
-
-            </li>
-            
-            
-            
-            <li class="menu-item">
-
-              
-<a class="" href="/cv/">
-  
-  CV
-  
-</a>
-
-            </li>
-            
-            
-            
-            <li class="menu-item">
-
-              
-<a class="" href="/about/">
-  
-  About
   
 </a>
 

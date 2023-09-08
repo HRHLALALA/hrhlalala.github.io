@@ -374,7 +374,8 @@ table tr th:last-child,
 table tr td:last-child {
   margin-bottom: 0; }
 
-.cv-info-table tr, .cv-info-table td {
+.cv-info-table tr,
+.cv-info-table td {
   border-width: 0; }
 
 input[type="text"],
