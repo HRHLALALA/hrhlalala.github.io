@@ -34,7 +34,7 @@
             "title"    : "A Yoga Assistant Mobile Application Based on Keypoint Detection",
             "category" : "",
             "tags"     : "",
-            "url"      : "/portfolio/Miss%20Yoga/",
+            "url"      : "/projects/Miss%20Yoga/",
             "date"     : "2020-09-17",
             "label"    : ""
             
@@ -47,7 +47,7 @@
             "title"    : "Photo Tutor",
             "category" : "",
             "tags"     : "",
-            "url"      : "/portfolio/Photo%20tutor/",
+            "url"      : "/projects/Photo%20tutor/",
             "date"     : "2020-12-1",
             "label"    : ""
             
@@ -99,7 +99,7 @@
             "title"    : "An Improved Discriminator for GAN-Based Trajectory Prediction Models",
             "category" : "",
             "tags"     : "",
-            "url"      : "/portfolio/Trajectory%20Prediction/",
+            "url"      : "/projects/Trajectory%20Prediction/",
             "date"     : "2020-09-17",
             "label"    : ""
             
@@ -124,7 +124,7 @@
             "title"    : "Towards Single Source Domain Generalisation in Trajectory Prediction: A Motion Prior based Approach",
             "category" : "",
             "tags"     : "",
-            "url"      : "/portfolio/hypertraj/",
+            "url"      : "/projects/hypertraj/",
             "date"     : "2023-08-11",
             "label"    : ""
             
@@ -154,7 +154,7 @@
             "title"    : "Projects",
             "category" : "",
             "tags"     : "",
-            "url"      : "/portfolio/",
+            "url"      : "/projects/",
             "date"     : "",
             "label"    : ""
             
@@ -171,7 +171,7 @@
             "title"    : "FPGA Music Player",
             "category" : "",
             "tags"     : "",
-            "url"      : "/portfolio/music_player/",
+            "url"      : "/projects/music_player/",
             "date"     : "2019-12-20",
             "label"    : ""
             
