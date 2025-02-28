@@ -1,8 +1,8 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
-subtitle: <a href='#'>iCinema Research Centre</a>. UNSW, Sydney, AU.
+subtitle: <a href='https://www.unsw.edu.au/research/icinema'>iCinema Research Centre</a>. UNSW, Sydney, AU.
 
 profile:
   align: right
