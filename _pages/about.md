@@ -2,12 +2,12 @@
 layout: about
 title: About
 permalink: /
-subtitle: <a href='https://www.unsw.edu.au/research/icinema'>iCinema Research Centre</a>. UNSW, Sydney, AU.
+subtitle: Postdoc Fellow @ <a href='https://www.unsw.edu.au/research/icinema'>iCinema Research Centre</a>. UNSW, Sydney, AU.
 
 profile:
-  align: right
-  image: IMG_0068.JPG
-  image_circular: true # crops the image to make it circular
+  align: left
+  image: IMG_0068.jpg
+  image_circular: false # crops the image to make it circular
   # more_info: >
   #   <p>555 your office number</p>
   #   <p>123 your address street</p>
@@ -29,9 +29,15 @@ social: true # includes social icons at the bottom of the page
 Renhao Huang is a Postdoctoral Research Fellow at UNSW's iCinema Research Centre.  His research has developed during his PhD study at School of Computer Science and Engineering, UNSW, focusing on computer vision in human behaviour modelling and human trajectory prediction. His current work focuses on applying machine learning techniques to wildfire simulation and other AI-powered wildfire reconstruction.
 
 Research Interests:
-* Human Trajectory Prediction
+<ul class="list-group list-group">
+  <li class="list-group-item border-0"><i class="fas fa-person-walking"></i> Human Trajectory Prediction</li>
+  <li class="list-group-item border-0"><i class="fas fa-eye"></i> Computer Vision</li>
+  <li class="list-group-item border-0"><i class="fa fa-fire"></i> Wildfire Research</li>
+</ul>
+
+<!-- * Human Trajectory Prediction
 * Semantic Segmentation
-* Wildfire Research
+* Wildfire Research -->
 
 
 <!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
