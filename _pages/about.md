@@ -16,17 +16,17 @@ profile:
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 
-# announcements:
-#   enabled: true # includes a list of news items
-#   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-#   limit: 5 # leave blank to include all the news in the `_news` folder
+announcements:
+  enabled: true # includes a list of news items
+  scrollable: true # adds a vertical scroll bar if there are more than 3 news items
+  limit: 5 # leave blank to include all the news in the `_news` folder
 
 # latest_posts:
 #   enabled: true
 #   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
 #   limit: 3 # leave blank to include all the blog posts
 ---
-Renhao Huang is a Postdoctoral Research Fellow at UNSW's iCinema Research Centre.  His research has developed during his PhD study at School of Computer Science and Engineering, UNSW, focusing on computer vision in human behaviour modelling and human trajectory prediction. His current work focuses on applying machine learning techniques to wildfire simulation and other AI-powered wildfire reconstruction.
+Renhao Huang received the **B.E degree** with a first-class honour from the University of New South Wales (UNSW). He is a PhD student at the School of Computer Science and Engineering, UNSW, and has submited his thesis paper with a topic of **vision-based human trajectory prediction**. Now, he is a **Postdoc Research Fellow** and an **associate director for AI research** at <a href='https://www.unsw.edu.au/research/icinema'>iCinema Research Centre, UNSW</a>, reponsible for the development of AI models <a href="https://www.unsw.edu.au/research/icinema/our-research/projects/ifire">iFire</a> project.
 
 Research Interests:
 <ul class="list-group list-group">
