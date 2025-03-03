@@ -6,7 +6,7 @@ subtitle: Postdoc Fellow @ <a href='https://www.unsw.edu.au/research/icinema'>iC
 
 profile:
   align: left
-  image: IMG_0068.jpg
+  image: IMG_0068.JPG
   image_circular: false # crops the image to make it circular
   # more_info: >
   #   <p>555 your office number</p>
