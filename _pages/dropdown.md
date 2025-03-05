@@ -1,16 +1,10 @@
 ---
 layout: page
-title: submenus
+title: Projects
 nav: true
 nav_order: 8
 dropdown: true
 children:
-  - title: publications
-    permalink: /publications/
-  - title: divider
-  - title: projects
-    permalink: /projects/
-  - title: divider
-  - title: blog
-    permalink: /blog/
+  - title: iFire
+    permalink: https://www.unsw.edu.au/research/icinema/our-research/projects/ifire
 ---
