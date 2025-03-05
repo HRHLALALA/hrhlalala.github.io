@@ -16,7 +16,14 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/publications/";
           },
-        },{id: "post-a-post-with-image-galleries",
+        },{id: "dropdown-ifire",
+              title: "iFire",
+              description: "",
+              section: "Dropdown",
+              handler: () => {
+                window.location.href = "";
+              },
+            },{id: "post-a-post-with-image-galleries",
       
         title: "a post with image galleries",
       
