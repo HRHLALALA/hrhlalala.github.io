@@ -24,7 +24,8 @@ announcements:
 #   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
 #   limit: 3 # leave blank to include all the blog posts
 ---
-Renhao Huang received the **B.E degree** with a first-class honour from the University of New South Wales (UNSW). He is a PhD student at the School of Computer Science and Engineering, UNSW, and has submited his thesis paper with a topic of **vision-based human trajectory prediction**. Now, he is a **Postdoc Research Fellow** and an **associate director for AI research** at <a href='https://www.unsw.edu.au/research/icinema'>iCinema Research Centre, UNSW</a>, reponsible for the development of AI models for <a href="https://www.unsw.edu.au/research/icinema/our-research/projects/ifire">iFire</a> project.
+
+I am a **Postdoc Research Fellow** and an **associate director for AI research** at <a href='https://www.unsw.edu.au/research/icinema'>iCinema Research Centre, UNSW</a>, reponsible for the development of AI models for <a href="https://www.unsw.edu.au/research/icinema/our-research/projects/ifire">iFire</a> project. In 2020, I received the **B.E degree** with a first-class honour from the University of New South Wales. In 2025, I received a PhD degree at the School of Computer Science and Engineering, UNSW, and has submited his thesis topic **vision-based human trajectory prediction**. 
 
 Research Interests:
 <ul>
