@@ -6,7 +6,7 @@ subtitle: Postdoc Fellow @ <a href='https://www.unsw.edu.au/research/icinema'>iC
 
 profile:
   align: right
-  image: IMG_0068.JPG
+  image: IMG_0068.jpg
   image_circular: false # crops the image to make it circular
   # more_info: >
   #   <p>renhao.huang@unsw.edu.au</p>
