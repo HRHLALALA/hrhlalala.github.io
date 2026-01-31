@@ -27,7 +27,7 @@ announcements:
 
 I am the **Postdoc Research Fellow** and the **associate director for AI research** at <a href='https://www.unsw.edu.au/research/icinema'>iCinema Research Centre, UNSW</a>, focusing on developing AI models for <a href="https://www.unsw.edu.au/research/icinema/our-research/projects/ifire">iFire</a> project. In this project, I mainly explore deep learning–based approaches to wildfire behaviour modelling, bridging advanced computation with urgent real-world challenges.
 
-In 2020, I received the **B.E degree** with a first-class honour from the University of New South Wales. In 2025, I received a PhD degree at the School of Computer Science and Engineering, UNSW, with my thesis **Towards Robust and Lightweight Vision-based Pedestrian Trajectory Prediction**. 
+In 2020, I received the **B.E degree** with a first-class honour from the University of New South Wales. In 2025, I received my **PhD degree** at the School of Computer Science and Engineering, UNSW, with my thesis **Towards Robust and Lightweight Vision-based Pedestrian Trajectory Prediction**. 
 
 My current research focuses on:
 <ul>
